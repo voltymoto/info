@@ -365,7 +365,24 @@ function loadImage(){
     reader.readAsDataURL(e.target.files[0]);
   };
 }
-function submitGate(){var btn=document.getElementById('gbtn'),inp=document.getElementById('gpw'),err=document.getElementById('gerr');err.textContent='';if(inp.value==='Volty2026!'){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';document.getElementById('nav').style.display='flex';loadImage();initVisualization();}else{err.textContent='Incorrect password. Try again.';inp.value='';inp.focus();}}
+function submitGate(){
+  var btn=document.getElementById('gbtn');
+  var inp=document.getElementById('gpw');
+  var err=document.getElementById('gerr');
+  var pwd=inp.value.trim();
+  err.textContent='';
+  if(pwd==='Volty2026!'){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='block';
+    document.getElementById('nav').style.display='flex';
+    loadImage();
+    initVisualization();
+  } else {
+    err.textContent='Incorrect password. Try again. (Password: Volty2026!)';
+    inp.value='';
+    inp.focus();
+  }
+}
 document.addEventListener('DOMContentLoaded',function(){var inp=document.getElementById('gpw'),btn=document.getElementById('gbtn');btn.addEventListener('click',submitGate);inp.addEventListener('keydown',function(e){if(e.key==='Enter')submitGate()});addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>40)});inp.focus();});
 function initVisualization(){setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});initCharts();},100);}
 function initCharts(){
