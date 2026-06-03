@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NUEN MOTO Volty U1 — Financial Dashboard v1.6</title>
+<title>NUEN MOTO Volty U1 Financial Dashboard v1.6</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -105,60 +105,79 @@ canvas { max-height: 350px; }
 .stat-pill .val { font-family: var(--disp); font-size: 1.5rem; font-weight: 900; }
 .phase-card { padding: 1rem; background: var(--bg1); border-radius: 6px; }
 
-/* Password Protection Styles */
-.password-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+/* Closing statement + lighter Dashboard Guide wrapper */
+.closing-box { background: linear-gradient(135deg, rgba(86,166,242,0.07), rgba(174,242,74,0.05)); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 1.75rem 2rem; margin-bottom: 2rem; }
+.closing-box p { color: var(--white); font-size: 1rem; line-height: 1.85; margin-bottom: 0.9rem; }
+.closing-box p:last-child { margin-bottom: 0; }
+.closing-box .lead { font-family: var(--disp); font-size: 1.2rem; font-weight: 700; text-transform: none; letter-spacing: 0; color: var(--white); }
+.closing-box .signoff { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--muted); margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); }
+.guide-wrap { background: #22232a; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 1.5rem 1.75rem 2rem; margin-top: 1rem; }
+.guide-wrap .section-title { margin-top: 0.5rem; }
+.guide-wrap .chart-container { background: #2b2c33; border-color: rgba(255,255,255,0.1); }
+
+/* Password Protection Styles (gate look, matches Business Plan) */
+.password-overlay { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 24px;
+  background: radial-gradient(120% 90% at 50% 30%, rgba(226,35,26,.18), transparent 55%), #070708; }
+.password-overlay::before { content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.10) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 58px 58px;
+  -webkit-mask-image: radial-gradient(100% 70% at 50% 40%, #000, transparent 72%);
+  mask-image: radial-gradient(100% 70% at 50% 40%, #000, transparent 72%); opacity: .45; }
 .password-overlay.hidden { display: none; }
-.password-container { background: var(--bg2); border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; max-width: 400px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-.password-header { text-align: center; margin-bottom: 2rem; }
-.password-header h2 { font-family: var(--disp); font-size: 1.5rem; font-weight: 900; color: var(--white); margin-bottom: 0.5rem; text-transform: uppercase; }
-.password-header p { font-size: 0.9rem; color: var(--muted); }
-.password-input-group { margin-bottom: 1.5rem; }
-.password-input-group label { display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); font-family: var(--mono); margin-bottom: 0.75rem; }
-.password-input { width: 100%; padding: 0.875rem; background: var(--bg); border: 1px solid rgba(255,255,255,0.15); color: var(--white); font-family: var(--mono); font-size: 1rem; border-radius: 4px; transition: all 0.25s; }
-.password-input:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 2px rgba(226,35,26,0.15); }
-.password-btn { width: 100%; padding: 0.875rem; background: var(--red); color: var(--white); border: none; font-family: var(--disp); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border-radius: 4px; transition: all 0.25s; }
+.password-container { position: relative; z-index: 2; width: 100%; max-width: 400px; text-align: center; background: none; border: none; padding: 0; box-shadow: none; }
+.pw-mk { width: 18px; height: 18px; background: var(--red); border-radius: 4px; margin: 0 auto 22px; box-shadow: 0 0 24px rgba(226,35,26,.8); }
+.pw-bd { font-family: var(--disp); font-weight: 900; font-size: 42px; letter-spacing: .08em; text-transform: uppercase; color: var(--white); line-height: .95; }
+.pw-sb { font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); margin-top: 6px; }
+.pw-ti { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--red); margin: 30px 0 14px; }
+.pw-form { display: flex; flex-direction: column; gap: 12px; }
+.password-input { width: 100%; font-family: var(--mono); font-size: 15px; text-align: center; letter-spacing: .06em; color: var(--white); background: var(--bg2);
+  border: 1px solid rgba(255,255,255,.18); border-radius: 7px; padding: 15px 16px; outline: none; transition: border-color .2s; }
+.password-input:focus { border-color: var(--red); }
+.password-btn { width: 100%; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; background: var(--red); color: #fff;
+  border: none; border-radius: 7px; padding: 15px; cursor: pointer; transition: background .2s; }
 .password-btn:hover { background: var(--red-l); }
-.password-btn:active { transform: scale(0.98); }
-.password-error { color: var(--red); font-size: 0.85rem; text-align: center; margin-bottom: 1rem; opacity: 0; transition: opacity 0.25s; }
+.password-btn:active { transform: scale(0.99); }
+.password-error { font-family: var(--mono); font-size: 11.5px; color: var(--red-l); min-height: 16px; letter-spacing: .03em; text-align: center; opacity: 0; transition: opacity .25s; }
 .password-error.show { opacity: 1; }
+.pw-note { font-family: var(--mono); font-size: 10px; color: var(--faint); line-height: 1.7; margin-top: 26px; letter-spacing: .02em; }
 </style>
 </head>
 <body>
 
 <div class="password-overlay" id="passwordOverlay">
   <div class="password-container">
-    <div class="password-header">
-      <h2>Volty U1</h2>
-      <p>NUEN MOTO - Financial Model Dashboard v1.6</p>
+    <div class="pw-mk"></div>
+    <div class="pw-bd">Volty U1</div>
+    <div class="pw-sb">NUEN MOTO &middot; Financial Model Dashboard v1.6</div>
+    <div class="pw-ti">Confidential &middot; Enter Password</div>
+    <div class="pw-form">
+      <input type="password" id="passwordInput" class="password-input" placeholder="Password" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button class="password-btn" onclick="handlePasswordSubmit()">Unlock</button>
+      <div class="password-error" id="passwordError">Incorrect password. Please try again.</div>
     </div>
-    <div class="password-error" id="passwordError">Incorrect password. Please try again.</div>
-    <div class="password-input-group">
-      <label for="passwordInput">Enter Password <span style="color:#2E75B6; font-weight:600;">— Confidential</span></label>
-      <input type="password" id="passwordInput" class="password-input" placeholder="••••••••" autocomplete="off">
-    </div>
-    <button class="password-btn" onclick="handlePasswordSubmit()">Access Dashboard</button>
+    <div class="pw-note">This dashboard is confidential. The content is not present in readable form until the correct password is supplied. Do not forward this file or the password to anyone outside the intended recipients.</div>
   </div>
 </div>
 
 <div class="dashboard">
   <div class="header">
     <p>Financial Model v1.6</p>
-    <h1>VOLTY U1 — 24-Month Financial Dashboard</h1>
+    <h1>VOLTY U1: 24-Month Financial Dashboard</h1>
     <div class="subtext">NUEN MOTO | May 2026 | Based on Conservative, Base, and Optimistic scenarios across unit sales, pricing, and OPEX trajectories.</div>
   </div>
 
   <div class="section-title">Executive Summary</div>
-  <div class="section-summary">A scenario-driven view of the <strong>Volty U1</strong> business case — what the model is, what it assumes, and where the numbers land. Use the four headline metrics below as the at-a-glance read; every section that follows drills into one driver of these outcomes.</div>
+  <div class="section-summary">A scenario-driven view of the <strong>Volty U1</strong> business case: what the model is, what it assumes, and where the numbers land. Use the four headline metrics below as the at-a-glance read; every section that follows drills into one driver of these outcomes.</div>
   <div class="exec-summary-box">
     <p class="lead">This dashboard is the live financial model behind Volty U1, NUEN MOTO's delivery-optimized, network-agnostic electric utility motorcycle.</p>
-    <p>Its purpose is to translate a single product strategy — a capital-light, B2B-first fleet play built around cross-compatible battery swapping — into numbers an investor or fleet partner can interrogate. It runs three scenarios (Conservative, Base, Optimistic) across unit volume, growth rate, pricing, and OPEX, and shows the downstream effect on revenue, break-even timing, gross margin, working capital, and investor returns.</p>
-    <p>The headline read in the Base case: roughly <strong>15,000 units over 24 months</strong>, around <strong>$20.3M of cumulative revenue</strong>, cash turning positive near <strong>month 14</strong>, on a thin but scalable <strong>~6.7% gross margin</strong> at a $1,300 fleet price. The model is deliberately conservative on margin and explicit about its two pressure points — BOM cost sensitivity and per-unit working capital — both stress-tested in later sections.</p>
+    <p>Its purpose is to translate a single product strategy (a capital-light, B2B-first fleet play built around cross-compatible battery swapping) into numbers an investor or fleet partner can interrogate. It runs three scenarios (Conservative, Base, Optimistic) across unit volume, growth rate, pricing, and OPEX, and shows the downstream effect on revenue, break-even timing, gross margin, working capital, and investor returns.</p>
+    <p>The headline read in the Base case: roughly <strong>15,000 units over 24 months</strong>, around <strong>$20.3M of cumulative revenue</strong>, cash turning positive near <strong>month 14</strong>, on a thin but scalable <strong>~6.7% gross margin</strong> at a $1,300 fleet price. The model is deliberately conservative on margin and explicit about its two pressure points, BOM cost sensitivity and per-unit working capital, both stress-tested in later sections.</p>
   </div>
   <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Bridge Capital</div>
       <div class="metric-value">$250K</div>
-      <div class="metric-detail">Convertible bridge — investor + founder participation</div>
+      <div class="metric-detail">Convertible bridge: investor + founder participation</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">24-Mo Revenue (Base)</div>
@@ -231,7 +250,7 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="chart-wide">
-    <h3>5-Year Financial Revenue Projections (2026–2030)</h3>
+    <h3>5-Year Financial Revenue Projections (2026-2030)</h3>
     <div style="position: relative; height: 360px;">
       <canvas id="fiveYearChart" role="img" aria-label="Five year revenue projection by scenario with cumulative units"></canvas>
     </div>
@@ -242,12 +261,12 @@ canvas { max-height: 350px; }
       <div class="legend-item"><div class="legend-box" style="background: #f5f5f6; border-radius: 50%;"></div>Base Cumulative Units (K, right axis)</div>
     </div>
     <div class="highlight">
-      <div class="highlight-text"><strong>Reading the ramp:</strong> Years 1–2 are the pilot-to-scale window the 24-month model covers in detail. Years 3–5 extend the trajectory as fleet partnerships convert into recurring volume and HCMC's gasoline ban for delivery/ride-hailing accelerates demand. Figures are illustrative annual projections, not committed orders.</div>
+      <div class="highlight-text"><strong>Reading the ramp:</strong> Years 1-2 are the pilot-to-scale window the 24-month model covers in detail. Years 3-5 extend the trajectory as fleet partnerships convert into recurring volume and HCMC's gasoline ban for delivery/ride-hailing accelerates demand. Figures are illustrative annual projections, not committed orders.</div>
     </div>
   </div>
 
   <div class="section-title">Unit Economics & Pricing</div>
-  <div class="section-summary">The per-unit P&L at scale (5,000+ units). This is where the model's thin margin lives: a <strong>$988 build cost</strong> against a <strong>$1,300 fleet price</strong> leaves ~$312 of gross profit before the blended figure pulls margin to ~6.7%. The doughnut shows what dominates cost — BOM is ~92% of it, which is exactly why the BOM stress test later matters so much.</div>
+  <div class="section-summary">The per-unit P&L at scale (5,000+ units). This is where the model's thin margin lives: a <strong>$988 build cost</strong> against a <strong>$1,300 fleet price</strong> leaves ~$312 of gross profit before the blended figure pulls margin to ~6.7%. The doughnut shows what dominates cost: BOM is ~92% of it, which is exactly why the BOM stress test later matters so much.</div>
   <div class="grid-2">
     <div class="chart-container">
       <h3>Unit Cost Breakdown (at scale, 5K+ units)</h3>
@@ -310,7 +329,7 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="section-title">Break Even Analysis</div>
-  <div class="section-summary">When the business stops burning cash, by scenario. Break-even ranges from <strong>month 10</strong> (Optimistic, ~1,200 units) to <strong>month 18</strong> (Conservative, ~2,100 units), with the Base case at <strong>month 14</strong>. The spread is driven almost entirely by how fast monthly volume compounds — the chart on the left, the unit/month detail on the right.</div>
+  <div class="section-summary">When the business stops burning cash, by scenario. Break-even ranges from <strong>month 10</strong> (Optimistic, ~1,200 units) to <strong>month 18</strong> (Conservative, ~2,100 units), with the Base case at <strong>month 14</strong>. The spread is driven almost entirely by how fast monthly volume compounds, shown in the chart on the left and the unit/month detail on the right.</div>
   <div class="grid-2">
     <div class="chart-container">
       <h3>Break Even By Scenario</h3>
@@ -367,7 +386,7 @@ canvas { max-height: 350px; }
     <div class="stat-pill"><div class="lbl">Phase 0 Base OPEX</div><div class="val" style="color: var(--blue);">$24K<span style="font-size:0.9rem;color:var(--muted);">/mo</span></div></div>
     <div class="stat-pill"><div class="lbl">Month 24 OPEX</div><div class="val" style="color: var(--amber);">$50.4K<span style="font-size:0.9rem;color:var(--muted);">/mo</span></div></div>
     <div class="stat-pill"><div class="lbl">Headcount: Start → M24</div><div class="val" style="color: var(--green);">6 → 26</div></div>
-    <div class="stat-pill"><div class="lbl">S&M as % of Revenue</div><div class="val" style="color: var(--red);">2–4%</div></div>
+    <div class="stat-pill"><div class="lbl">S&M as % of Revenue</div><div class="val" style="color: var(--red);">2-4%</div></div>
   </div>
   <div class="chart-wide">
     <h3>Monthly OPEX by Category + Headcount</h3>
@@ -401,7 +420,7 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="section-title">Working Capital & Cash Cycle</div>
-  <div class="section-summary">The hidden cash trap of a hardware business. Even profitable units tie up cash because suppliers are paid before customers settle in full — the timeline on the left shows a <strong>~$478 per-unit gap</strong> opening between day 60 and day 95. At 1,000 units/month that's a <strong>~$478K facility</strong> requirement, which the mitigation strategies are designed to shrink.</div>
+  <div class="section-summary">The hidden cash trap of a hardware business. Even profitable units tie up cash because suppliers are paid before customers settle in full. The timeline on the left shows a <strong>~$478 per-unit gap</strong> opening between day 60 and day 95. At 1,000 units/month that's a <strong>~$478K facility</strong> requirement, which the mitigation strategies are designed to shrink.</div>
   <div class="grid-2">
     <div class="chart-container">
       <h3>Cash Conversion Cycle (Per Unit)</h3>
@@ -452,9 +471,9 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="section-title">Investment Returns & Cap Table</div>
-  <div class="section-summary">What the $250K convertible bridge could return, and who owns the company today. Returns assume the note converts at the <strong>$10M pre-money cap</strong> and is then diluted by future seed and growth rounds — so the retained stake shrinks over time even as the exit value grows. The scenarios span a <strong>5-to-10-year horizon</strong>, from a modest early exit to a category-leader outcome. Figures are illustrative, not a promise of returns.</div>
+  <div class="section-summary">What the $250K convertible bridge could return, and who owns the company today. Returns assume the note converts at the <strong>$10M pre-money cap</strong> and is then diluted by future seed and growth rounds, so the retained stake shrinks over time even as the exit value grows. The scenarios span a <strong>5-to-10-year horizon</strong>, from a modest early exit to a category-leader outcome. Figures are illustrative, not a promise of returns.</div>
   <div class="chart-wide">
-    <h3>Investor Exit Scenarios — Valuation vs. Return Multiple (5–10 Year Horizon)</h3>
+    <h3>Investor Exit Scenarios: Valuation vs. Return Multiple (5-10 Year Horizon)</h3>
     <div style="position: relative; height: 320px;">
       <canvas id="returnsChart" role="img" aria-label="Investor exit valuations and return multiples over a 5 to 10 year horizon"></canvas>
     </div>
@@ -466,7 +485,7 @@ canvas { max-height: 350px; }
 
   <div class="grid-2">
     <div class="chart-container">
-      <h3>Exit Scenarios (5–10 Year Hold)</h3>
+      <h3>Exit Scenarios (5-10 Year Hold)</h3>
       <table class="unit-economics-table" style="font-size: 0.85rem;">
         <tr><td>Year 5 · Downside · $50M</td><td style="color: var(--green);">$0.90M | 3.6x | ~1.8% stake</td></tr>
         <tr><td>Year 6 · Base · $120M</td><td style="color: var(--green);">$1.92M | 7.7x | ~1.6% stake</td></tr>
@@ -497,7 +516,7 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="section-title">Key Risks & Opportunities</div>
-  <div class="section-summary">The two things that can break the model, and the demand that can make it. On the left, a <strong>BOM cost stress test</strong> — because BOM is ~92% of unit cost, a 20–25% supplier or FX shock flips per-unit margin negative, which is why supplier price-fixing and local sourcing are priorities. On the right, the <strong>risk-adjusted customer pipeline</strong> — signed and in-progress fleet demand, weighted by close probability.</div>
+  <div class="section-summary">The two things that can break the model, and the demand that can make it. On the left, a <strong>BOM cost stress test</strong>: because BOM is ~92% of unit cost, a 20-25% supplier or FX shock flips per-unit margin negative, which is why supplier price-fixing and local sourcing are priorities. On the right, the <strong>risk-adjusted customer pipeline</strong>: signed and in-progress fleet demand, weighted by close probability.</div>
   <div class="grid-2">
     <div class="chart-container">
       <h3>BOM Cost Stress Test</h3>
@@ -558,7 +577,7 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="section-title">Use of $250K Bridge Capital</div>
-  <div class="section-summary">Where the $250K convertible bridge goes and in what order. <strong>Phase 1</strong> funds the pilot — tooling, a first batch of units, homologation, and runway — to prove the product and convert MOUs. <strong>Phase 2</strong> deploys the remainder toward early scale-up and working-capital seeding once the pilot validates demand. Capital is released against milestones, not all at once.</div>
+  <div class="section-summary">Where the $250K convertible bridge goes and in what order. <strong>Phase 1</strong> funds the pilot (tooling, a first batch of units, homologation, and runway) to prove the product and convert MOUs. <strong>Phase 2</strong> deploys the remainder toward early scale-up and working-capital seeding once the pilot validates demand. Capital is released against milestones, not all at once.</div>
   <div class="chart-container">
     <h3>Deployment by Phase</h3>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem; margin-top: 1rem;">
@@ -574,17 +593,25 @@ canvas { max-height: 350px; }
         <div style="font-size: 0.85rem; color: var(--white);">The remainder of the $250K bridge: scale-tooling deposits (tranched), early production ramp (variable COGS), Phase 1 team additions (~$13.2K/month), and working-capital facility seeding. Includes a modest contingency buffer held within this phase.</div>
       </div>
     </div>
-    <div style="margin: 1.5rem 0 1rem; position: relative; height: 200px;">
-      <canvas id="bridgeChart" role="img" aria-label="Bridge capital split between Phase 1 and Phase 2"></canvas>
-    </div>
     <div style="display: flex; justify-content: space-between; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
       <span style="color: var(--muted); font-size: 0.9rem;">Total Bridge Deployed</span>
       <span style="color: var(--white); font-weight: 600;">$250K (100%)</span>
     </div>
   </div>
 
+  <div class="section-title">Closing Statement</div>
+  <div class="section-summary">The bottom line: why these numbers add up to a business worth backing.</div>
+  <div class="closing-box">
+    <p class="lead">Volty U1 is a deliberately unglamorous bet: a low-margin, high-volume utility vehicle aimed at the part of the market that is actually electrifying first, the fleets.</p>
+    <p>The model in this dashboard does not rely on a pricing miracle or a premium-brand halo. It works because the unit economics are real at a $1,300 fleet price, because the capital required to reach break-even is measured in hundreds of thousands rather than millions, and because the demand is being pulled forward by regulation rather than marketing. The network-agnostic battery strategy keeps Volty out of the closed-ecosystem trap that constrains its larger competitors, and the capital-light partnership structure means infrastructure cost sits with the battery networks, not with NUEN MOTO.</p>
+    <p>The honest risks are named here, not hidden: a thin gross margin that a BOM or FX shock can erase, and a per-unit working-capital gap that has to be financed as volume scales. Both are quantified, both have mitigation paths, and both are the right problems to have for a company whose constraint is demand conversion, not demand itself.</p>
+    <p>The $250K bridge is sized to prove the pilot and convert the signed and in-progress pipeline into deployed units. Everything beyond that is a financing and execution question, not a product question. The product case is made.</p>
+    <div class="signoff">NUEN MOTO &middot; Han Hoang, Co-Founder, Head of Investment &amp; Strategy &middot; Confidential</div>
+  </div>
+
+  <div class="guide-wrap">
   <div class="section-title">Dashboard Guide</div>
-  <div class="section-summary">A quick orientation for first-time readers — the four habits that make the rest of the dashboard make sense: switch scenarios, read the charts in sequence, sanity-check the unit economics, and watch the working-capital gap.</div>
+  <div class="section-summary">A quick orientation for first-time readers. Four habits make the rest of the dashboard make sense: switch scenarios, read the charts in sequence, sanity-check the unit economics, and watch the working-capital gap.</div>
   <div class="chart-container">
     <h3>How to Use This Dashboard</h3>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: 0.9rem; margin-top: 1rem;">
@@ -606,6 +633,7 @@ canvas { max-height: 350px; }
       </div>
     </div>
   </div>
+  </div>
 
   <div class="footer">
     <p><strong>NUEN MOTO Volty U1 Financial Dashboard v1.6</strong> | Built May 2026 | Data sources: Unit Economics, Revenue Model, Cash Flow Projection, Operating Expenses, Scenario Analysis sheets from core financial model.</p>
@@ -616,7 +644,7 @@ canvas { max-height: 350px; }
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-// Password protection setup — self-contained SHA-256 (no external library/CDN)
+// Password protection setup: self-contained SHA-256 (no external library/CDN)
 const CORRECT_PASSWORD_HASH = '98bbe7167e22c8a07694bda3989e81456eefabd09d0b1b962e456924059fc9dc'; // SHA-256 of the access password
 
 function generatePasswordHash(ascii) {
@@ -733,7 +761,7 @@ const scenarios = {
 let currentScenario = 'base';
 let revenueChart, cashChart, opexChart, opexMixChart, headcountChart,
     breakEvenChart, returnsChart, fiveYearChart, unitCostChart,
-    capTableChart, pipelineChart, bridgeChart;
+    capTableChart, pipelineChart;
 
 const months = Array.from({length:24}, (_, i) => {
   const d = new Date(2026,3,1);
@@ -788,6 +816,21 @@ Chart.defaults.maintainAspectRatio = false;
 Chart.defaults.responsive = true;
 Chart.defaults.interaction = { mode: 'index', intersect: false };
 Chart.defaults.animation = { duration: 700, easing: 'easeOutQuart' };
+
+// ---- Hover effects applied to every chart ----
+Chart.defaults.hover = { mode: 'index', intersect: false };
+Chart.defaults.elements.arc.hoverOffset = 14;
+Chart.defaults.elements.arc.hoverBorderColor = 'rgba(255,255,255,0.85)';
+Chart.defaults.elements.arc.hoverBorderWidth = 2;
+Chart.defaults.elements.bar.hoverBorderColor = 'rgba(255,255,255,0.7)';
+Chart.defaults.elements.bar.hoverBorderWidth = 2;
+Chart.defaults.elements.point.hoverRadius = 7;
+Chart.defaults.elements.point.hoverBorderWidth = 2;
+Chart.defaults.elements.point.hoverBorderColor = '#ffffff';
+Chart.defaults.onHover = (evt, elements) => {
+  const target = evt.native && evt.native.target;
+  if (target) target.style.cursor = elements.length ? 'pointer' : 'default';
+};
 
 const fmtUSD = (v) => '$' + v.toLocaleString();
 
@@ -960,16 +1003,6 @@ pipelineChart = new Chart(document.getElementById('pipelineChart'), {
       y:{title:{display:true,text:'Close Probability (%)'},beginAtZero:true,max:100}
     }
   }
-});
-
-// ---- 12. Bridge capital split doughnut ----
-bridgeChart = new Chart(document.getElementById('bridgeChart'), {
-  type: 'doughnut',
-  data: {
-    labels: ['Phase 1: Pilot ($113K)','Phase 2: Early Scale ($137K)'],
-    datasets: [{data:[113,137],backgroundColor:['#E2231A','#56a6f2'],borderColor:'#17171a',borderWidth:2}]
-  },
-  options: {cutout:'62%',plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,padding:8}},tooltip:{callbacks:{label:(c)=>c.label+' — '+(c.parsed/250*100).toFixed(0)+'%'}}}}
 });
 
 }
