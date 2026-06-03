@@ -544,25 +544,70 @@ canvas { max-height: 350px; }
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.0/crypto-js.min.js"></script>
 <script>
-// Password protection setup
-const CORRECT_PASSWORD_HASH = 'e8d3c92f9a8f8e8f8f8f8f8f8f8f8f8f'; // Volty2026! hashed
+// Password protection setup — self-contained SHA-256 (no external library/CDN)
+const CORRECT_PASSWORD_HASH = '98bbe7167e22c8a07694bda3989e81456eefabd09d0b1b962e456924059fc9dc'; // SHA-256 of the access password
 
-function generatePasswordHash(password) {
-  return CryptoJS.SHA256(password).toString();
+function generatePasswordHash(ascii) {
+  function rightRotate(value, amount) { return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), result = '', words = [];
+  var asciiBitLength = ascii.length * 8;
+  var hash = generatePasswordHash.h = generatePasswordHash.h || [];
+  var k = generatePasswordHash.k = generatePasswordHash.k || [];
+  var primeCounter = k.length, isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++) {
+    if (!isComposite[candidate]) {
+      for (var i = 0; i < 313; i += candidate) { isComposite[i] = candidate; }
+      hash[primeCounter] = (mathPow(candidate, 0.5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+  ascii += '\x80';
+  while (ascii.length % 64 - 56) ascii += '\x00';
+  for (var i = 0; i < ascii.length; i++) {
+    var j = ascii.charCodeAt(i);
+    if (j >> 8) return '';
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words.length] = (asciiBitLength / maxWord) | 0;
+  words[words.length] = asciiBitLength;
+  for (var j = 0; j < words.length;) {
+    var w = words.slice(j, j += 16), oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (var i = 0; i < 64; i++) {
+      var w15 = w[i - 15], w2 = w[i - 2];
+      var a = hash[0], e = hash[4];
+      var temp1 = hash[7]
+        + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25))
+        + ((e & hash[5]) ^ ((~e) & hash[6]))
+        + k[i]
+        + (w[i] = (i < 16) ? w[i] : (
+            w[i - 16]
+            + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3))
+            + w[i - 7]
+            + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))
+          ) | 0);
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (var i = 0; i < 8; i++) { hash[i] = (hash[i] + oldHash[i]) | 0; }
+  }
+  for (var i = 0; i < 8; i++) {
+    for (var j = 3; j + 1; j--) {
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
+    }
+  }
+  return result;
 }
 
 function handlePasswordSubmit() {
   const passwordInput = document.getElementById('passwordInput');
   const password = passwordInput.value;
-  
-  // Using direct comparison (SHA-256 of 'Volty2026!')
-  // For security, compute hash at runtime
-  const enteredHash = CryptoJS.SHA256('Volty2026!').toString();
-  const correctHash = CryptoJS.SHA256('Volty2026!').toString();
-  
-  if (generatePasswordHash(password) === correctHash) {
+
+  if (generatePasswordHash(password) === CORRECT_PASSWORD_HASH) {
     sessionStorage.setItem('dashboardAuth', 'true');
     document.getElementById('passwordOverlay').classList.add('hidden');
   } else {
@@ -640,6 +685,7 @@ function updateMetrics() {
 }
 
 function updateCharts() {
+  if (!revenueChart) return;
   const s = scenarios[currentScenario];
   
   revenueChart.data.datasets[0].data = s.m24.map(v => v/1e6);
@@ -658,6 +704,9 @@ const months = Array.from({length:24}, (_, i) => {
   return d.toLocaleDateString('en-US',{month:'short',year:'2-digit'});
 });
 
+if (typeof Chart === 'undefined') {
+  console.warn('Chart.js failed to load (CDN unreachable). Charts will not render, but the dashboard remains usable.');
+} else {
 revenueChart = new Chart(document.getElementById('revenueChart'), {
   type: 'bar',
   data: {
@@ -735,6 +784,8 @@ returnsChart = new Chart(document.getElementById('returnsChart'), {
   },
   options: {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,title:{display:true,text:'Exit Value ($M)'}}}}
 });
+
+}
 
 updateMetrics();
 </script>
