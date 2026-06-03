@@ -88,6 +88,23 @@ canvas { max-height: 350px; }
 
 .footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: var(--faint); }
 
+/* Section summaries + added components */
+.section-summary { font-size: 0.92rem; color: var(--muted); line-height: 1.7; margin: -0.25rem 0 1.5rem; max-width: 95ch; border-left: 2px solid rgba(226,35,26,0.4); padding-left: 1rem; }
+.section-summary strong { color: var(--white); font-weight: 600; }
+.exec-summary-box { background: linear-gradient(135deg, rgba(226,35,26,0.08), rgba(86,166,242,0.06)); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 1.5rem 1.75rem; margin-bottom: 2rem; }
+.exec-summary-box p { color: var(--white); font-size: 0.98rem; line-height: 1.8; margin-bottom: 0.85rem; }
+.exec-summary-box p:last-child { margin-bottom: 0; }
+.exec-summary-box .lead { font-family: var(--disp); font-size: 1.15rem; font-weight: 700; text-transform: none; color: var(--white); letter-spacing: 0; }
+.runway-note { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; padding: 0.4rem 0.85rem; background: rgba(174,242,74,0.1); border: 1px solid rgba(174,242,74,0.3); border-radius: 20px; font-size: 0.8rem; color: var(--green); font-family: var(--mono); }
+.runway-note::before { content: ''; width: 18px; height: 0; border-top: 2px dashed var(--green); display: inline-block; }
+.chart-wide { background: var(--bg2); border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
+.chart-wide h3 { font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.stat-pill { background: var(--bg1); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 1rem; }
+.stat-pill .lbl { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); font-family: var(--mono); margin-bottom: 0.4rem; }
+.stat-pill .val { font-family: var(--disp); font-size: 1.5rem; font-weight: 900; }
+.phase-card { padding: 1rem; background: var(--bg1); border-radius: 6px; }
+
 /* Password Protection Styles */
 .password-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 9999; }
 .password-overlay.hidden { display: none; }
@@ -131,11 +148,17 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="section-title">Executive Summary</div>
+  <div class="section-summary">A scenario-driven view of the <strong>Volty U1</strong> business case — what the model is, what it assumes, and where the numbers land. Use the four headline metrics below as the at-a-glance read; every section that follows drills into one driver of these outcomes.</div>
+  <div class="exec-summary-box">
+    <p class="lead">This dashboard is the live financial model behind Volty U1, NUEN MOTO's delivery-optimized, network-agnostic electric utility motorcycle.</p>
+    <p>Its purpose is to translate a single product strategy — a capital-light, B2B-first fleet play built around cross-compatible battery swapping — into numbers an investor or fleet partner can interrogate. It runs three scenarios (Conservative, Base, Optimistic) across unit volume, growth rate, pricing, and OPEX, and shows the downstream effect on revenue, break-even timing, gross margin, working capital, and investor returns.</p>
+    <p>The headline read in the Base case: roughly <strong>15,000 units over 24 months</strong>, around <strong>$20.3M of cumulative revenue</strong>, cash turning positive near <strong>month 14</strong>, on a thin but scalable <strong>~6.7% gross margin</strong> at a $1,300 fleet price. The model is deliberately conservative on margin and explicit about its two pressure points — BOM cost sensitivity and per-unit working capital — both stress-tested in later sections.</p>
+  </div>
   <div class="metrics-grid">
     <div class="metric-card">
       <div class="metric-label">Bridge Capital</div>
-      <div class="metric-value">$450K</div>
-      <div class="metric-detail">$250K Thibault + $100K Han + $100K parallel</div>
+      <div class="metric-value">$250K</div>
+      <div class="metric-detail">Convertible bridge — investor + founder participation</div>
     </div>
     <div class="metric-card">
       <div class="metric-label">24-Mo Revenue (Base)</div>
@@ -155,9 +178,10 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="section-title">Financial Scenarios</div>
+  <div class="section-summary">Toggle between the three cases to see how growth assumptions cascade through the model. <strong>Conservative</strong> (8% monthly growth) is the downside guardrail, <strong>Base Case</strong> (15%) is the planning scenario, and <strong>Optimistic</strong> (25%) is the upside if fleet conversions land early. The four metrics and both charts below update with your selection.</div>
   <div class="scenario-tabs">
-    <button class="scenario-btn active" onclick="switchScenario('base')">Base Case</button>
     <button class="scenario-btn" onclick="switchScenario('conservative')">Conservative</button>
+    <button class="scenario-btn active" onclick="switchScenario('base')">Base Case</button>
     <button class="scenario-btn" onclick="switchScenario('optimistic')">Optimistic</button>
   </div>
 
@@ -202,13 +226,34 @@ canvas { max-height: 350px; }
         <div class="legend-item"><div class="legend-box" style="background: #E2231A;"></div>Cash Balance</div>
         <div class="legend-item"><div class="legend-box" style="background: #aef24a;"></div>Healthy Runway</div>
       </div>
+      <div class="runway-note">Healthy Runway = cash at or above the $0 break-even line</div>
+    </div>
+  </div>
+
+  <div class="chart-wide">
+    <h3>5-Year Financial Revenue Projections (2026–2030)</h3>
+    <div style="position: relative; height: 360px;">
+      <canvas id="fiveYearChart" role="img" aria-label="Five year revenue projection by scenario with cumulative units"></canvas>
+    </div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-box" style="background: #ff7a4d;"></div>Conservative Revenue</div>
+      <div class="legend-item"><div class="legend-box" style="background: #56a6f2;"></div>Base Revenue</div>
+      <div class="legend-item"><div class="legend-box" style="background: #aef24a;"></div>Optimistic Revenue</div>
+      <div class="legend-item"><div class="legend-box" style="background: #f5f5f6; border-radius: 50%;"></div>Base Cumulative Units (K, right axis)</div>
+    </div>
+    <div class="highlight">
+      <div class="highlight-text"><strong>Reading the ramp:</strong> Years 1–2 are the pilot-to-scale window the 24-month model covers in detail. Years 3–5 extend the trajectory as fleet partnerships convert into recurring volume and HCMC's gasoline ban for delivery/ride-hailing accelerates demand. Figures are illustrative annual projections, not committed orders.</div>
     </div>
   </div>
 
   <div class="section-title">Unit Economics & Pricing</div>
+  <div class="section-summary">The per-unit P&L at scale (5,000+ units). This is where the model's thin margin lives: a <strong>$988 build cost</strong> against a <strong>$1,300 fleet price</strong> leaves ~$312 of gross profit before the blended figure pulls margin to ~6.7%. The doughnut shows what dominates cost — BOM is ~92% of it, which is exactly why the BOM stress test later matters so much.</div>
   <div class="grid-2">
     <div class="chart-container">
       <h3>Unit Cost Breakdown (at scale, 5K+ units)</h3>
+      <div style="position: relative; height: 240px;">
+        <canvas id="unitCostChart" role="img" aria-label="Unit cost breakdown by component"></canvas>
+      </div>
       <table class="unit-economics-table">
         <tr>
           <td>BOM Cost</td>
@@ -265,6 +310,7 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="section-title">Break Even Analysis</div>
+  <div class="section-summary">When the business stops burning cash, by scenario. Break-even ranges from <strong>month 10</strong> (Optimistic, ~1,200 units) to <strong>month 18</strong> (Conservative, ~2,100 units), with the Base case at <strong>month 14</strong>. The spread is driven almost entirely by how fast monthly volume compounds — the chart on the left, the unit/month detail on the right.</div>
   <div class="grid-2">
     <div class="chart-container">
       <h3>Break Even By Scenario</h3>
@@ -316,17 +362,46 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="section-title">Operating Expenses & Headcount</div>
-  <div class="chart-container">
-    <h3>Monthly OPEX Trajectory</h3>
-    <div style="position: relative; height: 300px;">
-      <canvas id="opexChart" role="img" aria-label="Monthly operating expenses across 24 months"></canvas>
+  <div class="section-summary">How the cost base grows as the team scales. OPEX starts flat at a lean <strong>~$24K/month Phase 0 base</strong> and steps up in deliberate hiring phases tied to commercial milestones, reaching <strong>~$50K/month</strong> by month 24. The combo chart stacks spend by category against headcount (right axis); the mix and phase charts below show where the money goes and when people are added.</div>
+  <div class="grid-3">
+    <div class="stat-pill"><div class="lbl">Phase 0 Base OPEX</div><div class="val" style="color: var(--blue);">$24K<span style="font-size:0.9rem;color:var(--muted);">/mo</span></div></div>
+    <div class="stat-pill"><div class="lbl">Month 24 OPEX</div><div class="val" style="color: var(--amber);">$50.4K<span style="font-size:0.9rem;color:var(--muted);">/mo</span></div></div>
+    <div class="stat-pill"><div class="lbl">Headcount: Start → M24</div><div class="val" style="color: var(--green);">6 → 26</div></div>
+    <div class="stat-pill"><div class="lbl">S&M as % of Revenue</div><div class="val" style="color: var(--red);">2–4%</div></div>
+  </div>
+  <div class="chart-wide">
+    <h3>Monthly OPEX by Category + Headcount</h3>
+    <div style="position: relative; height: 340px;">
+      <canvas id="opexChart" role="img" aria-label="Monthly operating expenses by category with headcount overlay"></canvas>
     </div>
-    <div class="highlight">
-      <div class="highlight-text"><strong>Phase-Based Hiring:</strong> Phase 0 ($24K base team) → Phase 1: +4 roles (July, +$4.4K) → Phase 2: +9 roles (October, +$13K) → Phase 3: +7 roles (October 2027, +$12K). Initial OPEX flat; scales with team growth and S&M expansion (2-4% of revenue).</div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-box" style="background: #56a6f2;"></div>Payroll</div>
+      <div class="legend-item"><div class="legend-box" style="background: #aef24a;"></div>Sales & Marketing</div>
+      <div class="legend-item"><div class="legend-box" style="background: #ff7a4d;"></div>R&D / Engineering</div>
+      <div class="legend-item"><div class="legend-box" style="background: #9b6cf2;"></div>G&A / Other</div>
+      <div class="legend-item"><div class="legend-box" style="background: #f5f5f6; border-radius:50%;"></div>Headcount (right axis)</div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="chart-container">
+      <h3>OPEX Mix at Month 24</h3>
+      <div style="position: relative; height: 260px;">
+        <canvas id="opexMixChart" role="img" aria-label="Operating expense breakdown by category at month 24"></canvas>
+      </div>
+    </div>
+    <div class="chart-container">
+      <h3>Headcount by Hiring Phase</h3>
+      <div style="position: relative; height: 260px;">
+        <canvas id="headcountChart" role="img" aria-label="Cumulative headcount by hiring phase"></canvas>
+      </div>
+      <div class="highlight">
+        <div class="highlight-text"><strong>Phase-based hiring:</strong> Phase 0 ($24K base team, 6 people) → Phase 1: +4 roles (Jul, +$4.4K) → Phase 2: +9 roles (Oct, +$13K) → Phase 3: +7 roles (Oct 2027, +$12K). Hiring is gated to commercial traction, not calendar.</div>
+      </div>
     </div>
   </div>
 
   <div class="section-title">Working Capital & Cash Cycle</div>
+  <div class="section-summary">The hidden cash trap of a hardware business. Even profitable units tie up cash because suppliers are paid before customers settle in full — the timeline on the left shows a <strong>~$478 per-unit gap</strong> opening between day 60 and day 95. At 1,000 units/month that's a <strong>~$478K facility</strong> requirement, which the mitigation strategies are designed to shrink.</div>
   <div class="grid-2">
     <div class="chart-container">
       <h3>Cash Conversion Cycle (Per Unit)</h3>
@@ -377,55 +452,42 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="section-title">Investment Returns & Cap Table</div>
-  <div class="chart-container">
-    <h3>Thibault Convertible Returns (at $10M Cap)</h3>
-    <div style="position: relative; height: 300px;">
-      <canvas id="returnsChart" role="img" aria-label="Investor returns at different exit valuations"></canvas>
+  <div class="section-summary">What the $250K convertible bridge could return, and who owns the company today. Returns assume the note converts at the <strong>$10M pre-money cap</strong> and is then diluted by future seed and growth rounds — so the retained stake shrinks over time even as the exit value grows. The scenarios span a <strong>5-to-10-year horizon</strong>, from a modest early exit to a category-leader outcome. Figures are illustrative, not a promise of returns.</div>
+  <div class="chart-wide">
+    <h3>Investor Exit Scenarios — Valuation vs. Return Multiple (5–10 Year Horizon)</h3>
+    <div style="position: relative; height: 320px;">
+      <canvas id="returnsChart" role="img" aria-label="Investor exit valuations and return multiples over a 5 to 10 year horizon"></canvas>
+    </div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-box" style="background: #56a6f2;"></div>Exit Valuation ($M, left axis)</div>
+      <div class="legend-item"><div class="legend-box" style="background: #aef24a; border-radius:50%;"></div>Investor MOIC (x, right axis)</div>
     </div>
   </div>
 
   <div class="grid-2">
     <div class="chart-container">
-      <h3>Exit Scenarios (24-month hold)</h3>
+      <h3>Exit Scenarios (5–10 Year Hold)</h3>
       <table class="unit-economics-table" style="font-size: 0.85rem;">
-        <tr>
-          <td>$30M exit</td>
-          <td style="color: var(--green);">$1.05M | 2.8x | 68% IRR</td>
-        </tr>
-        <tr>
-          <td>$50M exit</td>
-          <td style="color: var(--green);">$1.75M | 4.7x | 117% IRR</td>
-        </tr>
-        <tr>
-          <td>$75M exit</td>
-          <td style="color: var(--green);">$2.62M | 7.1x | 166% IRR</td>
-        </tr>
-        <tr>
-          <td>$100M+ exit</td>
-          <td style="color: var(--green);">$3.50M | 9.4x | 207% IRR</td>
-        </tr>
+        <tr><td>Year 5 · Downside · $50M</td><td style="color: var(--green);">$0.90M | 3.6x | ~1.8% stake</td></tr>
+        <tr><td>Year 6 · Base · $120M</td><td style="color: var(--green);">$1.92M | 7.7x | ~1.6% stake</td></tr>
+        <tr><td>Year 8 · Strong · $300M</td><td style="color: var(--green);">$4.20M | 16.8x | ~1.4% stake</td></tr>
+        <tr><td>Year 10 · Upside · $600M</td><td style="color: var(--green);">$7.20M | 28.8x | ~1.2% stake</td></tr>
       </table>
+      <div class="highlight">
+        <div class="highlight-text"><strong>How to read it:</strong> proceeds = retained stake × exit valuation; MOIC = proceeds ÷ $250K. Stake declines across the horizon to reflect dilution from later financing rounds.</div>
+      </div>
     </div>
 
     <div class="chart-container">
       <h3>Current Cap Table (May 2026)</h3>
+      <div style="position: relative; height: 230px;">
+        <canvas id="capTableChart" role="img" aria-label="Current ownership cap table"></canvas>
+      </div>
       <table class="unit-economics-table" style="font-size: 0.85rem;">
-        <tr>
-          <td>Gia Nguyen</td>
-          <td>38.8%</td>
-        </tr>
-        <tr>
-          <td>Han Hoang</td>
-          <td>29.1%</td>
-        </tr>
-        <tr>
-          <td>Hai Vo</td>
-          <td>19.1%</td>
-        </tr>
-        <tr>
-          <td>Tim Nielsen</td>
-          <td>13.0%</td>
-        </tr>
+        <tr><td>Gia Nguyen</td><td>38.8%</td></tr>
+        <tr><td>Han Hoang</td><td>29.1%</td></tr>
+        <tr><td>Hai Vo</td><td>19.1%</td></tr>
+        <tr><td>Tim Nielsen</td><td>13.0%</td></tr>
         <tr style="border-top: 1px solid var(--red); color: var(--red);">
           <td>Post-Seed Dilution</td>
           <td>~35-40% founder carry</td>
@@ -435,6 +497,7 @@ canvas { max-height: 350px; }
   </div>
 
   <div class="section-title">Key Risks & Opportunities</div>
+  <div class="section-summary">The two things that can break the model, and the demand that can make it. On the left, a <strong>BOM cost stress test</strong> — because BOM is ~92% of unit cost, a 20–25% supplier or FX shock flips per-unit margin negative, which is why supplier price-fixing and local sourcing are priorities. On the right, the <strong>risk-adjusted customer pipeline</strong> — signed and in-progress fleet demand, weighted by close probability.</div>
   <div class="grid-2">
     <div class="chart-container">
       <h3>BOM Cost Stress Test</h3>
@@ -452,7 +515,7 @@ canvas { max-height: 350px; }
           <span style="color: #ff4133;">-$160/unit GM</span>
         </div>
         <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,122,77,0.15); border-radius: 4px;">
-          <span style="color: var(--white);">Liem worst-case (+25%)</span>
+          <span style="color: var(--white);">Worst case (+25%)</span>
           <span style="color: #ff4133;">-$208/unit GM</span>
         </div>
       </div>
@@ -462,36 +525,40 @@ canvas { max-height: 350px; }
     </div>
 
     <div class="chart-container">
-      <h3>Customer Pipeline (Q3 2026)</h3>
+      <h3>Customer Pipeline (Q4 2026)</h3>
+      <div style="position: relative; height: 240px;">
+        <canvas id="pipelineChart" role="img" aria-label="Customer pipeline by units and close probability"></canvas>
+      </div>
       <table class="unit-economics-table" style="font-size: 0.85rem;">
         <tr>
           <td>Selex Motors</td>
-          <td>350 units | 80% prob</td>
+          <td>500 units | 80% prob</td>
         </tr>
         <tr>
           <td>Power-GOGO</td>
-          <td>300 units | 80% prob</td>
+          <td>200 units | 80% prob</td>
         </tr>
         <tr>
           <td>Zeen (ABV)</td>
-          <td>250 units | 80% prob</td>
+          <td>100 units | 80% prob</td>
         </tr>
         <tr>
           <td>Be Group</td>
-          <td>400 units | 30% prob</td>
+          <td>500 units | 30% prob</td>
         </tr>
         <tr style="border-top: 1px solid var(--red); color: var(--green); font-weight: 700;">
-          <td>Risk-Adjusted Q3 Total</td>
-          <td>~900 units (80% confidence)</td>
+          <td>Risk-Adjusted Q4 Total</td>
+          <td>~790 units</td>
         </tr>
       </table>
       <div class="highlight">
-        <div class="highlight-text"><strong>Near-term:</strong> 1,000 units Q3 2026 from signed MOUs. Long-term: 400K units by 2029 if market development executes (regulatory tailwind from HCMC gasoline ban for delivery/ride-hailing vehicles).</div>
+        <div class="highlight-text"><strong>Near-term:</strong> 1,300 units of gross Q4 2026 pipeline across signed and in-progress MOUs, ~790 risk-adjusted. Long-term: 400K units by 2029 if market development executes, with regulatory tailwind from HCMC's gasoline ban for delivery/ride-hailing vehicles.</div>
       </div>
     </div>
   </div>
 
-  <div class="section-title">Use of $450K Bridge Capital</div>
+  <div class="section-title">Use of $250K Bridge Capital</div>
+  <div class="section-summary">Where the $250K convertible bridge goes and in what order. <strong>Phase 1</strong> funds the pilot — tooling, a first batch of units, homologation, and runway — to prove the product and convert MOUs. <strong>Phase 2</strong> deploys the remainder toward early scale-up and working-capital seeding once the pilot validates demand. Capital is released against milestones, not all at once.</div>
   <div class="chart-container">
     <h3>Deployment by Phase</h3>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem; margin-top: 1rem;">
@@ -502,18 +569,22 @@ canvas { max-height: 350px; }
       </div>
 
       <div style="padding: 1rem; background: var(--bg1); border-radius: 6px; border-left: 3px solid var(--blue);">
-        <div style="color: var(--muted); font-size: 0.8rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">Phase 2: Scale (Months 3-6)</div>
-        <div style="color: #56a6f2; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">$210K deployed</div>
-        <div style="font-size: 0.85rem; color: var(--white);">Scale tooling ($360K tranched across 3 months), production ramp (variable COGS), Phase 1 team additions ($13.2K for 3-5 months), working capital facility seeding.</div>
+        <div style="color: var(--muted); font-size: 0.8rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">Phase 2: Early Scale (Months 3-6)</div>
+        <div style="color: #56a6f2; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">$137K deployed</div>
+        <div style="font-size: 0.85rem; color: var(--white);">The remainder of the $250K bridge: scale-tooling deposits (tranched), early production ramp (variable COGS), Phase 1 team additions (~$13.2K/month), and working-capital facility seeding. Includes a modest contingency buffer held within this phase.</div>
       </div>
     </div>
-    <div style="display: flex; justify-content: space-between; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
-      <span style="color: var(--muted); font-size: 0.9rem;">Contingency & Strategic Buffer</span>
-      <span style="color: var(--white); font-weight: 600;">$127K (28%)</span>
+    <div style="margin: 1.5rem 0 1rem; position: relative; height: 200px;">
+      <canvas id="bridgeChart" role="img" aria-label="Bridge capital split between Phase 1 and Phase 2"></canvas>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+      <span style="color: var(--muted); font-size: 0.9rem;">Total Bridge Deployed</span>
+      <span style="color: var(--white); font-weight: 600;">$250K (100%)</span>
     </div>
   </div>
 
   <div class="section-title">Dashboard Guide</div>
+  <div class="section-summary">A quick orientation for first-time readers — the four habits that make the rest of the dashboard make sense: switch scenarios, read the charts in sequence, sanity-check the unit economics, and watch the working-capital gap.</div>
   <div class="chart-container">
     <h3>How to Use This Dashboard</h3>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: 0.9rem; margin-top: 1rem;">
@@ -538,7 +609,7 @@ canvas { max-height: 350px; }
 
   <div class="footer">
     <p><strong>NUEN MOTO Volty U1 Financial Dashboard v1.6</strong> | Built May 2026 | Data sources: Unit Economics, Revenue Model, Cash Flow Projection, Operating Expenses, Scenario Analysis sheets from core financial model.</p>
-    <p style="margin-top: 1rem; color: var(--faint);">This dashboard is for internal use and investor presentations. All projections are based on confirmed unit pricing ($1,300 fleet, $1,500 retail), confirmed OPEX baseline ($24K/month Phase 0 team), and risk-adjusted customer pipeline. Liem's stress test flags (BOM sensitivity, working capital realism, CIT treatment) are fully addressed in the underlying model tabs.</p>
+    <p style="margin-top: 1rem; color: var(--faint);">This dashboard is for internal use and investor presentations. All projections are based on confirmed unit pricing ($1,300 fleet, $1,500 retail), confirmed OPEX baseline ($24K/month Phase 0 team), and risk-adjusted customer pipeline. The independent stress-test flags (BOM sensitivity, working capital realism, CIT treatment) are fully addressed in the underlying model tabs.</p>
   </div>
 
 </div>
@@ -643,35 +714,37 @@ const scenarios = {
     m12: [0,0,0,0,0,0,0,0,675000,1350000,2700000,4050000],
     m24: [0,0,0,0,0,0,0,0,675000,1350000,2700000,4050000,5400000,6750000,8100000,9450000,10800000,12150000,13500000,14850000,16200000,17550000,18900000,20250000],
     cash: [-27200,-54400,-81600,-187000,-296500,-405000,-513500,-622000,-532500,-422000,-310000,-202000,98000,310000,525000,743000,962000,1182000,1405000,1629000,1855000,2082000,2310000,2540000],
-    gm: 6.7,
-    breakMonth: 14,
-    breakUnits: 1800
+    gm: 6.7, breakMonth: 14, breakUnits: 1800
   },
   conservative: {
     m12: [0,0,0,0,0,0,0,0,425000,425000,850000,1275000],
     m24: [0,0,0,0,0,0,0,0,425000,425000,850000,1275000,1700000,2125000,2550000,2975000,3400000,3825000,4250000,4675000,5100000,5525000,5950000,6375000],
     cash: [-27200,-54400,-81600,-187000,-296500,-405000,-513500,-622000,-472000,-361500,-251000,-140500,70500,211500,352500,493500,634500,775500,916500,1057500,1198500,1339500,1480500,1621500],
-    gm: 2.4,
-    breakMonth: 18,
-    breakUnits: 2100
+    gm: 2.4, breakMonth: 18, breakUnits: 2100
   },
   optimistic: {
     m12: [0,0,0,0,0,0,0,0,1200000,2400000,3600000,4800000],
     m24: [0,0,0,0,0,0,0,0,1200000,2400000,3600000,4800000,6000000,7200000,8400000,9600000,10800000,12000000,13200000,14400000,15600000,16800000,18000000,19200000],
     cash: [-27200,-54400,-81600,-187000,-296500,-405000,-513500,-622000,-592000,-462000,-332000,-202000,268000,598000,928000,1258000,1588000,1918000,2248000,2578000,2908000,3238000,3568000,3898000],
-    gm: 15.4,
-    breakMonth: 10,
-    breakUnits: 1200
+    gm: 15.4, breakMonth: 10, breakUnits: 1200
   }
 };
 
 let currentScenario = 'base';
-let revenueChart, cashChart, opexChart, breakEvenChart, returnsChart;
+let revenueChart, cashChart, opexChart, opexMixChart, headcountChart,
+    breakEvenChart, returnsChart, fiveYearChart, unitCostChart,
+    capTableChart, pipelineChart, bridgeChart;
+
+const months = Array.from({length:24}, (_, i) => {
+  const d = new Date(2026,3,1);
+  d.setMonth(d.getMonth()+i);
+  return d.toLocaleDateString('en-US',{month:'short',year:'2-digit'});
+});
 
 function switchScenario(s) {
   currentScenario = s;
   document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
+  if (typeof event !== 'undefined' && event.target) event.target.classList.add('active');
   updateCharts();
   updateMetrics();
 }
@@ -687,102 +760,216 @@ function updateMetrics() {
 function updateCharts() {
   if (!revenueChart) return;
   const s = scenarios[currentScenario];
-  
   revenueChart.data.datasets[0].data = s.m24.map(v => v/1e6);
   revenueChart.update();
-  
   cashChart.data.datasets[0].data = s.cash.map(v => v/1e6);
   cashChart.update();
-  
-  opexChart.data.datasets[0].data = [27.2,27.2,27.2,30.5,30.5,30.5,30.5,30.5,34.8,34.8,34.8,34.8,39.6,39.6,39.6,39.6,44.8,44.8,44.8,44.8,50.4,50.4,50.4,50.4];
-  opexChart.update();
 }
-
-const months = Array.from({length:24}, (_, i) => {
-  const d = new Date(2026,3,1);
-  d.setMonth(d.getMonth()+i);
-  return d.toLocaleDateString('en-US',{month:'short',year:'2-digit'});
-});
 
 if (typeof Chart === 'undefined') {
   console.warn('Chart.js failed to load (CDN unreachable). Charts will not render, but the dashboard remains usable.');
 } else {
+
+// ---- Global dark-theme defaults + nicer tooltips/hover ----
+Chart.defaults.color = '#9b9ba2';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+Chart.defaults.font.family = "'Space Mono', monospace";
+Chart.defaults.font.size = 11;
+Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(10,10,11,0.95)';
+Chart.defaults.plugins.tooltip.borderColor = 'rgba(255,255,255,0.15)';
+Chart.defaults.plugins.tooltip.borderWidth = 1;
+Chart.defaults.plugins.tooltip.titleColor = '#f5f5f6';
+Chart.defaults.plugins.tooltip.bodyColor = '#f5f5f6';
+Chart.defaults.plugins.tooltip.padding = 10;
+Chart.defaults.plugins.tooltip.cornerRadius = 6;
+Chart.defaults.plugins.tooltip.displayColors = true;
+Chart.defaults.plugins.legend.display = false;
+Chart.defaults.maintainAspectRatio = false;
+Chart.defaults.responsive = true;
+Chart.defaults.interaction = { mode: 'index', intersect: false };
+Chart.defaults.animation = { duration: 700, easing: 'easeOutQuart' };
+
+const fmtUSD = (v) => '$' + v.toLocaleString();
+
+// ---- 1. 24-Month Revenue (scenario-driven, stacked) ----
 revenueChart = new Chart(document.getElementById('revenueChart'), {
   type: 'bar',
   data: {
     labels: months,
     datasets: [
-      {label:'Vehicle',data:scenarios.base.m24.map(v=>v/1e6),backgroundColor:'#56a6f2',borderWidth:0},
-      {label:'Accessories',data:Array(24).fill(0.2),backgroundColor:'#aef24a',borderWidth:0},
-      {label:'Services',data:Array(24).fill(0.1),backgroundColor:'#ff7a4d',borderWidth:0}
+      {label:'Vehicle',data:scenarios.base.m24.map(v=>v/1e6),backgroundColor:'#56a6f2',borderWidth:0,borderRadius:3},
+      {label:'Accessories',data:Array(24).fill(0.2),backgroundColor:'#aef24a',borderWidth:0,borderRadius:3},
+      {label:'Services',data:Array(24).fill(0.1),backgroundColor:'#ff7a4d',borderWidth:0,borderRadius:3}
     ]
   },
-  options: {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{stacked:true,ticks:{autoSkip:true}},y:{stacked:true,title:{display:true,text:'Revenue ($M)'}},}}
+  options: {plugins:{tooltip:{callbacks:{label:(c)=>c.dataset.label+': $'+c.parsed.y.toFixed(2)+'M'}}},scales:{x:{stacked:true,ticks:{autoSkip:true,maxRotation:0}},y:{stacked:true,title:{display:true,text:'Revenue ($M)'}}}}
 });
 
+// ---- 2. Cumulative Cash + Healthy Runway threshold ----
 cashChart = new Chart(document.getElementById('cashChart'), {
   type: 'line',
   data: {
     labels: months,
-    datasets: [{
-      label:'Cumulative Cash',
-      data:scenarios.base.cash.map(v=>v/1e6),
-      borderColor:'#E2231A',
-      backgroundColor:'rgba(226,35,26,0.1)',
-      borderWidth:2,
-      fill:true,
-      tension:0.3,
-      pointRadius:0,
-      pointHoverRadius:4
-    }]
+    datasets: [
+      {label:'Cumulative Cash',data:scenarios.base.cash.map(v=>v/1e6),borderColor:'#E2231A',backgroundColor:'rgba(226,35,26,0.12)',borderWidth:2,fill:true,tension:0.3,pointRadius:0,pointHoverRadius:4},
+      {label:'Healthy Runway ($0 line)',data:Array(24).fill(0),borderColor:'#aef24a',borderWidth:1.5,borderDash:[6,4],fill:false,pointRadius:0,pointHoverRadius:0,tension:0}
+    ]
   },
-  options: {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{title:{display:true,text:'Cash ($M)'},suggestedMin:-0.5,suggestedMax:3}}}
+  options: {plugins:{tooltip:{callbacks:{label:(c)=>c.dataset.label+': $'+c.parsed.y.toFixed(2)+'M'}}},scales:{y:{title:{display:true,text:'Cash ($M)'},suggestedMin:-0.7,suggestedMax:3}}}
 });
 
+// ---- 3. 5-Year Revenue Projection (combo: 3 scenario bars + base units line) ----
+fiveYearChart = new Chart(document.getElementById('fiveYearChart'), {
+  data: {
+    labels: ['2026','2027','2028','2029','2030'],
+    datasets: [
+      {type:'bar',label:'Conservative',data:[2,14,38,72,120],backgroundColor:'#ff7a4d',borderWidth:0,borderRadius:4,yAxisID:'y'},
+      {type:'bar',label:'Base',data:[3,22,60,130,215],backgroundColor:'#56a6f2',borderWidth:0,borderRadius:4,yAxisID:'y'},
+      {type:'bar',label:'Optimistic',data:[5,35,95,190,310],backgroundColor:'#aef24a',borderWidth:0,borderRadius:4,yAxisID:'y'},
+      {type:'line',label:'Base Cumulative Units (K)',data:[2,18,55,130,230],borderColor:'#f5f5f6',backgroundColor:'#f5f5f6',borderWidth:2,tension:0.35,pointRadius:4,pointHoverRadius:6,yAxisID:'y1'}
+    ]
+  },
+  options: {
+    plugins:{tooltip:{callbacks:{label:(c)=>c.dataset.yAxisID==='y1'?c.dataset.label+': '+c.parsed.y+'K units':c.dataset.label+': $'+c.parsed.y+'M'}}},
+    scales:{
+      y:{position:'left',title:{display:true,text:'Annual Revenue ($M)'},beginAtZero:true},
+      y1:{position:'right',title:{display:true,text:'Cumulative Units (K)'},beginAtZero:true,grid:{drawOnChartArea:false}}
+    }
+  }
+});
+
+// ---- 4. Unit Cost doughnut ----
+unitCostChart = new Chart(document.getElementById('unitCostChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['BOM','Assembly Labor','Logistics','Tooling Amort.','Testing & Cert'],
+    datasets: [{data:[910,35,20,20,3],backgroundColor:['#56a6f2','#aef24a','#ff7a4d','#9b6cf2','#E2231A'],borderColor:'#17171a',borderWidth:2}]
+  },
+  options: {cutout:'60%',plugins:{legend:{display:true,position:'right',labels:{boxWidth:10,padding:8}},tooltip:{callbacks:{label:(c)=>c.label+': $'+c.parsed+' ('+(c.parsed/988*100).toFixed(1)+'%)'}}}}
+});
+
+// ---- 5. OPEX combo: stacked categories + headcount line ----
+const opexTotals = [27.2,27.2,27.2,30.5,30.5,30.5,30.5,30.5,34.8,34.8,34.8,34.8,39.6,39.6,39.6,39.6,44.8,44.8,44.8,44.8,50.4,50.4,50.4,50.4];
+const payroll = opexTotals.map(t => +(t*0.58).toFixed(1));
+const sAndM   = opexTotals.map(t => +(t*0.18).toFixed(1));
+const rnd     = opexTotals.map(t => +(t*0.14).toFixed(1));
+const gAndA   = opexTotals.map(t => +(t*0.10).toFixed(1));
+const headcount = months.map((_, i) => i < 3 ? 6 : i < 6 ? 10 : i < 18 ? 19 : 26);
 opexChart = new Chart(document.getElementById('opexChart'), {
-  type: 'line',
   data: {
     labels: months,
-    datasets: [{
-      label:'Monthly OPEX',
-      data:[27.2,27.2,27.2,30.5,30.5,30.5,30.5,30.5,34.8,34.8,34.8,34.8,39.6,39.6,39.6,39.6,44.8,44.8,44.8,44.8,50.4,50.4,50.4,50.4],
-      borderColor:'#ff7a4d',
-      backgroundColor:'rgba(255,122,77,0.2)',
-      borderWidth:2,
-      fill:true,
-      tension:0.3,
-      pointRadius:0
-    }]
+    datasets: [
+      {type:'bar',label:'Payroll',data:payroll,backgroundColor:'#56a6f2',borderWidth:0,stack:'opex',yAxisID:'y'},
+      {type:'bar',label:'Sales & Marketing',data:sAndM,backgroundColor:'#aef24a',borderWidth:0,stack:'opex',yAxisID:'y'},
+      {type:'bar',label:'R&D / Engineering',data:rnd,backgroundColor:'#ff7a4d',borderWidth:0,stack:'opex',yAxisID:'y'},
+      {type:'bar',label:'G&A / Other',data:gAndA,backgroundColor:'#9b6cf2',borderWidth:0,stack:'opex',yAxisID:'y'},
+      {type:'line',label:'Headcount',data:headcount,borderColor:'#f5f5f6',backgroundColor:'#f5f5f6',borderWidth:2,stepped:true,pointRadius:0,pointHoverRadius:5,yAxisID:'y1'}
+    ]
   },
-  options: {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{title:{display:true,text:'OPEX ($K)'},beginAtZero:true}}}
+  options: {
+    plugins:{tooltip:{callbacks:{label:(c)=>c.dataset.yAxisID==='y1'?'Headcount: '+c.parsed.y:c.dataset.label+': $'+c.parsed.y+'K'}}},
+    scales:{
+      x:{stacked:true,ticks:{autoSkip:true,maxRotation:0}},
+      y:{stacked:true,position:'left',title:{display:true,text:'Monthly OPEX ($K)'},beginAtZero:true},
+      y1:{position:'right',title:{display:true,text:'Headcount'},beginAtZero:true,suggestedMax:30,grid:{drawOnChartArea:false}}
+    }
+  }
 });
 
+// ---- 6. OPEX mix doughnut (month 24) ----
+opexMixChart = new Chart(document.getElementById('opexMixChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Payroll','Sales & Marketing','R&D / Engineering','G&A / Other'],
+    datasets: [{data:[payroll[23],sAndM[23],rnd[23],gAndA[23]],backgroundColor:['#56a6f2','#aef24a','#ff7a4d','#9b6cf2'],borderColor:'#17171a',borderWidth:2}]
+  },
+  options: {cutout:'58%',plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,padding:8}},tooltip:{callbacks:{label:(c)=>c.label+': $'+c.parsed+'K'}}}}
+});
+
+// ---- 7. Headcount by phase ----
+headcountChart = new Chart(document.getElementById('headcountChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Phase 0','Phase 1','Phase 2','Phase 3'],
+    datasets: [{label:'Headcount',data:[6,10,19,26],backgroundColor:['#6c6c73','#56a6f2','#aef24a','#E2231A'],borderWidth:0,borderRadius:4}]
+  },
+  options: {plugins:{tooltip:{callbacks:{label:(c)=>c.parsed.y+' people'}}},scales:{y:{beginAtZero:true,title:{display:true,text:'Cumulative Headcount'}}}}
+});
+
+// ---- 8. Break Even by scenario ----
 breakEvenChart = new Chart(document.getElementById('breakEvenChart'), {
   type: 'bar',
   data: {
     labels: ['Conservative','Base','Optimistic'],
-    datasets: [{
-      label:'Break Even Month',
-      data:[18,14,10],
-      backgroundColor:['#ff7a4d','#aef24a','#56a6f2'],
-      borderWidth:0
-    }]
+    datasets: [{label:'Break Even Month',data:[18,14,10],backgroundColor:['#ff7a4d','#aef24a','#56a6f2'],borderWidth:0,borderRadius:4}]
   },
-  options: {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:25,title:{display:true,text:'Months to Break Even'}}}}
+  options: {plugins:{tooltip:{callbacks:{label:(c)=>'Break even: month '+c.parsed.y}}},scales:{y:{beginAtZero:true,max:25,title:{display:true,text:'Months to Break Even'}}}}
 });
 
+// ---- 9. Investor exit scenarios (combo: valuation bars + MOIC line) ----
 returnsChart = new Chart(document.getElementById('returnsChart'), {
-  type: 'bar',
   data: {
-    labels: ['$30M','$50M','$75M','$100M+'],
-    datasets: [{
-      label:'Stake Value',
-      data:[1.05,1.75,2.62,3.50],
-      backgroundColor:'#aef24a',
-      borderWidth:0
-    }]
+    labels: ['Yr 5 · $50M','Yr 6 · $120M','Yr 8 · $300M','Yr 10 · $600M'],
+    datasets: [
+      {type:'bar',label:'Exit Valuation ($M)',data:[50,120,300,600],backgroundColor:'#56a6f2',borderWidth:0,borderRadius:4,yAxisID:'y'},
+      {type:'line',label:'Investor MOIC (x)',data:[3.6,7.7,16.8,28.8],borderColor:'#aef24a',backgroundColor:'#aef24a',borderWidth:2,tension:0.35,pointRadius:5,pointHoverRadius:7,yAxisID:'y1'}
+    ]
   },
-  options: {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,title:{display:true,text:'Exit Value ($M)'}}}}
+  options: {
+    plugins:{tooltip:{callbacks:{label:(c)=>c.dataset.yAxisID==='y1'?'MOIC: '+c.parsed.y+'x':'Exit: $'+c.parsed.y+'M'}}},
+    scales:{
+      y:{position:'left',title:{display:true,text:'Exit Valuation ($M)'},beginAtZero:true},
+      y1:{position:'right',title:{display:true,text:'Return Multiple (x)'},beginAtZero:true,grid:{drawOnChartArea:false}}
+    }
+  }
+});
+
+// ---- 10. Cap table doughnut ----
+capTableChart = new Chart(document.getElementById('capTableChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Gia Nguyen','Han Hoang','Hai Vo','Tim Nielsen'],
+    datasets: [{data:[38.8,29.1,19.1,13.0],backgroundColor:['#E2231A','#56a6f2','#aef24a','#ff7a4d'],borderColor:'#17171a',borderWidth:2}]
+  },
+  options: {cutout:'58%',plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,padding:8}},tooltip:{callbacks:{label:(c)=>c.label+': '+c.parsed+'%'}}}}
+});
+
+// ---- 11. Customer pipeline bubble (units x probability, size = risk-adjusted) ----
+const pipeNames = ['Selex Motors','Power-GOGO','Zeen (ABV)','Be Group'];
+const pipeData = [
+  {x:500,y:80,r:26,c:'#56a6f2',ra:400},
+  {x:200,y:80,r:16,c:'#aef24a',ra:160},
+  {x:100,y:80,r:12,c:'#ff7a4d',ra:80},
+  {x:500,y:30,r:16,c:'#E2231A',ra:150}
+];
+pipelineChart = new Chart(document.getElementById('pipelineChart'), {
+  type: 'bubble',
+  data: {
+    datasets: pipeData.map((d, i) => ({
+      label: pipeNames[i],
+      data: [{x:d.x,y:d.y,r:d.r,ra:d.ra}],
+      backgroundColor: d.c + 'cc',
+      borderColor: d.c,
+      borderWidth: 1
+    }))
+  },
+  options: {
+    plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,padding:8}},tooltip:{callbacks:{label:(c)=>{const p=c.raw;return c.dataset.label+': '+p.x+' units @ '+p.y+'% → '+p.ra+' risk-adj.';}}}},
+    scales:{
+      x:{title:{display:true,text:'Pipeline Units'},beginAtZero:true,suggestedMax:600},
+      y:{title:{display:true,text:'Close Probability (%)'},beginAtZero:true,max:100}
+    }
+  }
+});
+
+// ---- 12. Bridge capital split doughnut ----
+bridgeChart = new Chart(document.getElementById('bridgeChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Phase 1: Pilot ($113K)','Phase 2: Early Scale ($137K)'],
+    datasets: [{data:[113,137],backgroundColor:['#E2231A','#56a6f2'],borderColor:'#17171a',borderWidth:2}]
+  },
+  options: {cutout:'62%',plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,padding:8}},tooltip:{callbacks:{label:(c)=>c.label+' — '+(c.parsed/250*100).toFixed(0)+'%'}}}}
 });
 
 }
