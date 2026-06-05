@@ -118,6 +118,78 @@ canvas { max-height: 350px; }
 .guide-wrap .section-title { margin-top: 0.5rem; }
 .guide-wrap .chart-container { background: #2b2c33; border-color: rgba(255,255,255,0.1); }
 
+/* ===== Interactive glow & hover effects (site-wide) ===== */
+.metric-card, .stat-pill, .chart-container, .chart-wide, .exec-summary-box, .closing-box, .guide-wrap {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.metric-card:hover, .stat-pill:hover, .chart-container:hover, .chart-wide:hover {
+  transform: translateY(-4px);
+  border-color: rgba(226,35,26,0.55);
+  box-shadow: 0 12px 34px rgba(226,35,26,0.16), inset 0 0 0 1px rgba(226,35,26,0.22);
+}
+.exec-summary-box:hover, .closing-box:hover {
+  transform: translateY(-3px);
+  border-color: rgba(86,166,242,0.45);
+  box-shadow: 0 14px 42px rgba(86,166,242,0.14);
+}
+.guide-wrap:hover { border-color: rgba(86,166,242,0.4); box-shadow: 0 14px 42px rgba(0,0,0,0.45), 0 0 30px rgba(86,166,242,0.10); }
+
+/* Metric numbers: soft persistent glow, brighter on hover */
+.metric-value { text-shadow: 0 0 16px rgba(226,35,26,0.45); transition: text-shadow 0.3s ease; }
+.metric-card:hover .metric-value { text-shadow: 0 0 28px rgba(226,35,26,0.8); }
+.metric-value.green { text-shadow: 0 0 16px rgba(174,242,74,0.45); }
+.metric-card:hover .metric-value.green { text-shadow: 0 0 28px rgba(174,242,74,0.85); }
+.metric-value.blue { text-shadow: 0 0 16px rgba(86,166,242,0.45); }
+.metric-card:hover .metric-value.blue { text-shadow: 0 0 28px rgba(86,166,242,0.85); }
+.metric-value.amber { text-shadow: 0 0 16px rgba(255,122,77,0.45); }
+.metric-card:hover .metric-value.amber { text-shadow: 0 0 28px rgba(255,122,77,0.85); }
+.stat-pill .val { transition: text-shadow 0.3s ease; }
+.stat-pill:hover .val { text-shadow: 0 0 24px currentColor; }
+
+/* Scenario buttons: glow on hover, pulsing glow when active */
+.scenario-btn { transition: all 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
+.scenario-btn:hover { border-color: var(--red); color: var(--white); transform: translateY(-2px); box-shadow: 0 0 18px rgba(226,35,26,0.45); }
+.scenario-btn.active { box-shadow: 0 0 22px rgba(226,35,26,0.6); animation: btnPulse 2.8s ease-in-out infinite; }
+@keyframes btnPulse { 0%, 100% { box-shadow: 0 0 16px rgba(226,35,26,0.45); } 50% { box-shadow: 0 0 30px rgba(226,35,26,0.78); } }
+
+/* Section accent bar: glowing pulse; title text glows on hover */
+.section-title::before { box-shadow: 0 0 14px rgba(226,35,26,0.85); animation: barPulse 3.2s ease-in-out infinite; }
+@keyframes barPulse { 0%, 100% { box-shadow: 0 0 10px rgba(226,35,26,0.55); } 50% { box-shadow: 0 0 22px rgba(226,35,26,0.95); } }
+.section-title { transition: text-shadow 0.3s ease; }
+.section-title:hover { text-shadow: 0 0 26px rgba(226,35,26,0.45); }
+
+/* Highlight callouts */
+.highlight { transition: box-shadow 0.3s ease, background 0.3s ease; }
+.highlight:hover { background: rgba(226,35,26,0.16); box-shadow: 0 0 22px rgba(226,35,26,0.18); }
+
+/* Table rows light up on hover */
+.unit-economics-table tr { transition: background 0.2s ease; }
+.unit-economics-table tr:hover { background: rgba(255,255,255,0.045); }
+.unit-economics-table tr:hover td:last-child { text-shadow: 0 0 14px currentColor; }
+
+/* Chart legend swatches react */
+.legend-item { transition: transform 0.2s ease; }
+.legend-item:hover { transform: translateX(2px); }
+.legend-box { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.legend-item:hover .legend-box { transform: scale(1.3); box-shadow: 0 0 12px rgba(255,255,255,0.6); }
+
+/* Runway note glow on hover */
+.runway-note { transition: box-shadow 0.3s ease; }
+.runway-note:hover { box-shadow: 0 0 18px rgba(174,242,74,0.4); }
+
+/* Password gate: glow on focus/hover, pulsing mark */
+.password-btn { transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease; }
+.password-btn:hover { background: var(--red-l); box-shadow: 0 0 28px rgba(226,35,26,0.6); }
+.password-input { transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.password-input:focus { border-color: var(--red); box-shadow: 0 0 22px rgba(226,35,26,0.35); }
+.pw-mk { animation: mkPulse 2.8s ease-in-out infinite; }
+@keyframes mkPulse { 0%, 100% { box-shadow: 0 0 22px rgba(226,35,26,0.8); } 50% { box-shadow: 0 0 40px rgba(226,35,26,1); } }
+
+/* Respect reduced-motion: stop the looping pulses */
+@media (prefers-reduced-motion: reduce) {
+  .scenario-btn.active, .section-title::before, .pw-mk { animation: none !important; }
+}
+
 /* Password Protection Styles (gate look, matches Business Plan) */
 .password-overlay { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 24px;
   background: radial-gradient(120% 90% at 50% 30%, rgba(226,35,26,.18), transparent 55%), #070708; }
