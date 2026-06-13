@@ -743,6 +743,15 @@ if(mv){
  mv.addEventListener('camera-change',function(e){if(e.detail&&e.detail.source==='user-interaction')hideHint();});
  mv.addEventListener('pointerdown',hideHint);
  setTimeout(hideHint,8000);
+ mv.addEventListener('error',function(ev){
+   var fileMode=(location.protocol==='file:');
+   var msg=fileMode?'3D model blocked when opened as a local file. Serve the page over http, or use the standalone file.'
+                   :'3D model failed to load. Keep VOLTY_U1.glb in the same folder as this page.';
+   if(rothint){rothint.classList.remove('gone');var s=rothint.querySelector('span');if(s)s.textContent=msg;
+     rothint.style.maxWidth='min(82vw,540px)';rothint.style.textAlign='center';rothint.style.letterSpacing='.03em';rothint.style.lineHeight='1.5';}
+   console.error('[Volty hero] model-viewer error:',(ev&&ev.detail)||ev);
+ });
+ if(location.protocol==='file:')console.warn('[Volty hero] Opened via file:// \u2014 browsers block the 3D fetch here. Serve over http for local preview.');
 }
 </script>
 <script>
