@@ -175,6 +175,50 @@ footer{padding:40px 0;border-top:1px solid var(--line);color:var(--faint);font-f
   </div>
 </div></section>
 
+
+<section><div class="wrap">
+  <span class="eyebrow" style="color:var(--red)">Five-Year Projection · Model v1.6.1</span>
+  <h2 class="disp">Where the batch leads.</h2>
+  <p class="truth" style="margin-top:14px">This first batch is year one of the ramp modeled in v1.6.1. The base case reaches roughly 15,000 units and $22.9M revenue inside 24 months, then compounds. Conservative and optimistic bands are shown so you price your own risk. <b>These are model estimates, not commitments;</b> hardware scaling is execution-dependent.</p>
+  <div class="grid2" style="margin-top:22px;align-items:start">
+    <div class="chartbox" style="height:346px"><canvas id="fiveYearChart"></canvas></div>
+    <div>
+      <table>
+        <tr><th>Revenue ($M)</th><th style="text-align:right">2026</th><th style="text-align:right">2028</th><th style="text-align:right">2030</th></tr>
+        <tr><td>Conservative</td><td class="n">$2</td><td class="n">$38</td><td class="n">$120</td></tr>
+        <tr><td>Base</td><td class="n">$3</td><td class="n">$60</td><td class="n">$215</td></tr>
+        <tr><td>Optimistic</td><td class="n">$5</td><td class="n">$95</td><td class="n">$310</td></tr>
+        <tr class="sub"><td>Base cumulative units</td><td class="n">2K</td><td class="n">55K</td><td class="n">230K</td></tr>
+      </table>
+      <p class="disc">Base case: ~26% blended gross margin at scale, break-even near month 14. The 500-unit batch in this round is the first bar on this curve.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow" style="color:var(--red)">Company Value &amp; Shareholder Growth</span>
+  <h2 class="disp">What the equity is worth.</h2>
+  <p class="truth" style="margin-top:14px">Base-case company value, anchored to today's round (~$11M post-money) and the model's 2030 Series A path (~$100M post-money). Below, how each shareholder's stake compounds across those five years. <b>Illustrative;</b> a real outcome depends on traction, terms, and market.</p>
+  <div class="grid2" style="margin-top:22px;align-items:start">
+    <div class="chartbox" style="height:346px"><canvas id="valueChart"></canvas></div>
+    <div>
+      <table>
+        <tr><th>Stake value</th><th style="text-align:right">2026</th><th style="text-align:right">2030</th><th style="text-align:right">Growth</th></tr>
+        <tr><td>Gia Nguyen · 34.1%</td><td class="n">$3.8M</td><td class="n">$34.1M</td><td class="n">9.1x</td></tr>
+        <tr><td>Han Hoang · 27.4%</td><td class="n">$3.0M</td><td class="n">$27.4M</td><td class="n">9.1x</td></tr>
+        <tr><td>Hai Vo · 16.8%</td><td class="n">$1.8M</td><td class="n">$16.8M</td><td class="n">9.1x</td></tr>
+        <tr><td>Tim Nielsen · 11.4%</td><td class="n">$1.3M</td><td class="n">$11.4M</td><td class="n">9.1x</td></tr>
+        <tr class="tot"><td>This round · 10.3%</td><td class="n">$1.15M</td><td class="n">$10.3M</td><td class="n">9.0x</td></tr>
+      </table>
+      <p class="disc">Ownership illustrative, assuming this $1.15M round at a $10M pre-money. The alternative no-further-raise exit path values the company near $60M in 2030. The Series A and exit paths are mutually exclusive.</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:22px">
+    <span class="mono" style="color:var(--red)">This round's investor</span>
+    <p style="margin-top:10px;font-size:16px"><b>$1.15M in today buys about 10.3% of the company.</b> On the base-case path that stake is worth ~$10.3M by 2030, roughly <b>9x in five years</b>. The conservative no-raise exit path values it near $6.2M, about 5.4x. Either way, this batch is the entry point.</p>
+  </div>
+</div></section>
+
 <section><div class="wrap">
   <div class="callout" style="border-left-color:var(--red)">
     <span class="mono" style="color:var(--red)">Bottom line</span>
@@ -228,6 +272,28 @@ function initCharts(){
       datasets:[{data:[250,150,100],backgroundColor:['#E2231A','#56a6f2','#aef24a'],borderColor:'#0a0a0b',borderWidth:2}]},
     options:{cutout:'56%',plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
       tooltip:{callbacks:{label:c=>c.label+' units'}}}}});
+  new Chart(document.getElementById('fiveYearChart'),{
+    data:{labels:['2026','2027','2028','2029','2030'],datasets:[
+      {type:'bar',label:'Conservative',data:[2,14,38,72,120],backgroundColor:'#ff7a4d',borderRadius:4,yAxisID:'y'},
+      {type:'bar',label:'Base',data:[3,22,60,130,215],backgroundColor:'#56a6f2',borderRadius:4,yAxisID:'y'},
+      {type:'bar',label:'Optimistic',data:[5,35,95,190,310],backgroundColor:'#aef24a',borderRadius:4,yAxisID:'y'},
+      {type:'line',label:'Base cumulative units (K)',data:[2,18,55,130,230],borderColor:'#f5f5f6',backgroundColor:'#f5f5f6',borderWidth:2,tension:.35,pointRadius:3,yAxisID:'y1'}
+    ]},
+    options:{plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
+      tooltip:{callbacks:{label:c=>c.dataset.yAxisID==='y1'?c.dataset.label+': '+c.parsed.y+'K':c.dataset.label+': $'+c.parsed.y+'M'}}},
+      scales:{y:{position:'left',grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>'$'+v+'M',font:{family:'Space Mono',size:10}},title:{display:true,text:'Revenue $M',color:'#6c6c73'}},
+        y1:{position:'right',grid:{drawOnChartArea:false},ticks:{color:'#9b9ba2',callback:v=>v+'K',font:{family:'Space Mono',size:10}}},
+        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
+  new Chart(document.getElementById('valueChart'),{
+    data:{labels:['2026','2027','2028','2029','2030'],datasets:[
+      {type:'bar',label:'Company value ($M, base)',data:[11,20,36,62,100],backgroundColor:'#E2231A',borderRadius:4,yAxisID:'y'},
+      {type:'line',label:"This round's stake ($M)",data:[1.13,2.06,3.71,6.39,10.30],borderColor:'#aef24a',backgroundColor:'#aef24a',borderWidth:2,tension:.35,pointRadius:4,yAxisID:'y'}
+    ]},
+    options:{plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': $'+c.parsed.y+'M'}}},
+      scales:{y:{grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>'$'+v+'M',font:{family:'Space Mono',size:10}}},
+        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
+
 }
 </script>
 </body></html>
