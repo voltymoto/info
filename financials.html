@@ -55,7 +55,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);color:var(--faint);font-f
 @media(max-width:820px){.grid2{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}.chartbox{height:280px}}
 /* gate */
 .password-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:var(--bg);flex-direction:column;padding:24px}
-.pw-mark{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:26px;margin-bottom:8px}
+.pw-mark{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(19px,5.2vw,26px);line-height:1.12;letter-spacing:.01em;margin-bottom:10px;text-align:center;max-width:340px}
+.pw-brand{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-top:22px}
 .pw-mark span{color:var(--red)}
 .pw-sub{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:26px}
 .password-input{background:var(--bg1);border:1px solid var(--line);color:var(--white);padding:14px 16px;font-family:var(--mono);font-size:14px;width:260px;text-align:center;letter-spacing:.1em}
@@ -67,11 +68,12 @@ footer{padding:40px 0;border-top:1px solid var(--line);color:var(--faint);font-f
 </style></head>
 <body>
 <div class="password-overlay" id="gate">
-  <div class="pw-mark">NUEN<span>·</span>MOTO</div>
-  <div class="pw-sub">Confidential Financials · Access Required</div>
+  <div class="pw-mark">VOLTY U1<span> : </span>FINANCIAL DASHBOARD</div>
+  <div class="pw-sub">Confidential · Access Required</div>
   <input type="password" id="passwordInput" class="password-input" placeholder="Password" autocomplete="off">
   <button class="pw-btn" id="pwBtn">Unlock</button>
   <div class="pw-err" id="pwErr"></div>
+  <div class="pw-brand">NUEN MOTO</div>
 </div>
 <div id="content">
 <header><div class="wrap"><span class="brand">NUEN<span>·</span>MOTO</span><span class="conf">Confidential</span></div></header>
@@ -87,8 +89,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);color:var(--faint);font-f
 <section><div class="wrap">
   <div class="grid3">
     <div class="stat"><b class="red">$1.15M</b><span>Immediate raise</span></div>
+    <div class="stat"><b>10.3%</b><span>Equity offered</span></div>
     <div class="stat"><b>500</b><span>Units, first batch</span></div>
-    <div class="stat"><b>~14%</b><span>Batch gross margin</span></div>
   </div>
   <p class="disc">Plus $100K founder equity already committed (Han Hoang, per Members' Resolution), for $1.25M total deployment. Figures derived from Financial Model v1.6.1. Live cash and burn are reported separately in the monthly investor update.</p>
 </div></section>
@@ -176,6 +178,25 @@ footer{padding:40px 0;border-top:1px solid var(--line);color:var(--faint);font-f
 </div></section>
 
 
+
+<section><div class="wrap">
+  <span class="eyebrow" style="color:var(--red)">Unit Economics · At Scale</span>
+  <h2 class="disp">Where the margin lives.</h2>
+  <p class="truth" style="margin-top:14px">The 14% on this batch is the floor, not the model. Two things move it: the BOM curve flattens toward <b>$1,019</b> past 1,000 units, and blended pricing (fleet plus retail, plus accessory and service attach) lifts the average sale well above the $1,200 fleet number. That is where a 25%+ gross margin comes from.</p>
+  <div class="grid2" style="margin-top:22px;align-items:start">
+    <div class="chartbox" style="height:320px"><canvas id="scaleChart"></canvas></div>
+    <div>
+      <table>
+        <tr><th>Volume &amp; mix</th><th style="text-align:right">Cost</th><th style="text-align:right">Price</th><th style="text-align:right">GM</th></tr>
+        <tr><td>500 units · fleet</td><td class="n">$1,032</td><td class="n">$1,200</td><td class="n">14%</td></tr>
+        <tr><td>1,000 to 5,000 · fleet</td><td class="n">$1,032</td><td class="n">$1,200</td><td class="n">14%</td></tr>
+        <tr><td>15,000+ · fleet</td><td class="n">$1,019</td><td class="n">$1,200</td><td class="n">15%</td></tr>
+        <tr class="tot"><td>15,000+ · blended</td><td class="n">$1,019</td><td class="n">$1,350</td><td class="n">25%</td></tr>
+      </table>
+      <p class="disc">LTV per fleet customer $1,590 (vehicle + accessories + 24 months of service) against $25 CAC, a 63.6x ratio. The vehicle sale is the entry point; attach and service are the margin.</p>
+    </div>
+  </div>
+</div></section>
 <section><div class="wrap">
   <span class="eyebrow" style="color:var(--red)">Five-Year Projection · Model v1.6.1</span>
   <h2 class="disp">Where the batch leads.</h2>
@@ -195,6 +216,58 @@ footer{padding:40px 0;border-top:1px solid var(--line);color:var(--faint);font-f
   </div>
 </div></section>
 
+
+<section><div class="wrap">
+  <span class="eyebrow" style="color:var(--red)">Path To Break-Even</span>
+  <h2 class="disp">Fourteen months to the line.</h2>
+  <p class="truth" style="margin-top:14px">On the base ramp, cumulative cash flow crosses zero near <b>month 14</b>. Blended contribution is about <b>$503 per unit</b> once accessories and service are counted, so each unit past break-even compounds. This is illustrative of the model's base case, not a commitment.</p>
+  <div class="grid2" style="margin-top:22px;align-items:start">
+    <div class="chartbox" style="height:320px"><canvas id="breakevenChart"></canvas></div>
+    <div>
+      <table>
+        <tr><th>Metric</th><th style="text-align:right">Base</th></tr>
+        <tr><td>Break-even month</td><td class="n">~14</td></tr>
+        <tr><td>Contribution margin / unit</td><td class="n">$503</td></tr>
+        <tr><td>12-month revenue</td><td class="n">$4.4M</td></tr>
+        <tr><td>24-month revenue</td><td class="n">$22.9M</td></tr>
+        <tr><td>Gross margin % at scale (blended)</td><td class="n">~26%</td></tr>
+      </table>
+      <p class="disc">The 500-unit batch is month one of this curve. It is not built to be profitable on its own; it is built to prove the line and unlock the cost base.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow" style="color:var(--red)">Cash &amp; Runway</span>
+  <h2 class="disp">The bridge to self-funding.</h2>
+  <p class="truth" style="margin-top:14px">The $1.25M deploys fast: tooling and the first batch front-load in the opening 60 days. Cash troughs near <b>$240K around month 2</b>, then the batch delivers and <b>~$600K</b> of revenue lands, funding batch two from cash flow rather than the raise. Illustrative base case.</p>
+  <div class="grid2" style="margin-top:22px;align-items:start">
+    <div class="chartbox" style="height:320px"><canvas id="cashChart"></canvas></div>
+    <div>
+      <ul class="clean">
+        <li><b>$1.25M</b> deployed: $1.15M raise plus $100K founder equity.</li>
+        <li><b>~$240K</b> cash trough at month 2, the working-capital low point.</li>
+        <li><b>~$600K</b> batch revenue on delivery recovers most of COGS.</li>
+        <li><b>Batch two onward</b> funded by revenue, extending runway toward a priced Series A.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow" style="color:var(--red)">Cap Table</span>
+  <h2 class="disp">Clean, and staying that way.</h2>
+  <p class="truth" style="margin-top:14px">A Vietnamese LLC on member capital contributions. This round takes <b>10.3%</b> at a $10M pre-money and dilutes existing members proportionally. No prior priced equity, no option pool overhang yet.</p>
+  <table style="margin-top:20px;max-width:640px">
+    <tr><th>Holder</th><th style="text-align:right">Pre-round</th><th style="text-align:right">Post-$1.15M</th></tr>
+    <tr><td>Gia Nguyen · Co-Founder, CPO</td><td class="n">38.8%</td><td class="n">34.8%</td></tr>
+    <tr><td>Han Hoang · Co-Founder, Strategy</td><td class="n">29.1%</td><td class="n">26.1%</td></tr>
+    <tr><td>Hai Vo · Co-Founder, COO</td><td class="n">19.1%</td><td class="n">17.1%</td></tr>
+    <tr><td>Tim Nielsen · Angel</td><td class="n">13.0%</td><td class="n">11.7%</td></tr>
+    <tr class="tot"><td>This round investor</td><td class="n">—</td><td class="n">10.3%</td></tr>
+  </table>
+  <p class="disc">A 10% ESOP, if added at or after a priced round, would dilute all holders proportionally.</p>
+</div></section>
 <section><div class="wrap">
   <span class="eyebrow" style="color:var(--red)">Company Value &amp; Shareholder Growth</span>
   <h2 class="disp">What the equity is worth.</h2>
@@ -204,10 +277,10 @@ footer{padding:40px 0;border-top:1px solid var(--line);color:var(--faint);font-f
     <div>
       <table>
         <tr><th>Stake value</th><th style="text-align:right">2026</th><th style="text-align:right">2030</th><th style="text-align:right">Growth</th></tr>
-        <tr><td>Gia Nguyen · 34.1%</td><td class="n">$3.8M</td><td class="n">$34.1M</td><td class="n">9.1x</td></tr>
-        <tr><td>Han Hoang · 27.4%</td><td class="n">$3.0M</td><td class="n">$27.4M</td><td class="n">9.1x</td></tr>
-        <tr><td>Hai Vo · 16.8%</td><td class="n">$1.8M</td><td class="n">$16.8M</td><td class="n">9.1x</td></tr>
-        <tr><td>Tim Nielsen · 11.4%</td><td class="n">$1.3M</td><td class="n">$11.4M</td><td class="n">9.1x</td></tr>
+        <tr><td>Gia Nguyen · 34.8%</td><td class="n">$3.8M</td><td class="n">$34.8M</td><td class="n">9.1x</td></tr>
+        <tr><td>Han Hoang · 26.1%</td><td class="n">$2.9M</td><td class="n">$26.1M</td><td class="n">9.1x</td></tr>
+        <tr><td>Hai Vo · 17.1%</td><td class="n">$1.9M</td><td class="n">$17.1M</td><td class="n">9.1x</td></tr>
+        <tr><td>Tim Nielsen · 11.7%</td><td class="n">$1.3M</td><td class="n">$11.7M</td><td class="n">9.1x</td></tr>
         <tr class="tot"><td>This round · 10.3%</td><td class="n">$1.15M</td><td class="n">$10.3M</td><td class="n">9.0x</td></tr>
       </table>
       <p class="disc">Ownership illustrative, assuming this $1.15M round at a $10M pre-money. The alternative no-further-raise exit path values the company near $60M in 2030. The Series A and exit paths are mutually exclusive.</p>
@@ -219,6 +292,26 @@ footer{padding:40px 0;border-top:1px solid var(--line);color:var(--faint);font-f
   </div>
 </div></section>
 
+
+<section><div class="wrap">
+  <span class="eyebrow" style="color:var(--red)">Investor Returns</span>
+  <h2 class="disp">What 10.3% is worth at exit.</h2>
+  <p class="truth" style="margin-top:14px">$1.15M for 10.3%, held to a Series A or strategic exit in roughly five years. At the model's exit range, here is the multiple and IRR on this round's money. <b>Illustrative;</b> real outcomes depend on execution and market.</p>
+  <div class="grid2" style="margin-top:22px;align-items:start">
+    <div class="chartbox" style="height:330px"><canvas id="returnsChart"></canvas></div>
+    <div>
+      <table>
+        <tr><th>Exit valuation</th><th style="text-align:right">Stake</th><th style="text-align:right">Multiple</th><th style="text-align:right">IRR</th></tr>
+        <tr><td>$30M · modest</td><td class="n">$3.1M</td><td class="n">2.7x</td><td class="n">22%</td></tr>
+        <tr><td>$50M · Series A standard</td><td class="n">$5.2M</td><td class="n">4.5x</td><td class="n">35%</td></tr>
+        <tr><td>$75M · strong Series A</td><td class="n">$7.7M</td><td class="n">6.7x</td><td class="n">46%</td></tr>
+        <tr class="tot"><td>$100M · Vietnam EV leader</td><td class="n">$10.3M</td><td class="n">9.0x</td><td class="n">55%</td></tr>
+        <tr><td>$150M · regional thesis</td><td class="n">$15.5M</td><td class="n">13.4x</td><td class="n">68%</td></tr>
+      </table>
+      <p class="disc">IRR assumes a five-year hold. The $60M no-further-raise exit path, shown earlier, sits around 5.4x.</p>
+    </div>
+  </div>
+</div></section>
 <section><div class="wrap">
   <div class="callout" style="border-left-color:var(--red)">
     <span class="mono" style="color:var(--red)">Bottom line</span>
@@ -292,6 +385,34 @@ function initCharts(){
     options:{plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
       tooltip:{callbacks:{label:c=>c.dataset.label+': $'+c.parsed.y+'M'}}},
       scales:{y:{grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>'$'+v+'M',font:{family:'Space Mono',size:10}}},
+        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
+
+  new Chart(document.getElementById('scaleChart'),{type:'bar',
+    data:{labels:['500u fleet','Scale fleet','Scale blended'],datasets:[
+      {label:'Gross margin %',data:[14,15,25],backgroundColor:['#6c6c73','#56a6f2','#E2231A'],borderRadius:4}]},
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'GM '+c.parsed.y+'%'}}},
+      scales:{y:{grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>v+'%',font:{family:'Space Mono',size:10}}},
+        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
+  new Chart(document.getElementById('breakevenChart'),{
+    data:{labels:['M0','M4','M8','M12','M14','M18','M24'],datasets:[
+      {type:'line',label:'Cumulative cash ($M)',data:[-1.25,-0.95,-0.5,-0.12,0,0.65,2.1],borderColor:'#E2231A',backgroundColor:'rgba(226,35,26,.12)',borderWidth:2,fill:true,tension:.35,pointRadius:3}]},
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+c.parsed.y+'M'}}},
+      scales:{y:{grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>'$'+v+'M',font:{family:'Space Mono',size:10}}},
+        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
+  new Chart(document.getElementById('cashChart'),{
+    data:{labels:['M0','M1','M2','M3','M4','M6','M9','M12'],datasets:[
+      {type:'line',label:'Cash balance ($K)',data:[1250,650,240,700,560,690,900,1200],borderColor:'#56a6f2',backgroundColor:'rgba(86,166,242,.12)',borderWidth:2,fill:true,tension:.35,pointRadius:3}]},
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+c.parsed.y+'K'}}},
+      scales:{y:{grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>'$'+v+'K',font:{family:'Space Mono',size:10}}},
+        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
+  new Chart(document.getElementById('returnsChart'),{
+    data:{labels:['$30M','$50M','$75M','$100M','$150M'],datasets:[
+      {type:'bar',label:'Stake value ($M)',data:[3.1,5.2,7.7,10.3,15.5],backgroundColor:'#E2231A',borderRadius:4,yAxisID:'y'},
+      {type:'line',label:'Multiple (x)',data:[2.7,4.5,6.7,9.0,13.4],borderColor:'#aef24a',backgroundColor:'#aef24a',borderWidth:2,tension:.35,pointRadius:4,yAxisID:'y1'}]},
+    options:{plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
+      tooltip:{callbacks:{label:c=>c.dataset.yAxisID==='y1'?c.parsed.y+'x':'$'+c.parsed.y+'M'}}},
+      scales:{y:{position:'left',grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>'$'+v+'M',font:{family:'Space Mono',size:10}}},
+        y1:{position:'right',grid:{drawOnChartArea:false},ticks:{color:'#9b9ba2',callback:v=>v+'x',font:{family:'Space Mono',size:10}}},
         x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
 
 }
