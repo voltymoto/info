@@ -125,7 +125,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);color:var(--faint);font-f
       </table>
     </div>
     <div>
-      <div class="chartbox"><canvas id="useChart"></canvas></div>
+      <div class="chartbox" style="height:420px"><canvas id="useChart"></canvas></div>
       <p class="disc" style="text-align:center">Total deployment by category ($K)</p>
     </div>
   </div>
@@ -358,12 +358,12 @@ function initCharts(){
   new Chart(document.getElementById('useChart'),{type:'doughnut',
     data:{labels:['Production (500 on spec)','Scale tooling','OPEX (6 mo)','Contingency','Testing & cert','CAC'],
       datasets:[{data:[516,420,208,71,27,13],backgroundColor:['#E2231A','#56a6f2','#aef24a','#9b6cf2','#6c6c73','#ff7a4d'],borderColor:'#0a0a0b',borderWidth:2}]},
-    options:{cutout:'56%',plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
+    options:{maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
       tooltip:{callbacks:{label:c=>c.label+': $'+c.parsed+'K'}}}}});
   new Chart(document.getElementById('allocChart'),{type:'doughnut',
     data:{labels:['Selex · 250','Power-GOGO · 150','Other partners · 100'],
       datasets:[{data:[250,150,100],backgroundColor:['#E2231A','#56a6f2','#aef24a'],borderColor:'#0a0a0b',borderWidth:2}]},
-    options:{cutout:'56%',plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
+    options:{maintainAspectRatio:false,cutout:'56%',plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
       tooltip:{callbacks:{label:c=>c.label+' units'}}}}});
   new Chart(document.getElementById('fiveYearChart'),{
     data:{labels:['2026','2027','2028','2029','2030'],datasets:[
