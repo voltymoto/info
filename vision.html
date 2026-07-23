@@ -561,6 +561,9 @@ html{overflow-x:hidden}
 @media(max-width:900px){.vgallery{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.vgallery{grid-template-columns:1fr}.vgallery .featmedia{aspect-ratio:4/3}}
 
+/* two-column body text: top-align instead of the default vertical-center */
+.split.split-top{align-items:start}
+
 /* ============================================================
    XHERO  interactive page hero
    Modes: hotspot | swap | segments
@@ -895,7 +898,7 @@ html{overflow-x:hidden}
     <div class="eyebrow">The Thesis</div>
     <h2>Design with a purpose.</h2>
   </div>
-  <div class="split">
+  <div class="split split-top">
     <div class="rv">
       <p class="lead">Every line on the U-1 answers a question a working rider actually asks. We did not start with a silhouette and add function to it. We started with the job and let the machine follow. A rack exists because a load has to go somewhere. A swappable pack exists because downtime is lost income. A serviceable drivetrain exists because a bike in a shop earns nothing.</p>
       <p class="lead">Nothing on this vehicle is styling for its own sake. When design serves a purpose, form stops being decoration and becomes an argument. That is the whole discipline: earn every part, or cut it.</p>
@@ -931,7 +934,7 @@ html{overflow-x:hidden}
     <div class="eyebrow">The Responsibility</div>
     <h2>What we owe the road.</h2>
   </div>
-  <div class="split rev">
+  <div class="split rev split-top">
     <div class="rv d1">
       <p class="lead">Building for working riders is a responsibility, not just a market. These are people whose livelihood depends on the machine underneath them, and whose free time is often spent on it too. If our swap network fails, a shift is lost. If our cost math is wrong, a rider overpays every day. If we cut a corner on safety to hit a price, someone gets hurt on a street we sold them a vehicle for.</p>
       <p class="lead">So we hold ourselves to the standard of a tool people rely on to feed a family, because that is exactly what this is.</p>
