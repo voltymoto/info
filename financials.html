@@ -796,10 +796,12 @@ canvas { max-height: 350px; }
         <canvas id="pipelineChart" role="img" aria-label="Customer pipeline by units and close probability"></canvas>
       </div>
       <table class="unit-economics-table" style="font-size: 0.85rem;">
+        <!-- REVIEW-FLAG [INTERNAL, STRIP BEFORE INVESTOR SEND]: Selex 80% / 500 units. 500 is the MFD pricing trigger in the MOU (Sec 5.B.3), not a PO. No purchase order exists. Re-ground probability to signed commitments. Same value is encoded in chart pipeData y:80 (Selex point), update both. -->
         <tr>
           <td>Selex Motors</td>
           <td>500 units | 80% prob</td>
         </tr>
+        <!-- REVIEW-FLAG [INTERNAL, STRIP BEFORE INVESTOR SEND]: Power-GOGO 80% / 200 units. Revenue-share term sheet NOT executed. 80% is self-assigned, not counterparty-confirmed. Re-ground before circulating. Same value in chart pipeData y:80 (Power-GOGO point), update both. -->
         <tr>
           <td>Power-GOGO</td>
           <td>200 units | 80% prob</td>
@@ -814,7 +816,7 @@ canvas { max-height: 350px; }
         </tr>
       </table>
       <div class="highlight">
-        <div class="highlight-text"><strong>Near-term:</strong> 1,200 units of gross Q4 2026 pipeline across signed and in-progress MOUs, ~710 risk-adjusted. <strong>Haircut view:</strong> at MOU-typical conversion of 30 to 50% on in-negotiation lines, the same pipeline yields roughly 500 to 650 units; the revenue start does not depend on the difference, the ramp slope does. Long-term: 400K units by 2029 if market development executes, with regulatory tailwind from HCMC's gasoline ban for delivery/ride-hailing vehicles.</div>
+        <div class="highlight-text"><strong>Near-term:</strong> 1,200 units of gross Q4 2026 pipeline across signed and in-progress MOUs, ~710 risk-adjusted. <!-- REVIEW-FLAG [INTERNAL, STRIP BEFORE INVESTOR SEND]: Range "500 to 650 units" was computed off the old 1,300 gross. Now stale against 1,200 gross / 710 risk-adjusted. Set correct range or state the conversion basis. --><strong>Haircut view:</strong> at MOU-typical conversion of 30 to 50% on in-negotiation lines, the same pipeline yields roughly 500 to 650 units; the revenue start does not depend on the difference, the ramp slope does. Long-term: 400K units by 2029 if market development executes, with regulatory tailwind from HCMC's gasoline ban for delivery/ride-hailing vehicles.</div>
       </div>
     </div>
   </div>
