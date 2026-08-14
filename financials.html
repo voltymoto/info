@@ -1,326 +1,917 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>NUEN MOTO | Volty U-1 First Production Round</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800;900&family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUEN MOTO Volty U1 Financial Dashboard v1.6.1</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIyIiBmaWxsPSIjMGEwYTBiIi8+PHBvbHlnb24gcG9pbnRzPSIxNSwyNSAzNywyNSA1MCw1OCA1MCw4OCIgZmlsbD0iI0UyMjMxQSIvPjxwb2x5Z29uIHBvaW50cz0iNjMsMjUgODUsMjUgNTAsODggNTAsNTgiIGZpbGw9IiNFMjIzMUEiLz48L3N2Zz4=">
+<link rel="alternate icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAMAEBAAAAAAIABfAgAANgAAACAgAAAAACAAJAUAAJUCAAAwMAAAAAAgAJAIAAC5BwAAiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACJklEQVR4nH2TPWsUURSGn/fOzG52dqLZGGy0CYgErET8B2osDGgX9F9YWaWNndqIpRJQ7EQQE6wsrCxFRbQRLESDK5n9nrn3WOzsZlfB21045z28XwIiwCdJ80yS2C0z1iWtAGL+mZntS+wVhW4XRfc9EAkgTdPLoMdOapnZePqv7QmaJIJZG+x6r9fbVZZlayHYWw+ZGSUiEiieARFQjv+G4SXiCDrO6XwcQtgCly2JMnLEBniDAzNcBeCBoxKRkCD2RpkbWQhhS1ma/uoaS1cWEt1bbpIHQ8DmfofPZQDgVOx4upJhwBEnbrZ7POuPrCn9dgG1GpL2BiUfCs/JyLEaO66lNQqMAuNqWmM1dpyIHJ8Kz8t+QUNSgJajsmGEsX3QZ4SRm7HRSDgikUlsNBJyMzywfTBgYEZU0XMTjosSbwYlz3sFdcTpJOJcPeZsLWYtjqgjXvRHvB4ULDrhK4B4ajIQS9zNB1xsJByT2ExreBub3Q7GnXxAJM1ZPBGaAKSCj4VnpztEwIWFhPVGgoAn3SHvRp5U49lpPtK0OQUUUBq0nHh1fJFlN752YMalHzk/vRFrPmTOzNqTzBhQF3z3gfudIQ2JVOJBZ8i3MlCfXzYzazuJXUmTsOGB1Imd7pAvpeerDzzsDGnMCAeUkiRxGGUgq0CiCJQH40azTix41BlOlLfqRkwV5bkyaaZME2GtyslUJwmbLRP/qfOkgXbI+Z86/wGKhQr6x4/GdgAAAABJRU5ErkJggolQTkcNChoKAAAADUlIRFIAAAAgAAAAIAgGAAAAc3p69AAABOtJREFUeJzFl8uLHFUUxn/n1mO6qidjnCEBR5JF1IUE4mOILt1NcLIJiZGg/0DWwT8jiQYjEcVHFsZEVAQxAZGAILoY1JCNEYyIYBIzDCH9quruqntc1K2eSk9PTxtFDzQ0de8933dOffere4V7wwAWIIqih8G8CPK8iH0SZM6NTxIWdFXVXAG9BPajJEn+GMYAkBHgURxPvyKiR0HmVQF0QtzhEEQA9IaqvNnptI4DSZVEScAAdmZm5tEsy8+JyF4tkG1l/H5isF5EUNVl3/deajQav5SYUgF/JM/tl8AuVc0Aj3s79E9CgVxEfOBXzzOLjUbjOmDKyupZll+ogPv/Ijgul+9y73JYdXDVx3F8TEQWSnBxK0b9JkEas9ZX1UxEFuI4PgZYiaJoHrwfRXQbgIJkihPPiDLYWJICZBuMq4InYNywqqxA/pRvjDkCbFfFKphQYNYIGeu3SE+Vlm6syBzYIhCKDNQnjpAHtFXpKiJgjWE7mCO+qi6VpNVVeHa2zk7fkDqwQQKUQystbuZKKGuVCtADHjLCx9ummUbIK+CBwEquHF5tkagWXVRV0CWjyh431wTAaq6c6/SY9wxbjTBrhDkjTBthd+CxPwroq+JVKveAvlWWagG7A49pt2bWCDNG2OkbLnR63MosUwUpA4gqe4yIzFVbGBvhg3aPb7oZkUAX6LuxllUORiE194rKyIApgQNxSNsqmVvTBWoCy92c99pdoqF1IjJnGHqlHtBV5UQzxTgViHveUXgi9Hkm9EldFzwgVWXvlM/ToU9H793DoQivNVPaVgnWy8as01MObDHCV2mfS2mfraZ4n1DY2pTAC3GArUjdKhyMQqZkzfpyYMYIl9OMz5Me9aHqBwxGPEPdwMlGSmJ1MMkDWqos1gJ2+IYuhfjmPcNiFNCuaEOATOFEI8Hqxh4ykoAFYhF+6GV82OnxYGVbdrUAXKoF9FTpqrIYBezwil1TesFWI3ya9Pi2m1E3a9tyIgJlF0IRXm+m3Mq1VC+GQiMH45BIhAA4FIf0K1UGwB2rnGqkBCJjv6UbErAUCv4ts7zdSplxWjBAW2Eh9Hk88Hgs8Hg29Gm59mfAA0Y42+5yrZ8TVXTxtwhAIaSaEd5td7nWt8QuWUnuQBRwIAoHzxWoUZA+0+wyVRHwfRFQIKQwp1PNlMhZrA/cVeVwHPJyPeSuc7ccmDbCG82UP/OB6YwNieP6pscdAXKFz7ZNszDl07Y68AYcsFII96d+zv6V5ti2V2Oik46hMJsTzRTRAkwc8LDnn2ymtGzRkUlzb0p2YE5Jn0vJmjmV3/mcQniX04wvkh7TG5jOiLBGVVcnmamAETjhbLXaOgP0FY4705k0VHXViHDV5R/bidKcrvQyzlfMqaz+k06P7zYxnaF0KsJVIyIXRUadf0YwpjCn082Um7klpBDiHVvsks1MpxpSxEVjrT1vLbdZ09JY2qU5vdXqEUtxTni/3eXnCUynUodYy21r7XmTJMkNEXvadWEz3xiY0zvtlN9zy0puOdNMJzKdMkVRvD2dJMmN8l4QxXH96+rJeFwGD2ha5eiWGpHAq42EGWMmUX4mIr6qft/ptJ8Dkvu+mJQfpvL/JjH2YmIB02g0rnue2aeqy26isGb966IUzCbg5XpxlS97ntlXguOuZmX8r5fTYRL/2fX8LzLJgBFCwlJBAAAAAElFTkSuQmCCiVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAIV0lEQVR4nNWa3Y8kVRnGf8+pqu7p7ukZZlkyiUQvjIhCNOGCxIiyZIMkEEUIEEL0wnhr+ANMDMYbvBJhVxQVyUIIy8qaKBovIG6CRLJ+IN6AIBhNjB8LC8tO9VdVV53Xi1M909PT89UzBHiSTjrVdc553u/3nNNia0RACbC0xGKet67wnsOSfRb0UbALQfVt5tgGloHeBPubmZ51jlO1WveFc+c4P8lhGrTFcxcGLi41Gvkdkm434ypJkSTMbG+8Jxes5jSzUuJ3Znai368dh/PnKiE8sGHRaQK46mUajcZtEH3TOS4HsMDaV+O0yfhZYGMfJ0kA3vMilN/q9/tPTHLbTIDqheVWs9n9tsSdlaYL1qyyX6Q3w0hJBsTBMhzt9VpfhzPdSSHGyUSAb7fbB8rSPyTpRjMbTRS9w6Q3QwlIkjOzJ6PIfTVN07dYde/wBYIgtry83CxLHqzID6vn7xZ5qrVlZkNJN5YlDy4vLzcJShWsCeAAn6bduyW7ycxyIOGdd5edQEBiZrlkN6Vp926CC7nRjxFQNhqNWyR3kmCad1PrW6EEIjN/a7/f/xkQCXDtdnupKPxvJT5OkO69LIAz469x7K5O0/ScA3xR+DskXcaE9rWLz24x49wRUEq6rCj8HYCPgbbE7RKYrX8/t40zTIMDYqZUmS3IF0wk9M1gEGsdjapKcDvwsFqt1jXe29OSRjleo0UW3NbsR/l1YEbPgiDbCaGKeFMwJ4U8uc37b3tjTJdGqKneOX0uDr2NYir/oiKVeuNr83XubM9x1hvxlMk9MCf4T2ncdjZlxULq2kwIAUNgQfDEwTYfiMTA1lLhOIbARU483Mv4xtt95qVRqRbgJcXecziWOLShtxEkguPdnK/M1/lg5MjMpi5UAlfWHNfNJTzWzWlEYriJBLGgWxrXtmpcWYt42xsLU9TvgViiZ8aj3ZyYNcutUpQAO+S895dU5Ff5FQYNiX+VnvvSAbFgUGkln/hkQGZwS7NOjChsukuomjeSuLlRI7MwdnK+IdAnWPaHnYyX85Jm5WpjcGaG9/4SJ+ng2BqrX0qg6cTxbs5f8oIFt+Zj4xkiBnoYV9YjrqhH9L1NzcGOECufTCI+VY/pE94bn2vU5LSB14qSn3Qy5twG8qtcJR10kpIp64VOCljxxr1pRoLANvq3CNlqSeKGuWTTzCKgNPh8M+GAE5nf6PujLq7pxJE0443SU2OLmJKSaW69ipEVftXPeXowZCkSw03IDQxuaCZcNCVeHJCZcWHkuGEuITPQFD8bGlzgxHN5wcleRmO69tdhSwFGViiBI2lGf5MsEwOpGZdGjkNzCRnr40AEf7+qHvOx2JHaxqxmhL7AgPtWMro+JJLt0vKWAlCRn5d4djDkF72cRbcxd4++m8RtzYTI1mcMqxa6tVnDVelw0gAlsOjEU/0hT/WHzDtR7qAybivAaI5Y4t50wFveqLGRYEyoHZ+uJ3yiHtGv3GgUvJfGEVfXY1aqmmIT4yOgZ8Z3VgaUhJZgJ5V9WwEgaKcheHlYcqybcYHT6hZtHAWwKLi5UcNXQeoI6fOLjRpLLsTQpPUK4IATP+3m/CkvgvZ3QmynAkDQRs2JH3cyXis88wrEJifrm3H9XMLBxJFX5NqR4/pGQl5ZZXxYQVDOf0vP/Z2MuHKxnWLHAqy2DYXngU5GQ8ImgiwIAJckEdfWYwZm9L1xTS3m8iSiN6XIeUI3+VA347VhSUs7bPJ2KwCAt6Ctx3oZL+QlC9KGxcqqt/lCo1ZlGnFjMyFR+G1cAE9IEK8UJcc6GXVtcQC0LwIAicRKadyXDsJ2aAKRQjAfqsd8OI64OBGH6wldbxty/8iq96cZ/yuNuSkK2VcBIPhs04knezm/GQw3BHRE6JsORuK6uZjD9YSLY0ffWM39o8BdlPh9VvB4VbSmFcntMK1L3hZhWwT3rAz4TD0mZu20a5RSz3v4UqvO0EI74sbiZXxHfk86oO+h7XbvPjCDBWCtuJ3OCk72cpYqK4xPOjDjQ5HjI7GjZ+sbvAJYcuLX/SGnBrtLm/siAFTdo+D7acbrPvivTfxeENrj8UUMqAlWzDiaDig22WfsFDOPLYCmxEvDkkc6GQtinRVg+oa/JPj+yW7OH7Kg/clxu8FehKckFLcHOhl/Lzwt1mJhGgyoA2e8caSTkVRZZy/n3K46QpwJBswBZ0rP99KMVuXLmxEqCA3bjzoZ/xiWNLS1wNuubzZ0ZnZ2jM+uEfok8UQv5495wQWa7hIFoeK+OCw51hlQ32XFnYABmNlZ55x7dXQcP+tMieC89xxNM6TpfimgLvhBJ+ONGYvWGLwknHOvOjOe2ettSwG0nPhlP+fUYMjCRFosCdo/nRWc6OY72mlth3CbwzPOOU6Z2aiYziTJqJ8vLRS3fOKsR4Qt5L3pgL4ZCbMVrbHlZGaFc5xy3W73eUmnq5O5maw6yvnzTjxXFbcDVWuwVrRynhoMV9PmHs7tvSQn6XS3233eEbazJyov2vPNXSQ4mg54vTTqVTx0zPhumu0p44zBzMCME0DqABfH7riZvcQ2V5rboQRaEq8MSx7uZrQQi0483s35c1Ywv7fAHS0RmdlLceyOA84BStP0TfB3sQ8KMkFNobj9u/Sc98bRzoBE4Yh5Hy5nBf6uwBmNLsuicOOhI5IiwinfTCgs9Pivl55j3ZxHujn/HHoa1YZmD8gDNx0Z3c4QmuKRVGh5ebmRpr1Hq3uyIayeq86EmhTOhGznpwxTYEAhKTHTz9vt5pfPnDnTr57bOLl9vWYdnSaPBs9Ifttr1knt7utF9+qB1+5Iz3zRPSHE+/OvBuPP37d/9hjHe/7vNv8H5Ys1C+oHGvsAAAAASUVORK5CYII=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIyIiBmaWxsPSIjMGEwYTBiIi8+PHBvbHlnb24gcG9pbnRzPSIxNSwyNSAzNywyNSA1MCw1OCA1MCw4OCIgZmlsbD0iI0UyMjMxQSIvPjxwb2x5Z29uIHBvaW50cz0iNjMsMjUgODUsMjUgNTAsODggNTAsNTgiIGZpbGw9IiNFMjIzMUEiLz48L3N2Zz4=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--red:#E2231A;--red-l:#ff4133;--bg:#0a0a0b;--bg1:#121214;--bg2:#17171a;--white:#f5f5f6;--muted:#9b9ba2;--faint:#6c6c73;--line:#26262b;--blue:#56a6f2;--green:#aef24a;--amber:#ff7a4d;--disp:"Saira Condensed",sans-serif;--mono:"Space Mono",monospace;--body:"Sora",sans-serif}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--white);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-.disp{font-family:var(--disp);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1.02}
-.mono{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-header{border-bottom:1px solid var(--line);padding:22px 0;position:relative}
-header::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--red)}
-.brand{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:20px;letter-spacing:.02em}
-.brand span{color:var(--red)}
-.conf{float:right;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line);padding:6px 10px}
-.hero{padding:70px 0 40px}
-.hero .eyebrow{color:var(--red)}
-.hero h1{font-size:clamp(38px,6vw,72px);margin:14px 0 0}
-.hero h1 em{font-style:normal;color:var(--red)}
-.hero .lead{color:var(--muted);font-size:clamp(15px,1.6vw,18px);max-width:64ch;margin-top:18px}
-section{padding:44px 0;border-top:1px solid var(--line)}
-h2.disp{font-size:clamp(26px,3.4vw,40px)}
-h3.disp{font-size:20px;margin-bottom:6px}
-.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;display:block}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.stat{background:var(--bg);padding:26px 22px}
-.stat b{font-family:var(--disp);font-weight:800;font-size:clamp(30px,4vw,46px);display:block;line-height:1;color:var(--white)}
-.stat b.red{color:var(--red)}
-.stat span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);display:block;margin-top:8px}
-table{width:100%;border-collapse:collapse;font-size:14.5px}
-th{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);text-align:left;padding:12px 10px;border-bottom:1px solid var(--line)}
-td{padding:13px 10px;border-bottom:1px solid var(--line)}
-td.n{text-align:right;font-family:var(--mono);color:var(--white)}
-tr.tot td{border-top:2px solid var(--red);border-bottom:0;font-weight:700}
-tr.tot td.n{color:var(--red)}
-tr.sub td{color:var(--muted)}
-tr.sub td.n{color:var(--muted)}
-.chartbox{background:var(--bg1);border:1px solid var(--line);padding:22px;position:relative;height:320px}
-.callout{background:linear-gradient(100deg,rgba(226,35,26,.1),transparent 60%);border:1px solid var(--line);border-left:3px solid var(--red);padding:24px 26px;margin-top:8px}
-.callout p{color:var(--muted);font-size:15px}
-.callout p b{color:var(--white)}
-.truth{color:var(--muted);font-size:15.5px;line-height:1.7}
-.truth b{color:var(--white)}
-.truth .flag{color:var(--red);font-weight:600}
-ul.clean{list-style:none;margin-top:14px}
-ul.clean li{padding:12px 0 12px 26px;border-bottom:1px solid var(--line);position:relative;color:var(--muted);font-size:15px}
-ul.clean li::before{content:"";position:absolute;left:0;top:20px;width:8px;height:8px;background:var(--red)}
-ul.clean li b{color:var(--white)}
-footer{padding:40px 0;border-top:1px solid var(--line);color:var(--faint);font-family:var(--mono);font-size:11px;letter-spacing:.08em}
-.disc{color:var(--faint);font-size:12px;margin-top:16px;font-style:italic}
-@media(max-width:820px){.grid2{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}.chartbox{height:280px}}
-/* gate */
-.password-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:var(--bg);flex-direction:column;padding:24px}
-.pw-mark{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(19px,5.2vw,26px);line-height:1.12;letter-spacing:.01em;margin-bottom:10px;text-align:center;max-width:340px}
-.pw-brand{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-top:22px}
-.pw-mark span{color:var(--red)}
-.pw-sub{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:26px}
-.password-input{background:var(--bg1);border:1px solid var(--line);color:var(--white);padding:14px 16px;font-family:var(--mono);font-size:14px;width:260px;text-align:center;letter-spacing:.1em}
-.password-input:focus{outline:none;border-color:var(--red)}
-.pw-btn{margin-top:12px;background:var(--red);color:#fff;border:0;padding:14px 28px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;width:260px}
-.pw-btn:hover{background:var(--red-l)}
-.pw-err{color:var(--red);font-family:var(--mono);font-size:11px;letter-spacing:.1em;margin-top:14px;height:14px;text-transform:uppercase}
-#content{display:none}
-</style></head>
+:root {
+  --red: #E2231A;
+  --red-d: #9c130c;
+  --red-l: #ff4133;
+  --bg: #0a0a0b;
+  --bg1: #121214;
+  --bg2: #17171a;
+  --white: #f5f5f6;
+  --muted: #9b9ba2;
+  --faint: #6c6c73;
+  --blue: #56a6f2;
+  --green: #aef24a;
+  --amber: #ff7a4d;
+  --disp: "Saira Condensed", sans-serif;
+  --mono: "Space Mono", monospace;
+  --body: "Sora", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; }
+body { background: var(--bg); color: var(--white); font-family: var(--body); font-weight: 300; line-height: 1.6; }
+
+.dashboard { padding: 2rem; max-width: 1400px; margin: 0 auto; }
+
+.header { margin-bottom: 3rem; }
+.header h1 { font-family: var(--disp); font-size: 2.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+.header p { font-size: 0.875rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); font-family: var(--mono); font-weight: 700; }
+.header .subtext { font-size: 0.95rem; color: var(--muted); margin-top: 0.5rem; max-width: 80ch; }
+
+.section-title { font-family: var(--disp); font-size: 1.5rem; font-weight: 800; text-transform: uppercase; margin: 2rem 0 1rem; letter-spacing: -0.01em; display: flex; align-items: center; gap: 12px; }
+.section-title::before { content: ''; display: inline-block; width: 4px; height: 1.5rem; background: var(--red); }
+
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+
+.metric-card { background: var(--bg2); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 6px; }
+.metric-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); font-family: var(--mono); margin-bottom: 0.5rem; }
+.metric-value { font-family: var(--disp); font-size: 1.75rem; font-weight: 900; color: var(--red); }
+.metric-value.green { color: var(--green); }
+.metric-value.blue { color: var(--blue); }
+.metric-value.amber { color: var(--amber); }
+.metric-detail { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; }
+
+.scenario-tabs { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.scenario-btn { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--muted); padding: 0.75rem 1.5rem; font-family: var(--mono); font-size: 0.8rem; cursor: pointer; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.25s; }
+.scenario-btn.active { background: var(--red); color: var(--white); border-color: var(--red); }
+.scenario-btn:hover { border-color: var(--red); }
+
+.chart-container { background: var(--bg2); border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
+.chart-container h3 { font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+
+canvas { max-height: 350px; }
+
+.chart-legend { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; font-size: 0.85rem; color: var(--muted); }
+.legend-item { display: flex; align-items: center; gap: 0.5rem; }
+.legend-box { width: 12px; height: 12px; border-radius: 2px; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+.highlight { background: rgba(226, 35, 26, 0.1); border-left: 3px solid var(--red); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+.highlight-text { font-size: 0.9rem; color: var(--white); }
+
+.unit-economics-table { width: 100%; font-size: 0.9rem; margin-top: 1rem; }
+.unit-economics-table td { padding: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.unit-economics-table td:first-child { color: var(--muted); }
+.unit-economics-table td:last-child { text-align: right; color: var(--green); font-weight: 600; }
+
+.key-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.key-metric { background: var(--bg2); padding: 1rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); }
+.key-metric-title { font-size: 0.8rem; color: var(--faint); font-family: var(--mono); text-transform: uppercase; margin-bottom: 0.5rem; }
+.key-metric-value { font-size: 1.5rem; font-weight: 700; color: var(--amber); }
+
+.summary-stat { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
+.summary-stat:last-child { border-bottom: none; }
+.summary-stat-label { color: var(--muted); }
+.summary-stat-value { color: var(--white); font-weight: 600; }
+.summary-stat-value.positive { color: var(--green); }
+.summary-stat-value.negative { color: var(--amber); }
+
+.footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: var(--faint); }
+
+/* Section summaries + added components */
+.section-summary { font-size: 0.92rem; color: var(--muted); line-height: 1.7; margin: -0.25rem 0 1.5rem; max-width: 95ch; border-left: 2px solid rgba(226,35,26,0.4); padding-left: 1rem; }
+.section-summary strong { color: var(--white); font-weight: 600; }
+.exec-summary-box { background: linear-gradient(135deg, rgba(226,35,26,0.08), rgba(86,166,242,0.06)); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 1.5rem 1.75rem; margin-bottom: 2rem; }
+.exec-summary-box p { color: var(--white); font-size: 0.98rem; line-height: 1.8; margin-bottom: 0.85rem; }
+.exec-summary-box p:last-child { margin-bottom: 0; }
+.exec-summary-box .lead { font-family: var(--disp); font-size: 1.15rem; font-weight: 700; text-transform: none; color: var(--white); letter-spacing: 0; }
+.runway-note { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; padding: 0.4rem 0.85rem; background: rgba(174,242,74,0.1); border: 1px solid rgba(174,242,74,0.3); border-radius: 20px; font-size: 0.8rem; color: var(--green); font-family: var(--mono); }
+.runway-note::before { content: ''; width: 18px; height: 0; border-top: 2px dashed var(--green); display: inline-block; }
+.chart-wide { background: var(--bg2); border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 6px; margin-bottom: 2rem; }
+.chart-wide h3 { font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.stat-pill { background: var(--bg1); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 1rem; }
+.stat-pill .lbl { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); font-family: var(--mono); margin-bottom: 0.4rem; }
+.stat-pill .val { font-family: var(--disp); font-size: 1.5rem; font-weight: 900; }
+.phase-card { padding: 1rem; background: var(--bg1); border-radius: 6px; }
+
+/* Closing statement + lighter Dashboard Guide wrapper */
+.closing-box { background: linear-gradient(135deg, rgba(86,166,242,0.07), rgba(174,242,74,0.05)); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 1.75rem 2rem; margin-bottom: 2rem; }
+.closing-box p { color: var(--white); font-size: 1rem; line-height: 1.85; margin-bottom: 0.9rem; }
+.closing-box p:last-child { margin-bottom: 0; }
+.closing-box .lead { font-family: var(--disp); font-size: 1.2rem; font-weight: 700; text-transform: none; letter-spacing: 0; color: var(--white); }
+.closing-box .signoff { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--muted); margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); }
+.guide-wrap { background: #22232a; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 1.5rem 1.75rem 2rem; margin-top: 1rem; }
+.guide-wrap .section-title { margin-top: 0.5rem; }
+.guide-wrap .chart-container { background: #2b2c33; border-color: rgba(255,255,255,0.1); }
+
+/* ===== Interactive glow & hover effects (site-wide) ===== */
+.metric-card, .stat-pill, .chart-container, .chart-wide, .exec-summary-box, .closing-box, .guide-wrap {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.metric-card:hover, .stat-pill:hover, .chart-container:hover, .chart-wide:hover {
+  transform: translateY(-4px);
+  border-color: rgba(226,35,26,0.55);
+  box-shadow: 0 12px 34px rgba(226,35,26,0.16), inset 0 0 0 1px rgba(226,35,26,0.22);
+}
+.exec-summary-box:hover, .closing-box:hover {
+  transform: translateY(-3px);
+  border-color: rgba(86,166,242,0.45);
+  box-shadow: 0 14px 42px rgba(86,166,242,0.14);
+}
+.guide-wrap:hover { border-color: rgba(86,166,242,0.4); box-shadow: 0 14px 42px rgba(0,0,0,0.45), 0 0 30px rgba(86,166,242,0.10); }
+
+/* Metric numbers: soft persistent glow, brighter on hover */
+.metric-value { text-shadow: 0 0 16px rgba(226,35,26,0.45); transition: text-shadow 0.3s ease; }
+.metric-card:hover .metric-value { text-shadow: 0 0 28px rgba(226,35,26,0.8); }
+.metric-value.green { text-shadow: 0 0 16px rgba(174,242,74,0.45); }
+.metric-card:hover .metric-value.green { text-shadow: 0 0 28px rgba(174,242,74,0.85); }
+.metric-value.blue { text-shadow: 0 0 16px rgba(86,166,242,0.45); }
+.metric-card:hover .metric-value.blue { text-shadow: 0 0 28px rgba(86,166,242,0.85); }
+.metric-value.amber { text-shadow: 0 0 16px rgba(255,122,77,0.45); }
+.metric-card:hover .metric-value.amber { text-shadow: 0 0 28px rgba(255,122,77,0.85); }
+.stat-pill .val { transition: text-shadow 0.3s ease; }
+.stat-pill:hover .val { text-shadow: 0 0 24px currentColor; }
+
+/* Scenario buttons: glow on hover, pulsing glow when active */
+.scenario-btn { transition: all 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
+.scenario-btn:hover { border-color: var(--red); color: var(--white); transform: translateY(-2px); box-shadow: 0 0 18px rgba(226,35,26,0.45); }
+.scenario-btn.active { box-shadow: 0 0 22px rgba(226,35,26,0.6); animation: btnPulse 2.8s ease-in-out infinite; }
+@keyframes btnPulse { 0%, 100% { box-shadow: 0 0 16px rgba(226,35,26,0.45); } 50% { box-shadow: 0 0 30px rgba(226,35,26,0.78); } }
+
+/* Section accent bar: glowing pulse; title text glows on hover */
+.section-title::before { box-shadow: 0 0 14px rgba(226,35,26,0.85); animation: barPulse 3.2s ease-in-out infinite; }
+@keyframes barPulse { 0%, 100% { box-shadow: 0 0 10px rgba(226,35,26,0.55); } 50% { box-shadow: 0 0 22px rgba(226,35,26,0.95); } }
+.section-title { transition: text-shadow 0.3s ease; }
+.section-title:hover { text-shadow: 0 0 26px rgba(226,35,26,0.45); }
+
+/* Highlight callouts */
+.highlight { transition: box-shadow 0.3s ease, background 0.3s ease; }
+.highlight:hover { background: rgba(226,35,26,0.16); box-shadow: 0 0 22px rgba(226,35,26,0.18); }
+
+/* Table rows light up on hover */
+.unit-economics-table tr { transition: background 0.2s ease; }
+.unit-economics-table tr:hover { background: rgba(255,255,255,0.045); }
+.unit-economics-table tr:hover td:last-child { text-shadow: 0 0 14px currentColor; }
+
+/* Chart legend swatches react */
+.legend-item { transition: transform 0.2s ease; }
+.legend-item:hover { transform: translateX(2px); }
+.legend-box { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.legend-item:hover .legend-box { transform: scale(1.3); box-shadow: 0 0 12px rgba(255,255,255,0.6); }
+
+/* Runway note glow on hover */
+.runway-note { transition: box-shadow 0.3s ease; }
+.runway-note:hover { box-shadow: 0 0 18px rgba(174,242,74,0.4); }
+
+/* Password gate: glow on focus/hover, pulsing mark */
+.password-btn { transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease; }
+.password-btn:hover { background: var(--red-l); box-shadow: 0 0 28px rgba(226,35,26,0.6); }
+.password-input { transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.password-input:focus { border-color: var(--red); box-shadow: 0 0 22px rgba(226,35,26,0.35); }
+.pw-mk { animation: mkPulse 2.8s ease-in-out infinite; }
+@keyframes mkPulse { 0%, 100% { box-shadow: 0 0 22px rgba(226,35,26,0.8); } 50% { box-shadow: 0 0 40px rgba(226,35,26,1); } }
+
+/* Respect reduced-motion: stop the looping pulses */
+@media (prefers-reduced-motion: reduce) {
+  .scenario-btn.active, .section-title::before, .pw-mk { animation: none !important; }
+}
+
+/* Password Protection Styles (gate look, matches Business Plan) */
+.password-overlay { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 24px;
+  background: radial-gradient(120% 90% at 50% 30%, rgba(226,35,26,.18), transparent 55%), #070708; }
+.password-overlay::before { content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.10) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 58px 58px;
+  -webkit-mask-image: radial-gradient(100% 70% at 50% 40%, #000, transparent 72%);
+  mask-image: radial-gradient(100% 70% at 50% 40%, #000, transparent 72%); opacity: .45; }
+.password-overlay.hidden { display: none; }
+.password-container { position: relative; z-index: 2; width: 100%; max-width: 400px; text-align: center; background: none; border: none; padding: 0; box-shadow: none; }
+.pw-mk { width: 18px; height: 18px; background: var(--red); border-radius: 4px; margin: 0 auto 22px; box-shadow: 0 0 24px rgba(226,35,26,.8); }
+.pw-bd { font-family: var(--disp); font-weight: 900; font-size: 42px; letter-spacing: .08em; text-transform: uppercase; color: var(--white); line-height: .95; }
+.pw-sb { font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); margin-top: 6px; }
+.pw-ti { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--red); margin: 30px 0 14px; }
+.pw-form { display: flex; flex-direction: column; gap: 12px; }
+.password-input { width: 100%; font-family: var(--mono); font-size: 15px; text-align: center; letter-spacing: .06em; color: var(--white); background: var(--bg2);
+  border: 1px solid rgba(255,255,255,.18); border-radius: 7px; padding: 15px 16px; outline: none; transition: border-color .2s; }
+.password-input:focus { border-color: var(--red); }
+.password-btn { width: 100%; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; background: var(--red); color: #fff;
+  border: none; border-radius: 7px; padding: 15px; cursor: pointer; transition: background .2s; }
+.password-btn:hover { background: var(--red-l); }
+.password-btn:active { transform: scale(0.99); }
+.password-error { font-family: var(--mono); font-size: 11.5px; color: var(--red-l); min-height: 16px; letter-spacing: .03em; text-align: center; opacity: 0; transition: opacity .25s; }
+.password-error.show { opacity: 1; }
+.pw-note { font-family: var(--mono); font-size: 10px; color: var(--faint); line-height: 1.7; margin-top: 26px; letter-spacing: .02em; }
+
+.topbar{display:flex;justify-content:flex-end;align-items:center;gap:12px;margin:4px 0 10px}
+.conf-badge{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#E2231A;border:1px solid rgba(226,35,26,.45);padding:7px 13px;border-radius:20px}
+.dl-btn{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#cfcfd6;border:1px solid #3a3a40;padding:7px 13px;border-radius:20px;text-decoration:none;transition:.2s}
+.dl-btn:hover{border-color:#E2231A;color:#fff}
+.langsw{display:flex;border:1px solid #3a3a40;background:rgba(16,16,18,.6);border-radius:20px;overflow:hidden}
+.langsw button{font-family:inherit;font-size:11px;letter-spacing:.08em;padding:7px 12px;background:none;border:0;color:#9a9aa2;cursor:pointer;transition:.2s}
+.langsw button.on{background:#E2231A;color:#fff}
+
+@media(max-width:700px){.unit-economics-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}}
+</style>
+</head>
 <body>
-<div class="password-overlay" id="gate">
-  <div class="pw-mark">VOLTY U1<span> : </span>FINANCIAL DASHBOARD</div>
-  <div class="pw-sub">Confidential · Access Required</div>
-  <input type="password" id="passwordInput" class="password-input" placeholder="Password" autocomplete="off">
-  <button class="pw-btn" id="pwBtn">Unlock</button>
-  <div class="pw-err" id="pwErr"></div>
-  <div class="pw-brand">NUEN MOTO</div>
-</div>
-<div id="content">
-<header><div class="wrap"><span class="brand">NUEN<span>·</span>MOTO</span><span class="conf">Confidential</span></div></header>
 
-<div class="wrap">
-<div class="hero">
-  <span class="mono eyebrow" style="color:var(--red);font-size:10px;white-space:nowrap">First Production Round · Volty U1</span>
-  <h1 class="disp">500 units. <em>Built now.</em></h1>
-  <p class="lead">We are production-ready and moving straight to a 500-unit first batch of the Volty U-1, built on spec and deployed across our committed channels. This round funds that batch end to end. The numbers below lead with the hard parts.</p>
-</div>
+<div class="password-overlay" id="passwordOverlay">
+  <div class="password-container">
+    <div class="pw-mk"></div>
+    <div class="pw-bd">Volty U1</div>
+    <div class="pw-sb">NUEN MOTO &middot; Financial Model Dashboard v1.6.1</div>
+    <div class="pw-ti">Confidential &middot; Enter Password</div>
+    <div class="pw-form">
+      <input type="password" id="passwordInput" class="password-input" placeholder="Password" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button class="password-btn" onclick="handlePasswordSubmit()">Unlock</button>
+      <div class="password-error" id="passwordError">Incorrect password. Please try again.</div>
+    </div>
+    <div class="pw-note">This dashboard is confidential. The content is not present in readable form until the correct password is supplied. Do not forward this file or the password to anyone outside the intended recipients.</div>
+  </div>
 </div>
 
-<section><div class="wrap">
-  <div class="grid3">
-    <div class="stat"><b class="red">$1.15M</b><span>Immediate raise</span></div>
-    <div class="stat"><b>10.3%</b><span>Equity offered</span></div>
-    <div class="stat"><b>500</b><span>Units, first batch</span></div>
+<div class="dashboard">
+  <div class="topbar"><span class="conf-badge">Confidential</span><a class="dl-btn" href="volty-financials.pdf" download>Download PDF</a><div class="langsw" role="group" aria-label="Language"><button class="lb on" data-l="en" onclick="__setLang('en')">EN</button><button class="lb" data-l="vi" onclick="__setLang('vi')">VI</button></div></div>
+  <div class="header">
+    <p>Financial Model v1.6.1</p>
+    <h1>VOLTY U1: 24-Month Financial Dashboard</h1>
+    <div class="subtext">NUEN MOTO | May 2026 | Based on Conservative, Base, and Optimistic scenarios across unit sales, pricing, and OPEX trajectories.</div>
   </div>
-  <p class="disc">Plus $100K founder equity already committed (Han Hoang, per Members' Resolution), for $1.25M total deployment. Figures derived from Financial Model v1.6.1. Live cash and burn are reported separately in the monthly investor update.</p>
-</div></section>
 
-<section><div class="wrap">
-  <span class="eyebrow" style="color:var(--red)">Read This First</span>
-  <h2 class="disp">The uncomfortable part.</h2>
-  <div style="margin-top:18px" class="truth">
-    <p><span class="flag">This batch runs thin.</span> At 500 units we do not yet hit scale BOM pricing. All-in production is about <b>$1,032 per unit</b> against a <b>$1,200</b> fleet price, so batch gross margin is roughly <b>$84,000 on $600,000</b> of revenue, near <b>14%</b>. Margin only expands materially past 1,000 units, where the BOM curve flattens toward sub-$1,000.</p>
-    <p style="margin-top:14px"><span class="flag">We are building on spec.</span> With no customer deposits in this plan, the raise front-loads 100% of production cost. If a channel slips its allocation, we hold finished inventory until it clears. That is the real risk in this round, stated plainly.</p>
-    <p style="margin-top:14px"><span class="flag">So why do it.</span> This $1.15M buys three things a spreadsheet cannot: <b>proof of production at volume</b>, <b>500 units deployed</b> across Selex, partners, and Power-GOGO riders, and the <b>tooling and supplier base</b> that drops per-unit cost toward $1,032 today and below $1,000 at 1,000+ units. This batch is the credibility gate to the real margin, not the margin itself.</p>
+  <div class="section-title">Executive Summary</div>
+  <div class="section-summary">A scenario-driven view of the <strong>Volty U1</strong> business case: what the model is, what it assumes, and where the numbers land. Use the four headline metrics below as the at-a-glance read; every section that follows drills into one driver of these outcomes.</div>
+  <div class="exec-summary-box">
+    <p class="lead">This dashboard is the live financial model behind Volty U1, NUEN MOTO's delivery-optimized, network-agnostic electric utility motorcycle.</p>
+    <p>Its purpose is to translate a single product strategy (a capital-light, B2B-first fleet play built around cross-compatible battery swapping) into numbers an investor or fleet partner can interrogate. It runs three scenarios (Conservative, Base, Optimistic) across unit volume, growth rate, pricing, and OPEX, and shows the downstream effect on revenue, break-even timing, gross margin, working capital, and investor returns.</p>
+    <p>The headline read in the Base case: roughly <strong>15,000 units over 24 months</strong>, around <strong>$22.9M of cumulative revenue</strong>, EBITDA turning positive in <strong>Q4 2026</strong> and full break-even by <strong>month 14</strong>, on a margin that arrives with volume: roughly 6% blended at mid-scale, expanding to about <strong>26% blended at full scale</strong>. The model is deliberately conservative and explicit about its two pressure points, BOM cost sensitivity and per-unit working capital, both stress-tested in later sections. Every figure on this dashboard reconciles to model v1.6.1; the section footers name the source sheet.</p>
   </div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="grid2">
-    <div>
-      <span class="eyebrow" style="color:var(--red)">The Ask</span>
-      <h2 class="disp">$1.15M, one round, deployed now.</h2>
-      <p class="truth" style="margin-top:16px">A single immediate round funds the entire 500-unit batch: production, the scale tooling base, six months of runway, and certification. No phased bridge, no milestone gate. We produce, we deploy, we collect on delivery.</p>
-      <table style="margin-top:20px">
-        <tr><th>Use of funds</th><th style="text-align:right">USD</th></tr>
-        <tr><td>Production · 500 units on spec</td><td class="n">$515,760</td></tr>
-        <tr><td>Scale tooling (jigs, fixtures, molds)</td><td class="n">$420,000</td></tr>
-        <tr><td>OPEX · 6 months at $34,700/mo</td><td class="n">$208,200</td></tr>
-        <tr><td>Contingency (6%)</td><td class="n">$71,000</td></tr>
-        <tr><td>Testing &amp; certification</td><td class="n">$27,000</td></tr>
-        <tr><td>Customer acquisition (500 × $25)</td><td class="n">$12,500</td></tr>
-        <tr class="tot"><td>Total deployment</td><td class="n">$1,254,460</td></tr>
-        <tr class="sub"><td>less founder equity (Han Hoang)</td><td class="n">−$100,000</td></tr>
-        <tr class="tot"><td>External raise</td><td class="n">$1,154,460</td></tr>
-      </table>
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Bridge-Phase Capital</div>
+      <div class="metric-value">$350K</div>
+      <div class="metric-detail">$250K convertible bridge + $100K founder capital (Han Hoang)</div>
     </div>
-    <div>
-      <div class="chartbox" style="height:420px"><canvas id="useChart"></canvas></div>
-      <p class="disc" style="text-align:center">Total deployment by category ($K)</p>
+    <div class="metric-card">
+      <div class="metric-label">24-Mo Revenue (Base)</div>
+      <div class="metric-value green">$22.9M</div>
+      <div class="metric-detail">~15,000 units across 24 months</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Break Even (Base)</div>
+      <div class="metric-value blue">Month 14</div>
+      <div class="metric-detail">~4,300 cumulative units, 24-month fixed-cost basis</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Gross Margin (Base, at scale)</div>
+      <div class="metric-value green">26%</div>
+      <div class="metric-detail">Blended; ~6% at mid-scale, margin arrives with volume</div>
     </div>
   </div>
-</div></section>
 
-<section><div class="wrap">
-  <span class="eyebrow" style="color:var(--red)">Where The 500 Go</span>
-  <h2 class="disp">Committed before the line starts.</h2>
-  <div class="grid2" style="margin-top:20px">
-    <div class="chartbox"><canvas id="allocChart"></canvas></div>
-    <div>
-      <table>
-        <tr><th>Channel</th><th style="text-align:right">Units</th><th style="text-align:right">Revenue</th></tr>
-        <tr><td>Selex (preferred partner fleet)</td><td class="n">250</td><td class="n">$300,000</td></tr>
-        <tr><td>Power-GOGO (individual riders)</td><td class="n">150</td><td class="n">$180,000</td></tr>
-        <tr><td>Other providers &amp; partners</td><td class="n">100</td><td class="n">$120,000</td></tr>
-        <tr class="tot"><td>First batch</td><td class="n">500</td><td class="n">$600,000</td></tr>
-      </table>
-      <p class="disc">Fleet price $1,200 assumed across all channels. If the 150 Power-GOGO units sell at retail ($1,500), batch revenue rises to $645,000; the raise is unchanged. Balance collected NET 30 on delivery.</p>
-    </div>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <span class="eyebrow" style="color:var(--red)">Unit Economics · This Batch</span>
-  <h2 class="disp">Per unit, at 500.</h2>
-  <div class="grid2" style="margin-top:20px;align-items:start">
-    <table>
-      <tr><th>Line</th><th style="text-align:right">Per unit</th></tr>
-      <tr><td>BOM (mid-scale rate)</td><td class="n">$956.52</td></tr>
-      <tr><td>Assembly &amp; labor</td><td class="n">$45.00</td></tr>
-      <tr><td>Logistics</td><td class="n">$30.00</td></tr>
-      <tr class="tot"><td>All-in production cost</td><td class="n">$1,031.52</td></tr>
-      <tr><td>Fleet selling price</td><td class="n">$1,200.00</td></tr>
-      <tr class="tot"><td>Gross margin per unit</td><td class="n">$168.48</td></tr>
-      <tr class="sub"><td>Gross margin %</td><td class="n">14%</td></tr>
+  
+  <div class="section-title">Key Assumptions (Control Panel)</div>
+  <div class="section-summary">Every driver behind the numbers, by scenario, so nothing downstream is a black box. These mirror the model's Assumptions &amp; Inputs and Scenario Analysis sheets; items still marked for confirmation in the model are subject to final Tier-1 supplier quotes.</div>
+  <div class="chart-wide">
+    <table class="unit-economics-table" style="width:100%">
+      <tr style="color: var(--muted); text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.08em;"><td>Driver</td><td>Conservative</td><td>Base</td><td>Optimistic</td></tr>
+      <tr><td>Monthly unit growth (post-pilot)</td><td>8%</td><td>15%</td><td>25%</td></tr>
+      <tr><td>Fleet price per unit</td><td>$1,300</td><td>$1,200</td><td>$1,200</td></tr>
+      <tr><td>Retail price per unit</td><td>$1,500</td><td>$1,500</td><td>$1,500</td></tr>
+      <tr><td>All-in cost per unit at scale</td><td>$1,019</td><td>$967</td><td>$904</td></tr>
+      <tr><td>Cumulative units, month 12</td><td>1,000</td><td>5,000</td><td>15,000</td></tr>
+      <tr><td>Cumulative units, month 24</td><td>5,000</td><td>15,000</td><td>30,000</td></tr>
+      <tr><td>Gross margin at scale (blended)</td><td>25%</td><td>26%</td><td>30%</td></tr>
+      <tr><td>Accessories attach rate (AOV $250-300, 70% GM)</td><td>25%</td><td>40%</td><td>55%</td></tr>
+      <tr><td>Service subscription ($15/mo, 50% GM)</td><td>20%</td><td>30%</td><td>45%</td></tr>
+      <tr><td>Average monthly OPEX (24-mo)</td><td>$46.4K</td><td>$73.3K</td><td>$98.6K</td></tr>
+      <tr><td>CAC per unit</td><td colspan="3">$25</td></tr>
+      <tr><td>Fixed program costs</td><td colspan="3">$420K tooling ($20K pilot + $400K scale) + $27K testing &amp; certification (incl. $25K Vietnam Register)</td></tr>
+      <tr><td>Working capital terms</td><td colspan="3">50% customer deposit at PO, NET 30 balance, 60-day production lead, 50/50 supplier terms (all confirmed inputs)</td></tr>
+      <tr><td>Funding tranches in the model</td><td colspan="3">Apr 2026: $250K bridge &middot; Jul 2026: $550-600K &middot; Oct 2026: $150-200K (milestone-gated)</td></tr>
     </table>
-    <div>
-      <div class="callout">
-        <p><b>Tooling is capex, not unit cost.</b> The $420K tooling base is a one-time investment carried by this round, not amortized into the $1,032 unit cost. It is what unlocks the mid-scale BOM rate and every unit after this batch.</p>
+    <div class="runway-note" style="margin-top:0.8rem">Source: Assumptions &amp; Inputs, Scenario Analysis, and Working Capital Cycle sheets, model v1.6.1. BOM excludes batteries; batteries are carried by the BaaS partners.</div>
+  </div>
+<div class="section-title">Financial Scenarios</div>
+  <div class="section-summary">Toggle between the three cases to see how growth assumptions cascade through the model. <strong>Conservative</strong> (8% monthly growth) is the downside guardrail, <strong>Base Case</strong> (15%) is the planning scenario, and <strong>Optimistic</strong> (25%) is the upside if fleet conversions land early. The four metrics and both charts below update with your selection.</div>
+  <div class="scenario-tabs">
+    <button class="scenario-btn" onclick="switchScenario('conservative')">Conservative</button>
+    <button class="scenario-btn active" onclick="switchScenario('base')">Base Case</button>
+    <button class="scenario-btn" onclick="switchScenario('optimistic')">Optimistic</button>
+  </div>
+
+  <div id="scenario-metrics" class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Month 12 Revenue</div>
+      <div class="metric-value" id="m12-rev">$4.4M</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Month 24 Revenue</div>
+      <div class="metric-value green" id="m24-rev">$22.9M</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Cash Position, Month 24</div>
+      <div class="metric-value blue" id="cum-cf">$7.3M</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Gross Margin %</div>
+      <div class="metric-value amber" id="gm-pct">26%</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="chart-container">
+      <h3>24-Month Revenue Projection</h3>
+      <div style="position: relative; height: 300px;">
+        <canvas id="revenueChart" role="img" aria-label="Monthly revenue projection for 24 months"></canvas>
       </div>
-      <ul class="clean">
-        <li><b>60-day</b> production lead from PO to finished units.</li>
-        <li><b>~$600K</b> batch revenue recovers most of COGS on delivery.</li>
-        <li><b>Sub-$1,000</b> per-unit cost unlocks at 1,000+ cumulative units.</li>
-        <li><b>Margin inflection</b> is the next round's story, funded by this one's proof.</li>
-      </ul>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-box" style="background: #56a6f2;"></div>Vehicle Revenue</div>
+        <div class="legend-item"><div class="legend-box" style="background: #aef24a;"></div>Accessories</div>
+        <div class="legend-item"><div class="legend-box" style="background: #ff7a4d;"></div>Services</div>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <h3>Cumulative Cash Position</h3>
+      <div style="position: relative; height: 300px;">
+        <canvas id="cashChart" role="img" aria-label="Cumulative cash position over 24 months"></canvas>
+      </div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-box" style="background: #E2231A;"></div>Cash Balance</div>
+        <div class="legend-item"><div class="legend-box" style="background: #aef24a;"></div>Healthy Runway</div>
+      </div>
+      <div class="runway-note">Cash position is investment-inclusive (tranches Apr / Jul / Oct 2026). The Base case dips ~$26K below zero at month 6 ahead of the October tranche; the raise buffer exists for exactly this window. Detail in Runway &amp; Minimum Cash below.</div>
     </div>
   </div>
-</div></section>
 
+  
+  <div class="section-title">Runway &amp; Minimum Cash</div>
+  <div class="section-summary">The question every investor asks first: when could this run out of money? The cash curve above is investment-inclusive, so the honest risk is not the end balance, it is the <strong>minimum cash point</strong> between tranches. This section shows it, by scenario, with no smoothing.</div>
+  <div class="grid-3">
+    <div class="stat-pill"><div class="lbl">Min Cash, Conservative (M11)</div><div class="val" style="color: var(--amber);">+$5.8K</div></div>
+    <div class="stat-pill"><div class="lbl">Min Cash, Base (M6)</div><div class="val" style="color: #ff4133;">-$26.2K</div></div>
+    <div class="stat-pill"><div class="lbl">Min Cash, Optimistic (M8)</div><div class="val" style="color: #ff4133;">-$50.9K</div></div>
+  </div>
+  <div class="exec-summary-box" style="margin-top:1rem">
+    <p><strong>What this means.</strong> As scheduled ($250K in April, $550-600K in July, $150-200K in October), the 24-month plan runs to a razor-thin minimum: the Conservative case bottoms at <strong>$5,784</strong> of cash in month 11, and the Base and Optimistic cases briefly dip <strong>below zero</strong> (months 6 and 8) ahead of the October tranche, because faster growth consumes working capital faster. Tranche timing, not total capital, is the binding constraint.</p>
+    <p><strong>Zero-revenue runway.</strong> On the bridge-phase capital of $350K ($250K bridge plus $100K founder capital), at the pre-revenue burn of roughly $40K/month (OPEX plus facility service), the company has about <strong>8 to 9 months</strong> of runway before any vehicle revenue. First vehicle cash lands in month 9 (December 2026) in all three scenarios.</p>
+    <p><strong>How the dips are covered.</strong> The $1.0M plan carries about $95K of explicit contingency, and Han Hoang's $100K founder capital sits alongside the bridge, outside the raise, in exactly the window where the dips occur. The alternative is equivalent: release part of the October tranche earlier. Either way, the gap is identified and covered, not discovered later.</p>
+  </div>
+<div class="chart-wide">
+    <h3>5-Year Financial Revenue Projections (2026-2030)</h3>
+    <div style="position: relative; height: 360px;">
+      <canvas id="fiveYearChart" role="img" aria-label="Five year revenue projection by scenario with cumulative units"></canvas>
+    </div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-box" style="background: #ff7a4d;"></div>Conservative Revenue</div>
+      <div class="legend-item"><div class="legend-box" style="background: #56a6f2;"></div>Base Revenue</div>
+      <div class="legend-item"><div class="legend-box" style="background: #aef24a;"></div>Optimistic Revenue</div>
+      <div class="legend-item"><div class="legend-box" style="background: #f5f5f6; border-radius: 50%;"></div>Base Cumulative Units (K, right axis)</div>
+    </div>
+    <div class="highlight">
+      <div class="highlight-text"><strong>Reading the ramp:</strong> Years 1-2 are the pilot-to-scale window the 24-month model covers in detail. Years 3-5 extend the trajectory as fleet partnerships convert into recurring volume and HCMC's gasoline ban for delivery/ride-hailing accelerates demand. Figures are illustrative annual projections, not committed orders.</div>
+    </div>
+  </div>
 
-
-<section><div class="wrap">
-  <span class="eyebrow" style="color:var(--red)">Unit Economics · At Scale</span>
-  <h2 class="disp">Where the margin lives.</h2>
-  <p class="truth" style="margin-top:14px">The 14% on this batch is the floor, not the model. Two things move it: the BOM curve flattens toward <b>$1,019</b> past 1,000 units, and blended pricing (fleet plus retail, plus accessory and service attach) lifts the average sale well above the $1,200 fleet number. That is where a 25%+ gross margin comes from.</p>
-  <div class="grid2" style="margin-top:22px;align-items:start">
-    <div class="chartbox" style="height:320px"><canvas id="scaleChart"></canvas></div>
-    <div>
-      <table>
-        <tr><th>Volume &amp; mix</th><th style="text-align:right">Cost</th><th style="text-align:right">Price</th><th style="text-align:right">GM</th></tr>
-        <tr><td>500 units · fleet</td><td class="n">$1,032</td><td class="n">$1,200</td><td class="n">14%</td></tr>
-        <tr><td>1,000 to 5,000 · fleet</td><td class="n">$1,032</td><td class="n">$1,200</td><td class="n">14%</td></tr>
-        <tr><td>15,000+ · fleet</td><td class="n">$1,019</td><td class="n">$1,200</td><td class="n">15%</td></tr>
-        <tr class="tot"><td>15,000+ · blended</td><td class="n">$1,019</td><td class="n">$1,350</td><td class="n">25%</td></tr>
+  <div class="section-title">Unit Economics & Pricing</div>
+  <div class="section-summary">The per-unit P&L at scale (Base scenario, 15,000 units). An all-in <strong>$967 build cost</strong> against a <strong>$1,200 fleet price</strong> leaves $233 of fleet gross profit per unit; the 50/50 fleet-retail blend at <strong>$1,350</strong> carries the margin to roughly <strong>26%</strong>. The Conservative case prices fleet at $1,300 on a $1,019 cost. The doughnut shows what dominates cost: BOM is ~93% of it, which is exactly why the BOM stress test later matters so much. Margin is volume-dependent: at mid-scale (1,000 to 5,000 units) blended margin is only ~6%, which is the honest reason the model pushes to full production quickly. Source: Unit Economics and Scenario Analysis sheets, v1.6.1.</div>
+  <div class="grid-2">
+    <div class="chart-container">
+      <h3>Unit Cost Breakdown (at scale, 5K+ units)</h3>
+      <div style="position: relative; height: 240px;">
+        <canvas id="unitCostChart" role="img" aria-label="Unit cost breakdown by component"></canvas>
+      </div>
+      <table class="unit-economics-table">
+        <tr>
+          <td>BOM Cost</td>
+          <td>$900</td>
+        </tr>
+        <tr>
+          <td>Assembly Labor</td>
+          <td>$30</td>
+        </tr>
+        <tr>
+          <td>Logistics</td>
+          <td>$20</td>
+        </tr>
+        <tr>
+          <td>Tooling Amortization</td>
+          <td>$14</td>
+        </tr>
+        <tr>
+          <td>Testing & Cert Amort</td>
+          <td>$3</td>
+        </tr>
+        <tr style="border-top: 1px solid var(--red); font-weight: 700; color: var(--white);">
+          <td>Total Cost/Unit</td>
+          <td>$967</td>
+        </tr>
       </table>
-      <p class="disc">LTV per fleet customer $1,590 (vehicle + accessories + 24 months of service) against $25 CAC, a 63.6x ratio. The vehicle sale is the entry point; attach and service are the margin.</p>
     </div>
-  </div>
-</div></section>
-<section><div class="wrap">
-  <span class="eyebrow" style="color:var(--red)">Five-Year Projection · Model v1.6.1</span>
-  <h2 class="disp">Where the batch leads.</h2>
-  <p class="truth" style="margin-top:14px">This first batch is year one of the ramp modeled in v1.6.1. The base case reaches roughly 15,000 units and $22.9M revenue inside 24 months, then compounds. Conservative and optimistic bands are shown so you price your own risk. <b>These are model estimates, not commitments;</b> hardware scaling is execution-dependent.</p>
-  <div class="grid2" style="margin-top:22px;align-items:start">
-    <div class="chartbox" style="height:346px"><canvas id="fiveYearChart"></canvas></div>
-    <div>
-      <table>
-        <tr><th>Revenue ($M)</th><th style="text-align:right">2026</th><th style="text-align:right">2028</th><th style="text-align:right">2030</th></tr>
-        <tr><td>Conservative</td><td class="n">$2</td><td class="n">$38</td><td class="n">$120</td></tr>
-        <tr><td>Base</td><td class="n">$3</td><td class="n">$60</td><td class="n">$215</td></tr>
-        <tr><td>Optimistic</td><td class="n">$5</td><td class="n">$95</td><td class="n">$310</td></tr>
-        <tr class="sub"><td>Base cumulative units</td><td class="n">2K</td><td class="n">55K</td><td class="n">230K</td></tr>
+
+    <div class="chart-container">
+      <h3>Pricing & Margin Scenarios</h3>
+      <table class="unit-economics-table">
+        <tr>
+          <td>Fleet Price (Base / Conservative)</td>
+          <td>$1,200 / $1,300</td>
+        </tr>
+        <tr>
+          <td>Retail Price (per unit)</td>
+          <td>$1,500</td>
+        </tr>
+        <tr>
+          <td>Blended Selling Price (Base)</td>
+          <td>$1,350</td>
+        </tr>
+        <tr style="border-top: 1px solid var(--red);">
+          <td>Gross Margin/Unit (Fleet, Base at scale)</td>
+          <td style="color: #aef24a;">$233 (19.4%)</td>
+        </tr>
+        <tr>
+          <td>Gross Margin/Unit (Blended, Base at scale)</td>
+          <td style="color: #aef24a;">$383 (~26%)</td>
+        </tr>
+        <tr>
+          <td>GM% at scale: Cons / Base / Opt</td>
+          <td style="color: #aef24a;">25% / 26% / 30%</td>
+        </tr>
       </table>
-      <p class="disc">Base case: ~26% blended gross margin at scale, break-even near month 14. The 500-unit batch in this round is the first bar on this curve.</p>
     </div>
   </div>
-</div></section>
 
+  <div class="section-title">Break Even Analysis</div>
+  <div class="section-summary">When the business stops burning cash, by scenario. Break-even ranges from <strong>month 10</strong> (Optimistic, ~3,450 units) to <strong>month 18</strong> (Conservative, ~4,325 units), with the Base case at <strong>month 14</strong> and ~4,300 units. Units are measured against 24-month fixed costs ($420K tooling, $27K certification, plus cumulative OPEX) at vehicle-only contribution margins of $296 to $371 per unit; counting accessory and service revenue, the all-revenue contribution margin is $503/unit and the hurdle drops to ~2,550 units. The spread is driven almost entirely by how fast monthly volume compounds, shown in the chart on the left and the unit/month detail on the right.</div>
+  <div class="grid-2">
+    <div class="chart-container">
+      <h3>Break Even By Scenario</h3>
+      <div style="position: relative; height: 280px;">
+        <canvas id="breakEvenChart" role="img" aria-label="Break even units and months by scenario"></canvas>
+      </div>
+    </div>
 
-<section><div class="wrap">
-  <span class="eyebrow" style="color:var(--red)">Path To Break-Even</span>
-  <h2 class="disp">Fourteen months to the line.</h2>
-  <p class="truth" style="margin-top:14px">On the base ramp, cumulative cash flow crosses zero near <b>month 14</b>. Blended contribution is about <b>$503 per unit</b> once accessories and service are counted, so each unit past break-even compounds. This is illustrative of the model's base case, not a commitment.</p>
-  <div class="grid2" style="margin-top:22px;align-items:start">
-    <div class="chartbox" style="height:320px"><canvas id="breakevenChart"></canvas></div>
-    <div>
-      <table>
-        <tr><th>Metric</th><th style="text-align:right">Base</th></tr>
-        <tr><td>Break-even month</td><td class="n">~14</td></tr>
-        <tr><td>Contribution margin / unit</td><td class="n">$503</td></tr>
-        <tr><td>12-month revenue</td><td class="n">$4.4M</td></tr>
-        <tr><td>24-month revenue</td><td class="n">$22.9M</td></tr>
-        <tr><td>Gross margin % at scale (blended)</td><td class="n">~26%</td></tr>
+    <div class="chart-container">
+      <h3>Scenario Comparison</h3>
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div>
+          <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">Conservative (8% monthly growth)</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+            <span style="color: var(--white);">Break Even Month</span>
+            <span style="color: var(--amber); font-size: 1.3rem; font-weight: 700;">18</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="color: var(--white);">Break Even Units</span>
+            <span style="color: var(--amber); font-size: 1.3rem; font-weight: 700;">~4,325</span>
+          </div>
+        </div>
+
+        <div>
+          <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">Base (15% monthly growth)</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+            <span style="color: var(--white);">Break Even Month</span>
+            <span style="color: var(--green); font-size: 1.3rem; font-weight: 700;">14</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="color: var(--white);">Break Even Units</span>
+            <span style="color: var(--green); font-size: 1.3rem; font-weight: 700;">~4,297</span>
+          </div>
+        </div>
+
+        <div>
+          <div style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">Optimistic (25% monthly growth)</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+            <span style="color: var(--white);">Break Even Month</span>
+            <span style="color: #56a6f2; font-size: 1.3rem; font-weight: 700;">10</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="color: var(--white);">Break Even Units</span>
+            <span style="color: #56a6f2; font-size: 1.3rem; font-weight: 700;">~3,446</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section-title">Quarterly P&amp;L Summary (Base Case)</div>
+  <div class="section-summary">The classic table, straight from the model's Profit &amp; Loss sheet. EBITDA turns positive in <strong>Q4 2026</strong> in the Base case (Q1 2027 Conservative, Q4 2026 Optimistic). Depreciation runs $17.5K/month (tooling and certification amortization).</div>
+  <div class="chart-wide" style="overflow-x:auto">
+    <table class="unit-economics-table" style="width:100%; min-width:760px">
+      <tr style="color: var(--muted); text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.08em;"><td>$K</td><td>Q2'26</td><td>Q3'26</td><td>Q4'26</td><td>Q1'27</td><td>Q2'27</td><td>Q3'27</td><td>Q4'27</td><td>Q1'28</td><td>24-Mo Total</td></tr>
+      <tr><td>Revenue</td><td>0</td><td>0</td><td>726</td><td>3,666</td><td>4,485</td><td>4,584</td><td>4,683</td><td>4,782</td><td><strong>22,926</strong></td></tr>
+      <tr><td>COGS</td><td>0</td><td>0</td><td>492</td><td>2,479</td><td>3,018</td><td>3,067</td><td>3,117</td><td>3,166</td><td>15,339</td></tr>
+      <tr><td>Gross Profit</td><td>0</td><td>0</td><td>234</td><td>1,187</td><td>1,467</td><td>1,517</td><td>1,566</td><td>1,616</td><td><strong>7,586</strong> (33% of rev)</td></tr>
+      <tr><td>OPEX</td><td>130</td><td>172</td><td>186</td><td>243</td><td>257</td><td>257</td><td>257</td><td>257</td><td>1,760</td></tr>
+      <tr><td>EBITDA</td><td style="color:#ff4133">(130)</td><td style="color:#ff4133">(172)</td><td style="color:#aef24a">47</td><td style="color:#aef24a">944</td><td style="color:#aef24a">1,210</td><td style="color:#aef24a">1,259</td><td style="color:#aef24a">1,309</td><td style="color:#aef24a">1,358</td><td><strong style="color:#aef24a">5,826</strong></td></tr>
+      <tr><td>Net Income (pre-tax)</td><td style="color:#ff4133">(183)</td><td style="color:#ff4133">(225)</td><td style="color:#ff4133">(5)</td><td style="color:#aef24a">892</td><td style="color:#aef24a">1,158</td><td style="color:#aef24a">1,207</td><td style="color:#aef24a">1,256</td><td style="color:#aef24a">1,306</td><td><strong style="color:#aef24a">5,406</strong></td></tr>
+    </table>
+    <div class="runway-note" style="margin-top:0.8rem">Gross margin on this table runs above the per-unit blended figure because accessory (70% GM) and service (50% GM) revenue is included. Source: Profit &amp; Loss sheet, v1.6.1.</div>
+  </div>
+
+  <div class="section-title">Tax: Vietnam CIT, Applied Conservatively</div>
+  <div class="section-summary">Corporate income tax is in the model, not hand-waved. Standard <strong>20% Vietnam CIT</strong> is applied with a 5-year NOL carryforward; the preferential 10% high-tech rate and tax holidays are <strong>not</strong> assumed, keeping the model conservative.</div>
+  <div class="grid-3">
+    <div class="stat-pill"><div class="lbl">CIT Rate Applied</div><div class="val" style="color: var(--blue);">20%</div></div>
+    <div class="stat-pill"><div class="lbl">FY2027 Cash Tax (Base)</div><div class="val" style="color: var(--amber);">~$175K</div></div>
+    <div class="stat-pill"><div class="lbl">FY2027 Effective Rate</div><div class="val" style="color: var(--green);">~11%</div></div>
+  </div>
+  <div class="exec-summary-box" style="margin-top:1rem">
+    <p>Pre-2027 losses build an NOL pool that shields roughly $190K of 2027 taxable income. FY2027 accrues ~$299K of CIT on ~$1.6M of taxable income, with cash payments lagging about 30 days, so cash tax paid in FY2027 is ~$175K, an effective ~11% against the nominal 20%. If the high-tech designation is granted (10% for 15 years plus holidays), every after-tax figure improves; nothing in this dashboard depends on it. Source: Tax &amp; CIT Schedule sheet, v1.6.1.</p>
+  </div>
+<div class="section-title">Operating Expenses & Headcount</div>
+  <div class="section-summary">How the cost base grows as the team scales. Payroll starts at a lean <strong>$24K/month Phase 0 team</strong> inside a <strong>$34.7K/month total fixed OPEX baseline</strong> (rent, utilities, S&amp;M, logistics, insurance, legal), stepping up in hiring phases tied to commercial milestones. In the Base case total OPEX averages <strong>~$73K/month</strong> over 24 months and ends near <strong>$86K/month</strong> as S&amp;M scales with revenue ($2.5K flat, then 2%, then 4% of revenue). The combo chart stacks spend by category against headcount (right axis); the mix and phase charts below show where the money goes and when people are added.</div>
+  <div class="grid-3">
+    <div class="stat-pill"><div class="lbl">Phase 0 Payroll / Total OPEX</div><div class="val" style="color: var(--blue);">$24K / $34.7K<span style="font-size:0.9rem;color:var(--muted);">/mo</span></div></div>
+    <div class="stat-pill"><div class="lbl">Month 24 OPEX (Base)</div><div class="val" style="color: var(--amber);">~$86K<span style="font-size:0.9rem;color:var(--muted);">/mo</span></div></div>
+    <div class="stat-pill"><div class="lbl">Headcount: Start → M24</div><div class="val" style="color: var(--green);">10 → 30</div></div>
+    <div class="stat-pill"><div class="lbl">S&M as % of Revenue</div><div class="val" style="color: var(--red);">2-4%</div></div>
+  </div>
+  <div class="chart-wide">
+    <h3>Monthly OPEX by Category + Headcount</h3>
+    <div style="position: relative; height: 340px;">
+      <canvas id="opexChart" role="img" aria-label="Monthly operating expenses by category with headcount overlay"></canvas>
+    </div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-box" style="background: #56a6f2;"></div>Payroll</div>
+      <div class="legend-item"><div class="legend-box" style="background: #aef24a;"></div>Sales & Marketing</div>
+      <div class="legend-item"><div class="legend-box" style="background: #ff7a4d;"></div>R&D / Engineering</div>
+      <div class="legend-item"><div class="legend-box" style="background: #9b6cf2;"></div>G&A / Other</div>
+      <div class="legend-item"><div class="legend-box" style="background: #f5f5f6; border-radius:50%;"></div>Headcount (right axis)</div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="chart-container">
+      <h3>OPEX Mix at Month 24</h3>
+      <div style="position: relative; height: 260px;">
+        <canvas id="opexMixChart" role="img" aria-label="Operating expense breakdown by category at month 24"></canvas>
+      </div>
+    </div>
+    <div class="chart-container">
+      <h3>Headcount by Hiring Phase</h3>
+      <div style="position: relative; height: 260px;">
+        <canvas id="headcountChart" role="img" aria-label="Cumulative headcount by hiring phase"></canvas>
+      </div>
+      <div class="highlight">
+        <div class="highlight-text"><strong>Phase-based hiring:</strong> Phase 0 ($24K payroll, 10 roles incl. blended contractors) → Phase 1: +4 roles (Jul 2026, +$4.4K) → Phase 2: +9 roles (Oct 2026, +$13K) → Phase 3: +7 roles (Oct 2027, +$12K). Hiring is gated to commercial traction, not calendar.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Working Capital & Cash Cycle</div>
+  <div class="section-summary">The hidden cash trap of a hardware business. Even profitable units tie up cash because suppliers are paid before customers settle in full. The timeline on the left shows a <strong>~$478 per-unit gap</strong> opening between day 60 and day 95. At 1,000 units/month that's a <strong>~$478K facility</strong> requirement, which the mitigation strategies are designed to shrink.</div>
+  <div class="grid-2">
+    <div class="chart-container">
+      <h3>Cash Conversion Cycle (Per Unit)</h3>
+      <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.9rem; margin-top: 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: rgba(226,35,26,0.05); border-radius: 4px;">
+          <span style="color: var(--white);">Day 0: Customer 50% deposit received</span>
+          <span style="color: var(--green);">+$675</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: rgba(255,122,77,0.05); border-radius: 4px;">
+          <span style="color: var(--white);">Day 3: 50% supplier deposit paid</span>
+          <span style="color: var(--amber);">-$479</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: rgba(255,122,77,0.05); border-radius: 4px;">
+          <span style="color: var(--white);">Day 60: Supplier balance paid in full</span>
+          <span style="color: var(--amber);">-$479</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background: rgba(226,35,26,0.05); border-radius: 4px;">
+          <span style="color: var(--white);">Day 95: Customer balance collected (NET 30)</span>
+          <span style="color: var(--green);">+$675</span>
+        </div>
+      </div>
+      <div style="margin-top: 1rem; padding: 0.75rem; background: var(--bg1); border-radius: 4px; border-left: 3px solid var(--blue);">
+        <div style="font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem;">Peak Working Capital Need (per unit, 30-day window)</div>
+        <div style="color: var(--blue); font-size: 1.5rem; font-weight: 700;">~$478</div>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <h3>Working Capital Requirements by Volume</h3>
+      <table class="unit-economics-table" style="font-size: 0.85rem;">
+        <tr>
+          <td>@100 units/month</td>
+          <td style="color: var(--blue);">~$47.8K</td>
+        </tr>
+        <tr>
+          <td>@500 units/month</td>
+          <td style="color: var(--blue);">~$239K</td>
+        </tr>
+        <tr>
+          <td>@1,000 units/month</td>
+          <td style="color: var(--blue);">~$478K</td>
+        </tr>
       </table>
-      <p class="disc">The 500-unit batch is month one of this curve. It is not built to be profitable on its own; it is built to prove the line and unlock the cost base.</p>
+      <div class="highlight">
+        <div class="highlight-text"><strong>Mitigation Strategies:</strong> ACB facility (bank line backed by signed POs), increased customer deposits (60-70% on new agreements), negotiated supplier credit (NET 30 post-delivery for established relationships).</div>
+      </div>
     </div>
   </div>
-</div></section>
 
-<section><div class="wrap">
-  <span class="eyebrow" style="color:var(--red)">Cash &amp; Runway</span>
-  <h2 class="disp">The bridge to self-funding.</h2>
-  <p class="truth" style="margin-top:14px">The $1.25M deploys fast: tooling and the first batch front-load in the opening 60 days. Cash troughs near <b>$240K around month 2</b>, then the batch delivers and <b>~$600K</b> of revenue lands, funding batch two from cash flow rather than the raise. Illustrative base case.</p>
-  <div class="grid2" style="margin-top:22px;align-items:start">
-    <div class="chartbox" style="height:320px"><canvas id="cashChart"></canvas></div>
-    <div>
-      <ul class="clean">
-        <li><b>$1.25M</b> deployed: $1.15M raise plus $100K founder equity.</li>
-        <li><b>~$240K</b> cash trough at month 2, the working-capital low point.</li>
-        <li><b>~$600K</b> batch revenue on delivery recovers most of COGS.</li>
-        <li><b>Batch two onward</b> funded by revenue, extending runway toward a priced Series A.</li>
-      </ul>
+  <div class="section-title">The Investment Ask</div>
+  <div class="section-summary">The raise in one place: <strong>$1.0M total</strong>, split into a <strong>$250K Bridge</strong> for immediate use (converting at a $10M cap) and a <strong>$750K Seed</strong> at a $10M pre-money valuation. Alongside the bridge, <strong>Han Hoang contributes $100K of founder capital</strong> in the same window, putting founder cash at risk ahead of investor cash. This section covers what the capital buys, how it is spent, and what an optimistic next round (Series A in 2030) would look like for the people who come in now.</div>
+
+  <div class="grid-3">
+    <div class="stat-pill"><div class="lbl">Total Ask</div><div class="val" style="color: var(--white);">$1.0M</div></div>
+    <div class="stat-pill"><div class="lbl">Bridge (Immediate)</div><div class="val" style="color: var(--amber);">$250K</div></div>
+    <div class="stat-pill"><div class="lbl">Seed @ $10M Pre</div><div class="val" style="color: var(--green);">$750K</div></div>
+    <div class="stat-pill"><div class="lbl">Post-Money</div><div class="val" style="color: var(--blue);">~$11.0M</div></div>
+  </div>
+
+  <div class="exec-summary-box">
+    <p class="lead">The ask is $1.0M to take Volty U1 from a validated pilot to early production, with $100K of founder capital committed alongside it.</p>
+    <p>This is not a capital-heavy infrastructure bet. The battery-swap networks fund the swap stations; this raise funds vehicles, homologation, and the working capital to fulfill orders. It is sized to convert demand that already exists into revenue, then hand off to operating cash flow and a later growth round.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1rem;">
+      <div>
+        <div style="color: var(--green); font-weight: 700; margin-bottom: 0.4rem;">Converts the pipeline</div>
+        <div style="color: var(--muted); line-height: 1.7; font-size: 0.9rem;">Funds the pilot and first production runs to turn ~710 risk-adjusted units of Q4 2026 fleet demand into deployed, revenue-generating bikes.</div>
+      </div>
+      <div>
+        <div style="color: var(--blue); font-weight: 700; margin-bottom: 0.4rem;">Capital-light by design</div>
+        <div style="color: var(--muted); line-height: 1.7; font-size: 0.9rem;">Infrastructure cost sits with the battery networks, not NUEN MOTO. The network-agnostic platform avoids the closed-ecosystem trap that constrains larger competitors.</div>
+      </div>
+      <div>
+        <div style="color: var(--red); font-weight: 700; margin-bottom: 0.4rem;">Regulatory timing</div>
+        <div style="color: var(--muted); line-height: 1.7; font-size: 0.9rem;">HCMC's gasoline ban for delivery and ride-hailing creates a hard deadline that pulls fleet demand forward and rewards the first credible electric utility option.</div>
+      </div>
+      <div>
+        <div style="color: var(--amber); font-weight: 700; margin-bottom: 0.4rem;">Early entry price</div>
+        <div style="color: var(--muted); line-height: 1.7; font-size: 0.9rem;">The Seed comes in at a $10M pre-money; the Bridge converts at a $10M cap plus 6% accrued interest, so the cap protects the bridge if the round prices above $10M while rewarding the earliest entry with interest. Both enter ahead of the markup a Series A would bring, quantified in the optimistic 2030 scenario below.</div>
+      </div>
     </div>
   </div>
-</div></section>
 
-<section><div class="wrap">
-  <span class="eyebrow" style="color:var(--red)">Cap Table</span>
-  <h2 class="disp">Clean, and staying that way.</h2>
-  <p class="truth" style="margin-top:14px">A Vietnamese LLC on member capital contributions. This round takes <b>10.3%</b> at a $10M pre-money and dilutes existing members proportionally. No prior priced equity, no option pool overhang yet.</p>
-  <table style="margin-top:20px;max-width:640px">
-    <tr><th>Holder</th><th style="text-align:right">Pre-round</th><th style="text-align:right">Post-$1.15M</th></tr>
-    <tr><td>Gia Nguyen · Co-Founder, CPO</td><td class="n">38.8%</td><td class="n">34.8%</td></tr>
-    <tr><td>Han Hoang · Co-Founder, Strategy</td><td class="n">29.1%</td><td class="n">26.1%</td></tr>
-    <tr><td>Hai Vo · Co-Founder, COO</td><td class="n">19.1%</td><td class="n">17.1%</td></tr>
-    <tr><td>Tim Nielsen · Angel</td><td class="n">13.0%</td><td class="n">11.7%</td></tr>
-    <tr class="tot"><td>This round investor</td><td class="n">—</td><td class="n">10.3%</td></tr>
-  </table>
-  <p class="disc">A 10% ESOP, if added at or after a priced round, would dilute all holders proportionally.</p>
-</div></section>
-<section><div class="wrap">
-  <span class="eyebrow" style="color:var(--red)">Company Value &amp; Shareholder Growth</span>
-  <h2 class="disp">What the equity is worth.</h2>
-  <p class="truth" style="margin-top:14px">Base-case company value, anchored to today's round (~$11M post-money) and the model's 2030 Series A path (~$100M post-money). Below, how each shareholder's stake compounds across those five years. <b>Illustrative;</b> a real outcome depends on traction, terms, and market.</p>
-  <div class="grid2" style="margin-top:22px;align-items:start">
-    <div class="chartbox" style="height:346px"><canvas id="valueChart"></canvas></div>
-    <div>
-      <table>
-        <tr><th>Stake value</th><th style="text-align:right">2026</th><th style="text-align:right">2030</th><th style="text-align:right">Growth</th></tr>
-        <tr><td>Gia Nguyen · 34.8%</td><td class="n">$3.8M</td><td class="n">$34.8M</td><td class="n">9.1x</td></tr>
-        <tr><td>Han Hoang · 26.1%</td><td class="n">$2.9M</td><td class="n">$26.1M</td><td class="n">9.1x</td></tr>
-        <tr><td>Hai Vo · 17.1%</td><td class="n">$1.9M</td><td class="n">$17.1M</td><td class="n">9.1x</td></tr>
-        <tr><td>Tim Nielsen · 11.7%</td><td class="n">$1.3M</td><td class="n">$11.7M</td><td class="n">9.1x</td></tr>
-        <tr class="tot"><td>This round · 10.3%</td><td class="n">$1.15M</td><td class="n">$10.3M</td><td class="n">9.0x</td></tr>
+  
+  <div class="exec-summary-box" style="margin-top:1.2rem">
+    <p><strong>How the raise maps to the operating model.</strong> The 24-month projection deploys the full <strong>$1.0M</strong> in three milestone-gated tranches: $250K (April 2026, the bridge) funds the pilot, homologation, and the first three months; $550-600K (July 2026) lands ahead of the $400K scale-tooling window; $150-200K (October 2026) seeds working capital as volume ramps. About $95K of the plan is explicit contingency. <strong>Han Hoang's $100K founder capital sits alongside the bridge, outside the raise</strong>, and is the cover for the minimum-cash dips shown in Runway &amp; Minimum Cash. <strong>Plan B is named, not implied:</strong> if conversion runs slow (two consecutive months below 60% of planned deliveries), the October tranche is upsized or a $500K extension is raised on seed terms; scale tooling is released only after Tier-1 price-fix contracts are signed.</p>
+  </div>
+<div class="grid-2">
+    <div class="chart-container">
+      <h3>Use of the $1.0M Raise (Combined)</h3>
+      <div style="position: relative; height: 260px;">
+        <canvas id="askUseChart" role="img" aria-label="Combined use of the $1.0M raise by category"></canvas>
+      </div>
+      <table class="unit-economics-table" style="font-size: 0.85rem;">
+        <tr><td>Scale & pilot tooling</td><td>$420K</td></tr>
+        <tr><td>Team / OPEX (runway)</td><td>$321K</td></tr>
+        <tr><td>Working capital service & deposit refunds</td><td>$96K</td></tr>
+        <tr><td>Contingency / buffer</td><td>$95K</td></tr>
+        <tr><td>Pilot production (10 units)</td><td>$41K</td></tr>
+        <tr><td>Homologation, testing & certification</td><td>$27K</td></tr>
+        <tr style="border-top: 1px solid var(--red); color: var(--white); font-weight: 700;"><td>Total Raise</td><td>$1.0M (100%)</td></tr>
       </table>
-      <p class="disc">Ownership illustrative, assuming this $1.15M round at a $10M pre-money. The alternative no-further-raise exit path values the company near $60M in 2030. The Series A and exit paths are mutually exclusive.</p>
     </div>
-  </div>
-  <div class="callout" style="margin-top:22px">
-    <span class="mono" style="color:var(--red)">This round's investor</span>
-    <p style="margin-top:10px;font-size:16px"><b>$1.15M in today buys about 10.3% of the company.</b> On the base-case path that stake is worth ~$10.3M by 2030, roughly <b>9x in five years</b>. The conservative no-raise exit path values it near $6.2M, about 5.4x. Either way, this batch is the entry point.</p>
-  </div>
-</div></section>
 
-
-<section><div class="wrap">
-  <span class="eyebrow" style="color:var(--red)">Investor Returns</span>
-  <h2 class="disp">What 10.3% is worth at exit.</h2>
-  <p class="truth" style="margin-top:14px">$1.15M for 10.3%, held to a Series A or strategic exit in roughly five years. At the model's exit range, here is the multiple and IRR on this round's money. <b>Illustrative;</b> real outcomes depend on execution and market.</p>
-  <div class="grid2" style="margin-top:22px;align-items:start">
-    <div class="chartbox" style="height:330px"><canvas id="returnsChart"></canvas></div>
-    <div>
-      <table>
-        <tr><th>Exit valuation</th><th style="text-align:right">Stake</th><th style="text-align:right">Multiple</th><th style="text-align:right">IRR</th></tr>
-        <tr><td>$30M · modest</td><td class="n">$3.1M</td><td class="n">2.7x</td><td class="n">22%</td></tr>
-        <tr><td>$50M · Series A standard</td><td class="n">$5.2M</td><td class="n">4.5x</td><td class="n">35%</td></tr>
-        <tr><td>$75M · strong Series A</td><td class="n">$7.7M</td><td class="n">6.7x</td><td class="n">46%</td></tr>
-        <tr class="tot"><td>$100M · Vietnam EV leader</td><td class="n">$10.3M</td><td class="n">9.0x</td><td class="n">55%</td></tr>
-        <tr><td>$150M · regional thesis</td><td class="n">$15.5M</td><td class="n">13.4x</td><td class="n">68%</td></tr>
+    <div class="chart-container">
+      <h3>Optimistic Next Round: Series A (2030)</h3>
+      <table class="unit-economics-table" style="font-size: 0.85rem;">
+        <tr><td>Round size</td><td>$15M</td></tr>
+        <tr><td>Pre-money valuation</td><td>$85M</td></tr>
+        <tr><td>Post-money valuation</td><td>$100M</td></tr>
+        <tr><td>New Series A investor</td><td>15.0%</td></tr>
+        <tr style="border-top: 1px solid var(--red);"><td style="color: var(--green);">Seed Investor stake (post-A)</td><td style="color: var(--green);">~5.8% | $5.8M paper | ~7.7x</td></tr>
+        <tr><td style="color: var(--amber);">Bridge Investor stake (post-A)</td><td style="color: var(--amber);">~2.0% | $2.0M paper | ~8.2x</td></tr>
       </table>
-      <p class="disc">IRR assumes a five-year hold. The $60M no-further-raise exit path, shown earlier, sits around 5.4x.</p>
+      <div class="highlight">
+        <div class="highlight-text"><strong>What this shows:</strong> in the optimistic case, a 2030 Series A at a $100M post-money values today's entry at roughly <strong>7.7x for the Seed and ~8.2x for the Bridge</strong> on paper, before any exit. Both convert at the same $10M basis; the bridge edges ahead per dollar through its 6% accrued interest and earliest entry. This round also sets the dilution path: this Series A (15%) plus a later Series B (~23%) is what reduces the Seed and Bridge stakes to the exit levels used in the next section. Illustrative; an actual round depends on traction, terms, and market conditions. The Series A path and the Year 5 exit row are mutually exclusive timelines: a company raising at a $100M post in 2030 is not also exiting at $60M in 2030; read the exit table as the no-further-raise path.</div>
+      </div>
     </div>
   </div>
-</div></section>
-<section><div class="wrap">
-  <div class="callout" style="border-left-color:var(--red)">
-    <span class="mono" style="color:var(--red)">Bottom line</span>
-    <p style="margin-top:10px;font-size:16px"><b>$1.15M puts 500 Volty U-1s on the road, proves the line, and builds the cost base.</b> The batch nearly pays for its own materials. What you are funding is the jump from prototype to producer, and the deployed fleet that turns every later conversation from projection into track record.</p>
-  </div>
-  <p class="disc">This document reflects the immediate first production round only. Full multi-year projections, sensitivity analysis, and investor return scenarios are maintained in the complete financial model (v1.6.1) and available on request.</p>
-</div></section>
 
-<footer><div class="wrap">NUEN MOTO COMPANY LIMITED · Confidential · Prepared for prospective investors · Figures from Financial Model v1.6.1 · © 2026</div></footer>
+  <div class="section-title">Investment Structure, Returns & Cap Table</div>
+  <div class="section-summary">Two instruments fund the next phase, with founder capital alongside. The <strong>Bridge Investor</strong> puts in <strong>$250K now</strong> for immediate use (pilot and homologation), structured as a convertible that converts at a <strong>$10M cap plus 6% accrued interest</strong>: the cap protects the bridge if the round prices above $10M, and the interest plus earliest entry is the reward for pre-pilot risk. <strong>Han Hoang contributes $100K of founder capital in the same window</strong>, outside the raise. The <strong>Seed Investor</strong> puts in <strong>$750K at a $10M pre-money valuation</strong> (~$11.0M post once the bridge converts). Both convert into the same priced round, so both show up on the post-seed cap table below. The chart and tables show what each investor owns and what they make on exit between <strong>Year 5 and Year 10</strong>. All exit figures are illustrative and assume the company actually reaches the stated valuation; they are not a promise of returns.</div>
+
+  <div class="grid-3">
+    <div class="stat-pill"><div class="lbl">Bridge Investor</div><div class="val" style="color: var(--amber);">$250K<span style="font-size:0.9rem;color:var(--muted);"> → 2.4%</span></div></div>
+    <div class="stat-pill"><div class="lbl">Seed Investor</div><div class="val" style="color: var(--green);">$750K<span style="font-size:0.9rem;color:var(--muted);"> → 6.8%</span></div></div>
+    <div class="stat-pill"><div class="lbl">New Money (this raise)</div><div class="val" style="color: var(--blue);">$1.0M</div></div>
+    <div class="stat-pill"><div class="lbl">Post-Money Valuation</div><div class="val" style="color: var(--white);">~$11.0M</div></div>
+  </div>
+
+  <div class="chart-wide">
+    <h3>Exit Scenarios: Valuation and Investor Proceeds (Year 5 to Year 10)</h3>
+    <div style="position: relative; height: 360px;">
+      <canvas id="returnsChart" role="img" aria-label="Exit valuation by year with bridge and seed investor proceeds"></canvas>
+    </div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-box" style="background: #56a6f2;"></div>Exit Valuation ($M, left axis)</div>
+      <div class="legend-item"><div class="legend-box" style="background: #aef24a; border-radius:50%;"></div>Seed Investor Proceeds ($M, right axis)</div>
+      <div class="legend-item"><div class="legend-box" style="background: #ff7a4d; border-radius:50%;"></div>Bridge Investor Proceeds ($M, right axis)</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="chart-container">
+      <h3>Bridge Investor Returns ($250K in, ~1.6% at exit)</h3>
+      <table class="unit-economics-table" style="font-size: 0.85rem;">
+        <tr><td>Year 5 · $60M exit</td><td style="color: var(--green);">$0.95M | 3.8x</td></tr>
+        <tr><td>Year 6 · $120M exit</td><td style="color: var(--green);">$1.91M | 7.6x</td></tr>
+        <tr><td>Year 7 · $200M exit</td><td style="color: var(--green);">$3.18M | 12.7x</td></tr>
+        <tr><td>Year 8 · $320M exit</td><td style="color: var(--green);">$5.09M | 20.4x</td></tr>
+        <tr><td>Year 9 · $450M exit</td><td style="color: var(--green);">$7.16M | 28.6x</td></tr>
+        <tr><td>Year 10 · $600M exit</td><td style="color: var(--green);">$9.55M | 38.2x</td></tr>
+      </table>
+      <div class="highlight">
+        <div class="highlight-text"><strong>How the bridge compares:</strong> the $250K converts at a <strong>$10M cap plus 6% accrued interest</strong>, the same valuation basis as the seed. Its per-dollar edge comes from the interest and from entering first; if the seed prices above $10M, the cap converts the bridge at $10M and the discount appears automatically. The multiples run slightly above the seed's, honestly, not dramatically.</div>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <h3>Seed Investor Returns ($750K in, ~4.5% at exit)</h3>
+      <table class="unit-economics-table" style="font-size: 0.85rem;">
+        <tr><td>Year 5 · $60M exit</td><td style="color: var(--green);">$2.70M | 3.6x</td></tr>
+        <tr><td>Year 6 · $120M exit</td><td style="color: var(--green);">$5.39M | 7.2x</td></tr>
+        <tr><td>Year 7 · $200M exit</td><td style="color: var(--green);">$8.99M | 12.0x</td></tr>
+        <tr><td>Year 8 · $320M exit</td><td style="color: var(--green);">$14.38M | 19.2x</td></tr>
+        <tr><td>Year 9 · $450M exit</td><td style="color: var(--green);">$20.22M | 27.0x</td></tr>
+        <tr><td>Year 10 · $600M exit</td><td style="color: var(--green);">$26.97M | 36.0x</td></tr>
+      </table>
+      <div class="highlight">
+        <div class="highlight-text"><strong>How to read it:</strong> proceeds = stake at exit × exit valuation; MOIC = proceeds ÷ amount invested. Stakes shown are after dilution from a future Series A and Series B (a combined ~34% dilution off the post-seed position).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <h3>Post-Seed Cap Table (after $250K bridge + $750K seed)</h3>
+    <table class="unit-economics-table" style="font-size: 0.85rem;">
+      <tr><td>Gia Nguyen</td><td>35.2%</td></tr>
+      <tr><td>Han Hoang</td><td>26.4%</td></tr>
+      <tr><td>Hai Vo</td><td>17.3%</td></tr>
+      <tr><td>Tim Nielsen</td><td>11.8%</td></tr>
+      <tr><td style="color: var(--green);">Seed Investor</td><td style="color: var(--green);">6.8%</td></tr>
+      <tr><td style="color: var(--amber);">Bridge Investor</td><td style="color: var(--amber);">2.4%</td></tr>
+      <tr style="border-top: 1px solid var(--red); color: var(--white); font-weight: 700;"><td>Founders + Tim (combined)</td><td>90.8%</td></tr>
+    </table>
+    <div class="highlight">
+      <div class="highlight-text"><strong>Assumptions:</strong> seed priced at $10M pre-money, ~$11.0M post once the bridge converts; the $250K bridge converts at a <strong>$10M cap plus ~6% accrued interest</strong> (~$265K conversion amount), effectively the seed's price, with the cap protecting the bridge if the round prices higher. Figures shown before any employee option pool. A 10% ESOP carve-out is planned at or after seed and would dilute all holders proportionally.</div>
+    </div>
+  </div>
+
+  <div class="section-title">Key Risks & Opportunities</div>
+  <div class="section-summary">The two things that can break the model, and the demand that can make it. On the left, a <strong>BOM cost stress test</strong>: run on the model's most exposed basis (Conservative fleet-only pricing, $1,300 against a $1,269 mid-scale all-in cost), BOM is ~93% of unit cost and quotes are firm but not locked, so even a 10% supplier or FX shock flips fleet-only margin negative. That is why supplier price-fixing, local sourcing, and the retail/accessory blend matter; at Base blended pricing the same stresses compress margin from 26% rather than erasing it. On the right, the <strong>risk-adjusted customer pipeline</strong>: signed and in-progress fleet demand, weighted by close probability.</div>
+  <div class="grid-2">
+    <div class="chart-container">
+      <h3>BOM Cost Stress Test</h3>
+      <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.9rem; margin-top: 1rem;">
+        <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(86,166,242,0.05); border-radius: 4px;">
+          <span style="color: var(--white);">Base, firm quotes hold (+0%)</span>
+          <span style="color: var(--green);">+$31/unit fleet GM</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,122,77,0.05); border-radius: 4px;">
+          <span style="color: var(--white);">Mild stress (+10%)</span>
+          <span style="color: var(--amber);">-$65/unit fleet GM</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,122,77,0.1); border-radius: 4px;">
+          <span style="color: var(--white);">Severe stress (+20%)</span>
+          <span style="color: #ff4133;">-$160/unit fleet GM</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,122,77,0.15); border-radius: 4px;">
+          <span style="color: var(--white);">Worst case (+25%)</span>
+          <span style="color: #ff4133;">-$208/unit fleet GM; mitigation: reprice fleet toward $1,500 or lean on accessory and service margin</span>
+        </div>
+      </div>
+      <div class="highlight">
+        <div class="highlight-text"><strong>Mitigation:</strong> 12-24 month price-fix contracts with Tier-1 suppliers post-pilot validation, local content ramp (reduce FX exposure), FX hedging via ACB facility, multi-source on commodity components (suspension, plastics, hardware). <strong>Price stress:</strong> a forced fleet price of $1,100 still clears $133/unit against the $967 Base cost and $81/unit against the $1,019 Conservative cost; below $1,100 the plan shifts volume to co-development contracts rather than chasing list price.</div>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <h3>Customer Pipeline (Q4 2026)</h3>
+      <div style="position: relative; height: 240px;">
+        <canvas id="pipelineChart" role="img" aria-label="Customer pipeline by units and close probability"></canvas>
+      </div>
+      <table class="unit-economics-table" style="font-size: 0.85rem;">
+        <tr>
+          <td>Selex Motors</td>
+          <td>500 units | 80% prob</td>
+        </tr>
+        <tr>
+          <td>Power-GOGO</td>
+          <td>200 units | 80% prob</td>
+        </tr>
+        <tr>
+          <td>Be Group</td>
+          <td>500 units | 30% prob</td>
+        </tr>
+        <tr style="border-top: 1px solid var(--red); color: var(--green); font-weight: 700;">
+          <td>Risk-Adjusted Q4 Total</td>
+          <td>~710 units</td>
+        </tr>
+      </table>
+      <div class="highlight">
+        <div class="highlight-text"><strong>Near-term:</strong> 1,200 units of gross Q4 2026 pipeline across signed and in-progress MOUs, ~710 risk-adjusted. <strong>Haircut view:</strong> at MOU-typical conversion of 30 to 50% on in-negotiation lines, the same pipeline yields roughly 500 to 650 units; the revenue start does not depend on the difference, the ramp slope does. Long-term: 400K units by 2029 if market development executes, with regulatory tailwind from HCMC's gasoline ban for delivery/ride-hailing vehicles.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Use of Bridge Capital: $250K (Immediate)</div>
+  <div class="section-summary">The <strong>Bridge Investor's $250K</strong> is for immediate use and is deployed in two short phases, with <strong>$100K of founder capital from Han Hoang</strong> committed in the same window, lifting bridge-phase capital to $350K. <strong>Phase 1</strong> funds the pilot (tooling, a first batch of units, homologation, and runway) to prove the product and convert MOUs. <strong>Phase 2</strong> deploys the remainder toward early scale-up and working-capital seeding once the pilot validates demand. Capital is released against milestones, not all at once. The $750K seed deployment is shown in the next section.</div>
+  <div class="chart-container">
+    <h3>Deployment by Phase</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem; margin-top: 1rem;">
+      <div style="padding: 1rem; background: var(--bg1); border-radius: 6px; border-left: 3px solid var(--red);">
+        <div style="color: var(--muted); font-size: 0.8rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">Phase 1: Pilot (Months 1-3)</div>
+        <div style="color: var(--amber); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">$113K deployed</div>
+        <div style="font-size: 0.85rem; color: var(--white);">Pilot tooling ($20K), BOM for 10 units ($40K), testing & validation ($20K), Vietnam Register homologation ($25K), OPEX ($72K), customer deposit refunds ($20K), legal ($8K).</div>
+      </div>
+
+      <div style="padding: 1rem; background: var(--bg1); border-radius: 6px; border-left: 3px solid var(--blue);">
+        <div style="color: var(--muted); font-size: 0.8rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">Phase 2: Early Scale (Months 3-6)</div>
+        <div style="color: #56a6f2; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">$137K deployed</div>
+        <div style="font-size: 0.85rem; color: var(--white);">The remainder of the $250K bridge: scale-tooling deposits (tranched), early production ramp (variable COGS), Phase 1 team additions (~$13.2K/month), and working-capital facility seeding. Includes a modest contingency buffer held within this phase.</div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+      <span style="color: var(--muted); font-size: 0.9rem;">Total Bridge Deployed</span>
+      <span style="color: var(--white); font-weight: 600;">$250K (100%)</span>
+    </div>
+  </div>
+
+  <div class="section-title">Use of Seed Capital & 5-Year Deployment</div>
+  <div class="section-summary">Where the money goes over five years. The <strong>$750K seed</strong> (plus the bridge and founder capital) funds Years 1 and 2: getting to a validated pilot and early production. From Year 3 on, deployment is funded primarily by operating revenue plus a planned <strong>Series A</strong>, and the dominant line item becomes working capital, because a hardware business ties up cash in inventory and supplier terms as volume scales. The chart shows total capital deployed by year and category; the table shows how the $750K seed is allocated up front.</div>
+  <div class="chart-wide">
+    <h3>Capital Deployment by Year and Category (5-Year View)</h3>
+    <div style="position: relative; height: 340px;">
+      <canvas id="deployChart" role="img" aria-label="Capital deployment by year and category over five years"></canvas>
+    </div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-box" style="background: #56a6f2;"></div>Production & Working Capital</div>
+      <div class="legend-item"><div class="legend-box" style="background: #ff7a4d;"></div>Tooling & R&D</div>
+      <div class="legend-item"><div class="legend-box" style="background: #aef24a;"></div>Team / OPEX</div>
+      <div class="legend-item"><div class="legend-box" style="background: #9b6cf2;"></div>Sales & Marketing</div>
+      <div class="legend-item"><div class="legend-box" style="background: #6c6c73;"></div>G&A</div>
+    </div>
+    <div class="highlight">
+      <div class="highlight-text"><strong>Funding sources:</strong> Years 1-2 (~$3M total need) are covered by the $1.0M raise, the $100K founder capital alongside it, plus early revenue and customer deposits; Years 3-5 scale (~$37M cumulative) is funded by operating cash flow and a planned Series A. Figures are illustrative annual deployment, not committed budgets.</div>
+    </div>
+  </div>
+  <div class="chart-container">
+    <h3>Allocation of the $750K Seed (Up-Front)</h3>
+    <table class="unit-economics-table" style="font-size: 0.85rem;">
+      <tr><td>Scale tooling & engineering</td><td>$400K</td></tr>
+      <tr><td>Operations / team (post-pilot OPEX)</td><td>$230K</td></tr>
+      <tr><td>Certification & working capital</td><td>$73K</td></tr>
+      <tr><td>Contingency</td><td>$47K</td></tr>
+      <tr style="border-top: 1px solid var(--red); color: var(--white); font-weight: 700;"><td>Total Seed Deployed</td><td>$750K (100%)</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">Closing Statement</div>
+  <div class="section-summary">The bottom line: why these numbers add up to a business worth backing.</div>
+  <div class="closing-box">
+    <p class="lead">Volty U1 is a deliberately unglamorous bet: a low-margin, high-volume utility vehicle aimed at the part of the market that is actually electrifying first, the fleets.</p>
+    <p>The model in this dashboard does not rely on a pricing miracle or a premium-brand halo. It works because the unit economics are real at a $1,300 fleet price, because the capital required to reach break-even is measured in hundreds of thousands rather than millions, and because the demand is being pulled forward by regulation rather than marketing. The network-agnostic battery strategy keeps Volty out of the closed-ecosystem trap that constrains its larger competitors, and the capital-light partnership structure means infrastructure cost sits with the battery networks, not with NUEN MOTO.</p>
+    <p>The honest risks are named here, not hidden: a thin gross margin that a BOM or FX shock can erase, and a per-unit working-capital gap that has to be financed as volume scales. Both are quantified, both have mitigation paths, and both are the right problems to have for a company whose constraint is demand conversion, not demand itself.</p>
+    <p>The $250K bridge is sized to prove the pilot and convert the signed and in-progress pipeline into deployed units; the $750K seed funds the move from pilot to early production. Everything beyond that is a financing and execution question, not a product question. The product case is made.</p>
+    <div class="signoff">NUEN MOTO &middot; Han Hoang, Co-Founder, Head of Investment &amp; Strategy &middot; Confidential</div>
+  </div>
+
+  <div class="guide-wrap">
+  <div class="section-title">Dashboard Guide</div>
+  <div class="section-summary">A quick orientation for first-time readers. Four habits make the rest of the dashboard make sense: switch scenarios, read the charts in sequence, sanity-check the unit economics, and watch the working-capital gap.</div>
+  <div class="chart-container">
+    <h3>How to Use This Dashboard</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: 0.9rem; margin-top: 1rem;">
+      <div>
+        <div style="color: var(--red); font-weight: 700; margin-bottom: 0.5rem;">Switch Scenarios</div>
+        <div style="color: var(--muted); line-height: 1.8;">Click the scenario buttons (Conservative, Base, Optimistic) to see how unit volume, growth rate, and timing impact cash flow, break-even, and profitability.</div>
+      </div>
+      <div>
+        <div style="color: var(--blue); font-weight: 700; margin-bottom: 0.5rem;">Read the Charts</div>
+        <div style="color: var(--muted); line-height: 1.8;">Revenue starts month 9 (Dec 2026) and ramps with fleet conversions. EBITDA is positive from Q4 2026 (Base); full break-even lands month 14. OPEX scales with headcount phases. Break-even spans months 10-18 by scenario.</div>
+      </div>
+      <div>
+        <div style="color: var(--green); font-weight: 700; margin-bottom: 0.5rem;">Check Unit Economics</div>
+        <div style="color: var(--muted); line-height: 1.8;">At scale (Base), all-in cost is $967 against a $1,200 fleet / $1,350 blended price, $383/unit blended margin (~26%). The stress test shows BOM increases from supplier or FX volatility on the most exposed (Conservative fleet-only) basis.</div>
+      </div>
+      <div>
+        <div style="color: var(--amber); font-weight: 700; margin-bottom: 0.5rem;">Track Working Capital</div>
+        <div style="color: var(--muted); line-height: 1.8;">Peak cash gap per unit is ~$478 (Day 60-95). At 1K units/month, you need a $478K ACB facility. Higher deposits and supplier credit reduce this need.</div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="footer">
+    <p><strong>NUEN MOTO Volty U1 Financial Dashboard v1.6.1</strong> | Built May 2026, reconciled to model v1.6.1 in June 2026. Section sources: Assumptions &amp; Inputs, Scenario Analysis, Unit Economics, BOM Sensitivity, Break Even Analysis, Profit &amp; Loss, Tax &amp; CIT Schedule, Cash Flow Projection, Operating Expenses, Headcount Roadmap, S&amp;M Scaling, Working Capital Cycle, Customer Pipeline, Use of Funds, and Investor Returns sheets.</p>
+    <p style="margin-top: 1rem; color: var(--faint);">This dashboard is for internal use and investor presentations. All projections are based on the model pricing set ($1,200 fleet Base, $1,300 fleet Conservative, $1,500 retail), the confirmed OPEX baseline ($24K/month Phase 0 payroll within $34.7K/month total), and the risk-adjusted customer pipeline. The independent stress-test flags (BOM sensitivity, working capital realism, CIT treatment) are fully addressed in the underlying model tabs.</p>
+  </div>
+
 </div>
 
 <script>
@@ -340,81 +931,414 @@ footer{padding:40px 0;border-top:1px solid var(--line);color:var(--faint);font-f
 //# sourceMappingURL=chart.umd.js.map
 
 </script>
-
 <script>
-// gate
-async function sha256(s){const b=new TextEncoder().encode(s);const h=await crypto.subtle.digest('SHA-256',b);return Array.from(new Uint8Array(h)).map(x=>x.toString(16).padStart(2,'0')).join('');}
-const HASH='98bbe7167e22c8a07694bda3989e81456eefabd09d0b1b962e456924059fc9dc';
-async function tryUnlock(){const v=document.getElementById('passwordInput').value;const h=await sha256(v);
-  if(h===HASH){document.getElementById('gate').style.display='none';document.getElementById('content').style.display='block';initCharts();}
-  else{document.getElementById('pwErr').textContent='Incorrect password';}}
-document.getElementById('pwBtn').addEventListener('click',tryUnlock);
-document.getElementById('passwordInput').addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock();});
+// Password protection setup: self-contained SHA-256 (no external library/CDN)
+const CORRECT_PASSWORD_HASH = '98bbe7167e22c8a07694bda3989e81456eefabd09d0b1b962e456924059fc9dc'; // SHA-256 of the access password
 
-let _charted=false;
-function initCharts(){
-  if(_charted) return; _charted=true;
-  const grid={color:'#26262b'}, tick={color:'#9b9ba2',font:{family:'Space Mono',size:10}};
-  new Chart(document.getElementById('useChart'),{type:'doughnut',
-    data:{labels:['Production (500 on spec)','Scale tooling','OPEX (6 mo)','Contingency','Testing & cert','CAC'],
-      datasets:[{data:[516,420,208,71,27,13],backgroundColor:['#E2231A','#56a6f2','#aef24a','#9b6cf2','#6c6c73','#ff7a4d'],borderColor:'#0a0a0b',borderWidth:2}]},
-    options:{maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
-      tooltip:{callbacks:{label:c=>c.label+': $'+c.parsed+'K'}}}}});
-  new Chart(document.getElementById('allocChart'),{type:'doughnut',
-    data:{labels:['Selex · 250','Power-GOGO · 150','Other partners · 100'],
-      datasets:[{data:[250,150,100],backgroundColor:['#E2231A','#56a6f2','#aef24a'],borderColor:'#0a0a0b',borderWidth:2}]},
-    options:{maintainAspectRatio:false,cutout:'56%',plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
-      tooltip:{callbacks:{label:c=>c.label+' units'}}}}});
-  new Chart(document.getElementById('fiveYearChart'),{
-    data:{labels:['2026','2027','2028','2029','2030'],datasets:[
-      {type:'bar',label:'Conservative',data:[2,14,38,72,120],backgroundColor:'#ff7a4d',borderRadius:4,yAxisID:'y'},
-      {type:'bar',label:'Base',data:[3,22,60,130,215],backgroundColor:'#56a6f2',borderRadius:4,yAxisID:'y'},
-      {type:'bar',label:'Optimistic',data:[5,35,95,190,310],backgroundColor:'#aef24a',borderRadius:4,yAxisID:'y'},
-      {type:'line',label:'Base cumulative units (K)',data:[2,18,55,130,230],borderColor:'#f5f5f6',backgroundColor:'#f5f5f6',borderWidth:2,tension:.35,pointRadius:3,yAxisID:'y1'}
-    ]},
-    options:{plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
-      tooltip:{callbacks:{label:c=>c.dataset.yAxisID==='y1'?c.dataset.label+': '+c.parsed.y+'K':c.dataset.label+': $'+c.parsed.y+'M'}}},
-      scales:{y:{position:'left',grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>'$'+v+'M',font:{family:'Space Mono',size:10}},title:{display:true,text:'Revenue $M',color:'#6c6c73'}},
-        y1:{position:'right',grid:{drawOnChartArea:false},ticks:{color:'#9b9ba2',callback:v=>v+'K',font:{family:'Space Mono',size:10}}},
-        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
-  new Chart(document.getElementById('valueChart'),{
-    data:{labels:['2026','2027','2028','2029','2030'],datasets:[
-      {type:'bar',label:'Company value ($M, base)',data:[11,20,36,62,100],backgroundColor:'#E2231A',borderRadius:4,yAxisID:'y'},
-      {type:'line',label:"This round's stake ($M)",data:[1.13,2.06,3.71,6.39,10.30],borderColor:'#aef24a',backgroundColor:'#aef24a',borderWidth:2,tension:.35,pointRadius:4,yAxisID:'y'}
-    ]},
-    options:{plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
-      tooltip:{callbacks:{label:c=>c.dataset.label+': $'+c.parsed.y+'M'}}},
-      scales:{y:{grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>'$'+v+'M',font:{family:'Space Mono',size:10}}},
-        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
+function generatePasswordHash(ascii) {
+  function rightRotate(value, amount) { return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), result = '', words = [];
+  var asciiBitLength = ascii.length * 8;
+  var hash = generatePasswordHash.h = generatePasswordHash.h || [];
+  var k = generatePasswordHash.k = generatePasswordHash.k || [];
+  var primeCounter = k.length, isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++) {
+    if (!isComposite[candidate]) {
+      for (var i = 0; i < 313; i += candidate) { isComposite[i] = candidate; }
+      hash[primeCounter] = (mathPow(candidate, 0.5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+  ascii += '\x80';
+  while (ascii.length % 64 - 56) ascii += '\x00';
+  for (var i = 0; i < ascii.length; i++) {
+    var j = ascii.charCodeAt(i);
+    if (j >> 8) return '';
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words.length] = (asciiBitLength / maxWord) | 0;
+  words[words.length] = asciiBitLength;
+  for (var j = 0; j < words.length;) {
+    var w = words.slice(j, j += 16), oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (var i = 0; i < 64; i++) {
+      var w15 = w[i - 15], w2 = w[i - 2];
+      var a = hash[0], e = hash[4];
+      var temp1 = hash[7]
+        + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25))
+        + ((e & hash[5]) ^ ((~e) & hash[6]))
+        + k[i]
+        + (w[i] = (i < 16) ? w[i] : (
+            w[i - 16]
+            + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3))
+            + w[i - 7]
+            + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))
+          ) | 0);
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (var i = 0; i < 8; i++) { hash[i] = (hash[i] + oldHash[i]) | 0; }
+  }
+  for (var i = 0; i < 8; i++) {
+    for (var j = 3; j + 1; j--) {
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
+    }
+  }
+  return result;
+}
 
-  new Chart(document.getElementById('scaleChart'),{type:'bar',
-    data:{labels:['500u fleet','Scale fleet','Scale blended'],datasets:[
-      {label:'Gross margin %',data:[14,15,25],backgroundColor:['#6c6c73','#56a6f2','#E2231A'],borderRadius:4}]},
-    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'GM '+c.parsed.y+'%'}}},
-      scales:{y:{grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>v+'%',font:{family:'Space Mono',size:10}}},
-        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
-  new Chart(document.getElementById('breakevenChart'),{
-    data:{labels:['M0','M4','M8','M12','M14','M18','M24'],datasets:[
-      {type:'line',label:'Cumulative cash ($M)',data:[-1.25,-0.95,-0.5,-0.12,0,0.65,2.1],borderColor:'#E2231A',backgroundColor:'rgba(226,35,26,.12)',borderWidth:2,fill:true,tension:.35,pointRadius:3}]},
-    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+c.parsed.y+'M'}}},
-      scales:{y:{grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>'$'+v+'M',font:{family:'Space Mono',size:10}}},
-        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
-  new Chart(document.getElementById('cashChart'),{
-    data:{labels:['M0','M1','M2','M3','M4','M6','M9','M12'],datasets:[
-      {type:'line',label:'Cash balance ($K)',data:[1250,650,240,700,560,690,900,1200],borderColor:'#56a6f2',backgroundColor:'rgba(86,166,242,.12)',borderWidth:2,fill:true,tension:.35,pointRadius:3}]},
-    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+c.parsed.y+'K'}}},
-      scales:{y:{grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>'$'+v+'K',font:{family:'Space Mono',size:10}}},
-        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
-  new Chart(document.getElementById('returnsChart'),{
-    data:{labels:['$30M','$50M','$75M','$100M','$150M'],datasets:[
-      {type:'bar',label:'Stake value ($M)',data:[3.1,5.2,7.7,10.3,15.5],backgroundColor:'#E2231A',borderRadius:4,yAxisID:'y'},
-      {type:'line',label:'Multiple (x)',data:[2.7,4.5,6.7,9.0,13.4],borderColor:'#aef24a',backgroundColor:'#aef24a',borderWidth:2,tension:.35,pointRadius:4,yAxisID:'y1'}]},
-    options:{plugins:{legend:{position:'bottom',labels:{color:'#9b9ba2',boxWidth:10,padding:8,font:{size:10}}},
-      tooltip:{callbacks:{label:c=>c.dataset.yAxisID==='y1'?c.parsed.y+'x':'$'+c.parsed.y+'M'}}},
-      scales:{y:{position:'left',grid:{color:'#26262b'},ticks:{color:'#9b9ba2',callback:v=>'$'+v+'M',font:{family:'Space Mono',size:10}}},
-        y1:{position:'right',grid:{drawOnChartArea:false},ticks:{color:'#9b9ba2',callback:v=>v+'x',font:{family:'Space Mono',size:10}}},
-        x:{grid:{display:false},ticks:{color:'#9b9ba2',font:{family:'Space Mono',size:10}}}}}});
+function handlePasswordSubmit() {
+  const passwordInput = document.getElementById('passwordInput');
+  const password = passwordInput.value;
+
+  if (generatePasswordHash(password) === CORRECT_PASSWORD_HASH) {
+    sessionStorage.setItem('dashboardAuth', 'true');
+    document.getElementById('passwordOverlay').classList.add('hidden');
+  } else {
+    const errorEl = document.getElementById('passwordError');
+    errorEl.classList.add('show');
+    passwordInput.value = '';
+    passwordInput.focus();
+    setTimeout(() => errorEl.classList.remove('show'), 3000);
+  }
+}
+
+function checkAuthentication() {
+  if (sessionStorage.getItem('dashboardAuth') === 'true') {
+    document.getElementById('passwordOverlay').classList.add('hidden');
+  }
+}
+
+// Handle Enter key on password input
+document.addEventListener('DOMContentLoaded', () => {
+  checkAuthentication();
+  const passwordInput = document.getElementById('passwordInput');
+  if (passwordInput) {
+    passwordInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handlePasswordSubmit();
+    });
+    passwordInput.focus();
+  }
+});
+
+
+const scenarios = {
+  base: {
+    m12: [0,0,0,0,0,0,0,0,725500,1456500,2918500,4391500],
+    m24: [0,0,0,0,0,0,0,0,725500,1456500,2918500,4391500,5875500,7370500,8876500,10393500,11921500,13460500,15010500,16571500,18143500,19726500,21320500,22925500],
+    cash: [167375,81750,24825,347812,160800,-26212,106775,39762,208465,392217,817184,1253151,1700117,2158084,2627051,3106832,3597614,4099395,4612176,5135957,5670738,6216520,6773301,7341082],
+    gm: 26, breakMonth: 14, breakUnits: 4297
+  },
+  conservative: {
+    m12: [0,0,0,0,0,0,0,0,141750,142500,143250,1419750],
+    m24: [0,0,0,0,0,0,0,0,141750,142500,143250,1419750,1427250,1434750,2859750,2874750,2889750,4322250,4344750,4367250,5807250,5837250,5867250,7314750],
+    cash: [170845,73040,19585,384820,215054,45288,145523,95758,84715,45249,5784,314824,281763,248703,602871,577139,551408,912905,894674,876442,1245439,1234708,1223977,1600474],
+    gm: 25, breakMonth: 18, breakUnits: 4325
+  },
+  optimistic: {
+    m12: [0,0,0,0,0,0,0,0,1491000,1506000,7485000,7560000],
+    m24: [0,0,0,0,0,0,0,0,1491000,1506000,7485000,7560000,7635000,15165000,15315000,15465000,23070000,23295000,23520000,31200000,31500000,31800000,39555000,47385000],
+    cash: [165640,78280,19620,375509,171398,-32713,33176,-50935,432459,369523,2586734,2580423,2574112,5422203,5490892,5559388,8482286,8625782,8769278,11767176,11985672,12204168,15277066,18424965],
+    gm: 30, breakMonth: 10, breakUnits: 3446
+  }
+};
+
+let currentScenario = 'base';
+let revenueChart, cashChart, opexChart, opexMixChart, headcountChart,
+    breakEvenChart, returnsChart, fiveYearChart, unitCostChart,
+    pipelineChart, deployChart, askUseChart;
+
+const months = Array.from({length:24}, (_, i) => {
+  const d = new Date(2026,3,1);
+  d.setMonth(d.getMonth()+i);
+  return d.toLocaleDateString('en-US',{month:'short',year:'2-digit'});
+});
+
+function switchScenario(s) {
+  currentScenario = s;
+  document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+  if (typeof event !== 'undefined' && event.target) event.target.classList.add('active');
+  updateCharts();
+  updateMetrics();
+}
+
+function updateMetrics() {
+  const s = scenarios[currentScenario];
+  document.getElementById('m12-rev').textContent = '$' + (s.m12[11]/1e6).toFixed(1) + 'M';
+  document.getElementById('m24-rev').textContent = '$' + (s.m24[23]/1e6).toFixed(1) + 'M';
+  document.getElementById('cum-cf').textContent = '$' + (s.cash[23]/1e6).toFixed(1) + 'M';
+  document.getElementById('gm-pct').textContent = s.gm + '%';
+}
+
+function updateCharts() {
+  if (!revenueChart) return;
+  const s = scenarios[currentScenario];
+  revenueChart.data.datasets[0].data = s.m24.map(v => v/1e6);
+  revenueChart.update();
+  cashChart.data.datasets[0].data = s.cash.map(v => v/1e6);
+  cashChart.update();
+}
+
+if (typeof Chart === 'undefined') {
+  console.warn('Chart.js failed to load (CDN unreachable). Charts will not render, but the dashboard remains usable.');
+} else {
+
+// ---- Global dark-theme defaults + nicer tooltips/hover ----
+Chart.defaults.color = '#9b9ba2';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+Chart.defaults.font.family = "'Space Mono', monospace";
+Chart.defaults.font.size = 11;
+Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(10,10,11,0.95)';
+Chart.defaults.plugins.tooltip.borderColor = 'rgba(255,255,255,0.15)';
+Chart.defaults.plugins.tooltip.borderWidth = 1;
+Chart.defaults.plugins.tooltip.titleColor = '#f5f5f6';
+Chart.defaults.plugins.tooltip.bodyColor = '#f5f5f6';
+Chart.defaults.plugins.tooltip.padding = 10;
+Chart.defaults.plugins.tooltip.cornerRadius = 6;
+Chart.defaults.plugins.tooltip.displayColors = true;
+Chart.defaults.plugins.legend.display = false;
+Chart.defaults.maintainAspectRatio = false;
+Chart.defaults.responsive = true;
+Chart.defaults.interaction = { mode: 'index', intersect: false };
+Chart.defaults.animation = { duration: 700, easing: 'easeOutQuart' };
+
+// ---- Hover effects applied to every chart ----
+Chart.defaults.hover = { mode: 'index', intersect: false };
+Chart.defaults.elements.arc.hoverOffset = 14;
+Chart.defaults.elements.arc.hoverBorderColor = 'rgba(255,255,255,0.85)';
+Chart.defaults.elements.arc.hoverBorderWidth = 2;
+Chart.defaults.elements.bar.hoverBorderColor = 'rgba(255,255,255,0.7)';
+Chart.defaults.elements.bar.hoverBorderWidth = 2;
+Chart.defaults.elements.point.hoverRadius = 7;
+Chart.defaults.elements.point.hoverBorderWidth = 2;
+Chart.defaults.elements.point.hoverBorderColor = '#ffffff';
+Chart.defaults.onHover = (evt, elements) => {
+  const target = evt.native && evt.native.target;
+  if (target) target.style.cursor = elements.length ? 'pointer' : 'default';
+};
+
+const fmtUSD = (v) => '$' + v.toLocaleString();
+
+// ---- 1. 24-Month Revenue (scenario-driven, stacked) ----
+revenueChart = new Chart(document.getElementById('revenueChart'), {
+  type: 'bar',
+  data: {
+    labels: months,
+    datasets: [
+      {label:'Vehicle',data:scenarios.base.m24.map(v=>v/1e6),backgroundColor:'#56a6f2',borderWidth:0,borderRadius:3},
+      {label:'Accessories',data:Array(24).fill(0.2),backgroundColor:'#aef24a',borderWidth:0,borderRadius:3},
+      {label:'Services',data:Array(24).fill(0.1),backgroundColor:'#ff7a4d',borderWidth:0,borderRadius:3}
+    ]
+  },
+  options: {plugins:{tooltip:{callbacks:{label:(c)=>c.dataset.label+': $'+c.parsed.y.toFixed(2)+'M'}}},scales:{x:{stacked:true,ticks:{autoSkip:true,maxRotation:0}},y:{stacked:true,title:{display:true,text:'Revenue ($M)'}}}}
+});
+
+// ---- 2. Cumulative Cash + Healthy Runway threshold ----
+cashChart = new Chart(document.getElementById('cashChart'), {
+  type: 'line',
+  data: {
+    labels: months,
+    datasets: [
+      {label:'Cumulative Cash',data:scenarios.base.cash.map(v=>v/1e6),borderColor:'#E2231A',backgroundColor:'rgba(226,35,26,0.12)',borderWidth:2,fill:true,tension:0.3,pointRadius:0,pointHoverRadius:4},
+      {label:'Healthy Runway ($0 line)',data:Array(24).fill(0),borderColor:'#aef24a',borderWidth:1.5,borderDash:[6,4],fill:false,pointRadius:0,pointHoverRadius:0,tension:0}
+    ]
+  },
+  options: {plugins:{tooltip:{callbacks:{label:(c)=>c.dataset.label+': $'+c.parsed.y.toFixed(2)+'M'}}},scales:{y:{title:{display:true,text:'Cash ($M)'},suggestedMin:-0.7,suggestedMax:3}}}
+});
+
+// ---- 3. 5-Year Revenue Projection (combo: 3 scenario bars + base units line) ----
+fiveYearChart = new Chart(document.getElementById('fiveYearChart'), {
+  data: {
+    labels: ['2026','2027','2028','2029','2030'],
+    datasets: [
+      {type:'bar',label:'Conservative',data:[2,14,38,72,120],backgroundColor:'#ff7a4d',borderWidth:0,borderRadius:4,yAxisID:'y'},
+      {type:'bar',label:'Base',data:[3,22,60,130,215],backgroundColor:'#56a6f2',borderWidth:0,borderRadius:4,yAxisID:'y'},
+      {type:'bar',label:'Optimistic',data:[5,35,95,190,310],backgroundColor:'#aef24a',borderWidth:0,borderRadius:4,yAxisID:'y'},
+      {type:'line',label:'Base Cumulative Units (K)',data:[2,18,55,130,230],borderColor:'#f5f5f6',backgroundColor:'#f5f5f6',borderWidth:2,tension:0.35,pointRadius:4,pointHoverRadius:6,yAxisID:'y1'}
+    ]
+  },
+  options: {
+    plugins:{tooltip:{callbacks:{label:(c)=>c.dataset.yAxisID==='y1'?c.dataset.label+': '+c.parsed.y+'K units':c.dataset.label+': $'+c.parsed.y+'M'}}},
+    scales:{
+      y:{position:'left',title:{display:true,text:'Annual Revenue ($M)'},beginAtZero:true},
+      y1:{position:'right',title:{display:true,text:'Cumulative Units (K)'},beginAtZero:true,grid:{drawOnChartArea:false}}
+    }
+  }
+});
+
+// ---- 4. Unit Cost doughnut ----
+unitCostChart = new Chart(document.getElementById('unitCostChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['BOM','Assembly Labor','Logistics','Tooling Amort.','Testing & Cert'],
+    datasets: [{data:[910,35,20,20,3],backgroundColor:['#56a6f2','#aef24a','#ff7a4d','#9b6cf2','#E2231A'],borderColor:'#17171a',borderWidth:2}]
+  },
+  options: {cutout:'60%',plugins:{legend:{display:true,position:'right',labels:{boxWidth:10,padding:8}},tooltip:{callbacks:{label:(c)=>c.label+': $'+c.parsed+' ('+(c.parsed/988*100).toFixed(1)+'%)'}}}}
+});
+
+// ---- 5. OPEX combo: stacked categories + headcount line ----
+const opexTotals = [43.4,43.4,43.4,57.5,57.5,57.5,57.5,57.5,71.5,71.5,85.6,85.6,85.6,85.6,85.6,85.8,85.8,85.8,85.8,85.8,85.8,85.8,85.8,85.8];
+const payroll = opexTotals.map(t => +(t*0.62).toFixed(1));
+const sAndM   = opexTotals.map(t => +(t*0.16).toFixed(1));
+const rnd     = opexTotals.map(t => +(t*0.12).toFixed(1));
+const gAndA   = opexTotals.map(t => +(t*0.10).toFixed(1));
+const headcount = months.map((_, i) => i < 3 ? 10 : i < 6 ? 14 : i < 18 ? 23 : 30);
+opexChart = new Chart(document.getElementById('opexChart'), {
+  data: {
+    labels: months,
+    datasets: [
+      {type:'bar',label:'Payroll',data:payroll,backgroundColor:'#56a6f2',borderWidth:0,stack:'opex',yAxisID:'y'},
+      {type:'bar',label:'Sales & Marketing',data:sAndM,backgroundColor:'#aef24a',borderWidth:0,stack:'opex',yAxisID:'y'},
+      {type:'bar',label:'R&D / Engineering',data:rnd,backgroundColor:'#ff7a4d',borderWidth:0,stack:'opex',yAxisID:'y'},
+      {type:'bar',label:'G&A / Other',data:gAndA,backgroundColor:'#9b6cf2',borderWidth:0,stack:'opex',yAxisID:'y'},
+      {type:'line',label:'Headcount',data:headcount,borderColor:'#f5f5f6',backgroundColor:'#f5f5f6',borderWidth:2,stepped:true,pointRadius:0,pointHoverRadius:5,yAxisID:'y1'}
+    ]
+  },
+  options: {
+    plugins:{tooltip:{callbacks:{label:(c)=>c.dataset.yAxisID==='y1'?'Headcount: '+c.parsed.y:c.dataset.label+': $'+c.parsed.y+'K'}}},
+    scales:{
+      x:{stacked:true,ticks:{autoSkip:true,maxRotation:0}},
+      y:{stacked:true,position:'left',title:{display:true,text:'Monthly OPEX ($K)'},beginAtZero:true},
+      y1:{position:'right',title:{display:true,text:'Headcount'},beginAtZero:true,suggestedMax:30,grid:{drawOnChartArea:false}}
+    }
+  }
+});
+
+// ---- 6. OPEX mix doughnut (month 24) ----
+opexMixChart = new Chart(document.getElementById('opexMixChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Payroll','Sales & Marketing','R&D / Engineering','G&A / Other'],
+    datasets: [{data:[payroll[23],sAndM[23],rnd[23],gAndA[23]],backgroundColor:['#56a6f2','#aef24a','#ff7a4d','#9b6cf2'],borderColor:'#17171a',borderWidth:2}]
+  },
+  options: {cutout:'58%',plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,padding:8}},tooltip:{callbacks:{label:(c)=>c.label+': $'+c.parsed+'K'}}}}
+});
+
+// ---- 7. Headcount by phase ----
+headcountChart = new Chart(document.getElementById('headcountChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Phase 0','Phase 1','Phase 2','Phase 3'],
+    datasets: [{label:'Headcount',data:[6,10,19,26],backgroundColor:['#6c6c73','#56a6f2','#aef24a','#E2231A'],borderWidth:0,borderRadius:4}]
+  },
+  options: {plugins:{tooltip:{callbacks:{label:(c)=>c.parsed.y+' people'}}},scales:{y:{beginAtZero:true,title:{display:true,text:'Cumulative Headcount'}}}}
+});
+
+// ---- 8. Break Even by scenario ----
+breakEvenChart = new Chart(document.getElementById('breakEvenChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Conservative','Base','Optimistic'],
+    datasets: [{label:'Break Even Month',data:[18,14,10],backgroundColor:['#ff7a4d','#aef24a','#56a6f2'],borderWidth:0,borderRadius:4}]
+  },
+  options: {plugins:{tooltip:{callbacks:{label:(c)=>'Break even: month '+c.parsed.y}}},scales:{y:{beginAtZero:true,max:25,title:{display:true,text:'Months to Break Even'}}}}
+});
+
+// ---- 9. Exit scenarios Year 5-10: valuation bars + bridge & seed proceeds lines ----
+returnsChart = new Chart(document.getElementById('returnsChart'), {
+  data: {
+    labels: ['Yr 5','Yr 6','Yr 7','Yr 8','Yr 9','Yr 10'],
+    datasets: [
+      {type:'bar',label:'Exit Valuation ($M)',data:[60,120,200,320,450,600],backgroundColor:'#56a6f2',borderWidth:0,borderRadius:4,yAxisID:'y'},
+      {type:'line',label:'Seed Proceeds ($M)',data:[3.42,6.84,11.40,18.24,25.65,34.20],borderColor:'#aef24a',backgroundColor:'#aef24a',borderWidth:2,tension:0.35,pointRadius:5,pointHoverRadius:7,yAxisID:'y1'},
+      {type:'line',label:'Bridge Proceeds ($M)',data:[1.80,3.60,6.00,9.60,13.50,18.00],borderColor:'#ff7a4d',backgroundColor:'#ff7a4d',borderWidth:2,tension:0.35,pointRadius:5,pointHoverRadius:7,yAxisID:'y1'}
+    ]
+  },
+  options: {
+    plugins:{tooltip:{callbacks:{label:(c)=>c.dataset.yAxisID==='y1'?c.dataset.label+': $'+c.parsed.y.toFixed(2)+'M':'Exit Valuation: $'+c.parsed.y+'M'}}},
+    scales:{
+      y:{position:'left',title:{display:true,text:'Exit Valuation ($M)'},beginAtZero:true},
+      y1:{position:'right',title:{display:true,text:'Investor Proceeds ($M)'},beginAtZero:true,grid:{drawOnChartArea:false}}
+    }
+  }
+});
+
+// ---- 10. Capital deployment by year and category (5-year stacked bar) ----
+deployChart = new Chart(document.getElementById('deployChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Year 1','Year 2','Year 3','Year 4','Year 5'],
+    datasets: [
+      {label:'Production & Working Capital',data:[0.30,0.80,3.00,7.00,13.00],backgroundColor:'#56a6f2',borderWidth:0,stack:'use'},
+      {label:'Tooling & R&D',data:[0.25,0.30,0.50,0.60,0.70],backgroundColor:'#ff7a4d',borderWidth:0,stack:'use'},
+      {label:'Team / OPEX',data:[0.30,0.60,1.20,2.00,3.00],backgroundColor:'#aef24a',borderWidth:0,stack:'use'},
+      {label:'Sales & Marketing',data:[0.08,0.20,0.60,1.20,2.00],backgroundColor:'#9b6cf2',borderWidth:0,stack:'use'},
+      {label:'G&A',data:[0.07,0.15,0.40,0.70,1.10],backgroundColor:'#6c6c73',borderWidth:0,stack:'use'}
+    ]
+  },
+  options: {
+    plugins:{tooltip:{callbacks:{label:(c)=>c.dataset.label+': $'+c.parsed.y.toFixed(2)+'M'}}},
+    scales:{
+      x:{stacked:true},
+      y:{stacked:true,title:{display:true,text:'Capital Deployed ($M)'},beginAtZero:true}
+    }
+  }
+});
+
+// ---- 10b. Use of the $1.0M raise (doughnut) ----
+askUseChart = new Chart(document.getElementById('askUseChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Scale & Pilot Tooling','Team / OPEX','Working Capital Service & Refunds','Contingency / Buffer','Pilot Production','Homologation & Certification'],
+    datasets: [{data:[420,321,96,95,41,27],backgroundColor:['#56a6f2','#aef24a','#ff7a4d','#9b6cf2','#E2231A','#6c6c73'],borderColor:'#17171a',borderWidth:2}]
+  },
+  options: {cutout:'58%',plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,padding:8,font:{size:10}}},tooltip:{callbacks:{label:(c)=>c.label+': $'+c.parsed+'K ('+(c.parsed/1000*100).toFixed(0)+'%)'}}}}
+});
+
+// ---- 11. Customer pipeline bubble (units x probability, size = risk-adjusted) ----
+const pipeNames = ['Selex Motors','Power-GOGO','Be Group'];
+const pipeData = [
+  {x:500,y:80,r:26,c:'#56a6f2',ra:400},
+  {x:200,y:80,r:16,c:'#aef24a',ra:160},
+  {x:500,y:30,r:16,c:'#E2231A',ra:150}
+];
+pipelineChart = new Chart(document.getElementById('pipelineChart'), {
+  type: 'bubble',
+  data: {
+    datasets: pipeData.map((d, i) => ({
+      label: pipeNames[i],
+      data: [{x:d.x,y:d.y,r:d.r,ra:d.ra}],
+      backgroundColor: d.c + 'cc',
+      borderColor: d.c,
+      borderWidth: 1
+    }))
+  },
+  options: {
+    plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,padding:8}},tooltip:{callbacks:{label:(c)=>{const p=c.raw;return c.dataset.label+': '+p.x+' units @ '+p.y+'% → '+p.ra+' risk-adj.';}}}},
+    scales:{
+      x:{title:{display:true,text:'Pipeline Units'},beginAtZero:true,suggestedMax:600},
+      y:{title:{display:true,text:'Close Probability (%)'},beginAtZero:true,max:100}
+    }
+  }
+});
 
 }
+
+updateMetrics();
 </script>
-</body></html>
+
+
+<script>
+var __VI = {"Confidential": "Bảo mật", "Download PDF": "Tải PDF", "Haircut view:": "Góc nhìn chiết khấu:", "at MOU-typical conversion of 30 to 50% on in-negotiation lines, the same pipeline yields roughly 500 to 650 units; the revenue start does not depend on the difference, the ramp slope does. Long-term: 400K units by 2029 if market development executes, with regulatory tailwind from HCMC's gasoline ban for delivery/ride-hailing vehicles.": "với tỷ lệ chuyển hóa điển hình của MOU từ 30 đến 50% trên các dòng đang đàm phán, cùng pipeline đó cho khoảng 500 đến 650 xe; thời điểm bắt đầu có doanh thu không phụ thuộc vào chênh lệch này, độ dốc của đà tăng thì có. Dài hạn: 400K xe đến 2029 nếu phát triển thị trường được thực thi, với cú hích pháp lý từ lệnh cấm xe xăng cho giao hàng/gọi xe của TP.HCM.", "Price stress:": "Sức ép giá:", "a forced fleet price of $1,100 still clears $133/unit against the $967 Base cost and $81/unit against the $1,019 Conservative cost; below $1,100 the plan shifts volume to co-development contracts rather than chasing list price.": "giá đội xe bị ép xuống $1,100 vẫn để lại $133/xe so với giá vốn Cơ sở $967 và $81/xe so với giá vốn Thận trọng $1,019; dưới $1,100, kế hoạch chuyển sản lượng sang hợp đồng đồng phát triển thay vì chạy đua giá niêm yết.", "Plan B is named, not implied:": "Phương án B được nêu rõ, không ngầm định:", "if conversion runs slow (two consecutive months below 60% of planned deliveries), the October tranche is upsized or a $500K extension is raised on seed terms; scale tooling is released only after Tier-1 price-fix contracts are signed.": "nếu chuyển hóa chậm (hai tháng liên tiếp dưới 60% kế hoạch giao xe), đợt giải ngân tháng 10 được nâng quy mô hoặc gọi thêm $500K theo điều khoản seed; khuôn gá quy mô lớn chỉ giải ngân sau khi ký hợp đồng khóa giá với nhà cung cấp Tier-1.", "NUEN MOTO Volty U1 Financial Dashboard v1.6.1": "NUEN MOTO Volty U1 Bảng điều khiển tài chính v1.6.1", "NUEN MOTO · Financial Model Dashboard v1.6.1": "NUEN MOTO · Bảng điều khiển mô hình tài chính v1.6.1", "Confidential · Enter Password": "Bảo mật · Nhập mật khẩu", "Unlock": "Mở khóa", "Incorrect password. Please try again.": "Mật khẩu không đúng. Vui lòng thử lại.", "This dashboard is confidential. The content is not present in readable form until the correct password is supplied. Do not forward this file or the password to anyone outside the intended recipients.": "Bảng điều khiển này là tài liệu bảo mật. Nội dung không tồn tại ở dạng đọc được cho đến khi nhập đúng mật khẩu. Không chuyển tiếp tệp này hoặc mật khẩu cho bất kỳ ai ngoài những người nhận dự kiến.", "Financial Model v1.6.1": "Mô hình tài chính v1.6.1", "VOLTY U1: 24-Month Financial Dashboard": "VOLTY U1: Bảng điều khiển tài chính 24 tháng", "NUEN MOTO | May 2026 | Based on Conservative, Base, and Optimistic scenarios across unit sales, pricing, and OPEX trajectories.": "NUEN MOTO | Tháng 5/2026 | Dựa trên ba kịch bản Thận trọng, Cơ sở và Lạc quan về sản lượng bán, giá bán và lộ trình OPEX.", "Executive Summary": "Tóm tắt điều hành", "A scenario-driven view of the": "Góc nhìn theo kịch bản về bài toán kinh doanh", "business case: what the model is, what it assumes, and where the numbers land. Use the four headline metrics below as the at-a-glance read; every section that follows drills into one driver of these outcomes.": ": mô hình là gì, giả định những gì, và các con số dừng ở đâu. Dùng bốn chỉ số chính bên dưới làm bản đọc nhanh; mỗi phần tiếp theo đào sâu vào một động lực của các kết quả này.", "This dashboard is the live financial model behind Volty U1, NUEN MOTO's delivery-optimized, network-agnostic electric utility motorcycle.": "Bảng điều khiển này là mô hình tài chính trực tiếp đứng sau Volty U1, chiếc xe máy điện đa dụng tối ưu cho giao hàng, trung lập mạng lưới của NUEN MOTO.", "Its purpose is to translate a single product strategy (a capital-light, B2B-first fleet play built around cross-compatible battery swapping) into numbers an investor or fleet partner can interrogate. It runs three scenarios (Conservative, Base, Optimistic) across unit volume, growth rate, pricing, and OPEX, and shows the downstream effect on revenue, break-even timing, gross margin, working capital, and investor returns.": "Mục đích của nó là chuyển một chiến lược sản phẩm duy nhất (cuộc chơi đội xe B2B, nhẹ vốn, xây quanh đổi pin tương thích chéo) thành những con số mà nhà đầu tư hoặc đối tác đội xe có thể chất vấn. Mô hình chạy ba kịch bản (Thận trọng, Cơ sở, Lạc quan) trên sản lượng, tốc độ tăng trưởng, giá bán và OPEX, và cho thấy tác động dây chuyền lên doanh thu, thời điểm hòa vốn, biên lợi nhuận gộp, vốn lưu động và lợi nhuận nhà đầu tư.", "The headline read in the Base case: roughly": "Những con số chính ở kịch bản Cơ sở: khoảng", "15,000 units over 24 months": "15,000 xe trong 24 tháng", ", around": ", khoảng", "$22.9M of cumulative revenue": "$22.9M doanh thu lũy kế", ", EBITDA turning positive in": ", EBITDA chuyển dương vào", "and full break-even by": "và hòa vốn hoàn toàn vào", "month 14": "tháng thứ 14", ", on a margin that arrives with volume: roughly 6% blended at mid-scale, expanding to about": ", với biên lợi nhuận đến cùng sản lượng: khoảng 6% hỗn hợp ở quy mô trung bình, mở rộng lên khoảng", "26% blended at full scale": "26% hỗn hợp ở quy mô đầy đủ", ". The model is deliberately conservative and explicit about its two pressure points, BOM cost sensitivity and per-unit working capital, both stress-tested in later sections. Every figure on this dashboard reconciles to model v1.6.1; the section footers name the source sheet.": ". Mô hình được giữ thận trọng có chủ đích và nói rõ hai điểm chịu áp lực của nó: độ nhạy chi phí BOM và vốn lưu động trên mỗi xe, cả hai đều được kiểm tra sức chịu đựng ở các phần sau. Mọi con số trên bảng điều khiển này đều đối chiếu khớp với mô hình v1.6.1; chân mỗi phần ghi rõ sheet nguồn.", "Bridge-Phase Capital": "Vốn giai đoạn Bridge", "$250K convertible bridge + $100K founder capital (Han Hoang)": "$250K khoản vay chuyển đổi bridge + $100K vốn nhà sáng lập (Han Hoang)", "24-Mo Revenue (Base)": "Doanh thu 24 tháng (Cơ sở)", "~15,000 units across 24 months": "~15,000 xe trong 24 tháng", "Break Even (Base)": "Hòa vốn (Cơ sở)", "Month 14": "Tháng 14", "~4,300 cumulative units, 24-month fixed-cost basis": "~4,300 xe lũy kế, tính trên định phí 24 tháng", "Gross Margin (Base, at scale)": "Biên LN gộp (Cơ sở, quy mô đầy đủ)", "Blended; ~6% at mid-scale, margin arrives with volume": "Hỗn hợp; ~6% ở quy mô trung bình, biên lợi nhuận đến cùng sản lượng", "Key Assumptions (Control Panel)": "Giả định chính (Bảng điều khiển)", "Every driver behind the numbers, by scenario, so nothing downstream is a black box. These mirror the model's Assumptions & Inputs and Scenario Analysis sheets; items still marked for confirmation in the model are subject to final Tier-1 supplier quotes.": "Mọi động lực đứng sau các con số, theo từng kịch bản, để không có gì phía sau là hộp đen. Bảng này phản chiếu sheet Assumptions & Inputs và Scenario Analysis của mô hình; các mục còn đánh dấu chờ xác nhận phụ thuộc vào báo giá cuối cùng từ nhà cung cấp Tier-1.", "Driver": "Động lực", "Conservative": "Thận trọng", "Base": "Cơ sở", "Optimistic": "Lạc quan", "Monthly unit growth (post-pilot)": "Tăng trưởng sản lượng hàng tháng (sau pilot)", "Fleet price per unit": "Giá bán đội xe mỗi xe", "Retail price per unit": "Giá bán lẻ mỗi xe", "All-in cost per unit at scale": "Tổng chi phí mỗi xe ở quy mô đầy đủ", "Cumulative units, month 12": "Xe lũy kế, tháng 12", "Cumulative units, month 24": "Xe lũy kế, tháng 24", "Gross margin at scale (blended)": "Biên LN gộp ở quy mô đầy đủ (hỗn hợp)", "Accessories attach rate (AOV $250-300, 70% GM)": "Tỷ lệ mua kèm phụ kiện (AOV $250-300, GM 70%)", "Service subscription ($15/mo, 50% GM)": "Thuê bao dịch vụ ($15/tháng, GM 50%)", "Average monthly OPEX (24-mo)": "OPEX bình quân hàng tháng (24 tháng)", "CAC per unit": "CAC mỗi xe", "Fixed program costs": "Chi phí chương trình cố định", "$420K tooling ($20K pilot + $400K scale) + $27K testing & certification (incl. $25K Vietnam Register)": "$420K khuôn gá ($20K pilot + $400K quy mô lớn) + $27K kiểm thử và chứng nhận (gồm $25K Cục Đăng kiểm Việt Nam)", "Working capital terms": "Điều khoản vốn lưu động", "50% customer deposit at PO, NET 30 balance, 60-day production lead, 50/50 supplier terms (all confirmed inputs)": "Khách đặt cọc 50% khi đặt hàng, phần còn lại NET 30, sản xuất 60 ngày, điều khoản nhà cung cấp 50/50 (toàn bộ là đầu vào đã xác nhận)", "Funding tranches in the model": "Các đợt giải ngân trong mô hình", "Apr 2026: $250K bridge · Jul 2026: $550-600K · Oct 2026: $150-200K (milestone-gated)": "Tháng 4/2026: $250K bridge · Tháng 7/2026: $550-600K · Tháng 10/2026: $150-200K (gắn với cột mốc)", "Source: Assumptions & Inputs, Scenario Analysis, and Working Capital Cycle sheets, model v1.6.1. BOM excludes batteries; batteries are carried by the BaaS partners.": "Nguồn: các sheet Assumptions & Inputs, Scenario Analysis và Working Capital Cycle, mô hình v1.6.1. BOM không gồm pin; pin do các đối tác BaaS gánh.", "Financial Scenarios": "Các kịch bản tài chính", "Toggle between the three cases to see how growth assumptions cascade through the model.": "Chuyển giữa ba kịch bản để thấy các giả định tăng trưởng lan truyền qua mô hình ra sao.", "(8% monthly growth) is the downside guardrail,": "(tăng trưởng 8%/tháng) là lan can phía dưới,", "Base Case": "Kịch bản Cơ sở", "(15%) is the planning scenario, and": "(15%) là kịch bản hoạch định, và", "(25%) is the upside if fleet conversions land early. The four metrics and both charts below update with your selection.": "(25%) là kịch bản thuận lợi nếu các hợp đồng đội xe chốt sớm. Bốn chỉ số và hai biểu đồ bên dưới cập nhật theo lựa chọn của bạn.", "Month 12 Revenue": "Doanh thu tháng 12", "Month 24 Revenue": "Doanh thu tháng 24", "Cash Position, Month 24": "Vị thế tiền mặt, tháng 24", "Gross Margin %": "Biên LN gộp %", "24-Month Revenue Projection": "Dự phóng doanh thu 24 tháng", "Vehicle Revenue": "Doanh thu xe", "Accessories": "Phụ kiện", "Services": "Dịch vụ", "Cumulative Cash Position": "Vị thế tiền mặt lũy kế", "Cash Balance": "Số dư tiền mặt", "Healthy Runway": "Runway an toàn", "Cash position is investment-inclusive (tranches Apr / Jul / Oct 2026). The Base case dips ~$26K below zero at month 6 ahead of the October tranche; the raise buffer exists for exactly this window. Detail in Runway & Minimum Cash below.": "Vị thế tiền mặt đã bao gồm vốn đầu tư (các đợt giải ngân tháng 4 / 7 / 10/2026). Kịch bản Cơ sở tụt ~$26K dưới 0 ở tháng 6 trước đợt giải ngân tháng 10; phần đệm của vòng gọi vốn tồn tại chính xác cho khoảng này. Chi tiết ở phần Runway và tiền mặt tối thiểu bên dưới.", "Runway & Minimum Cash": "Runway và tiền mặt tối thiểu", "The question every investor asks first: when could this run out of money? The cash curve above is investment-inclusive, so the honest risk is not the end balance, it is the": "Câu hỏi mọi nhà đầu tư hỏi trước tiên: khi nào công ty có thể cạn tiền? Đường tiền mặt phía trên đã gồm vốn đầu tư, nên rủi ro thật sự không nằm ở số dư cuối kỳ, mà ở", "minimum cash point": "điểm tiền mặt tối thiểu", "between tranches. This section shows it, by scenario, with no smoothing.": "giữa các đợt giải ngân. Phần này hiển thị nó, theo từng kịch bản, không làm mượt.", "Min Cash, Conservative (M11)": "Tiền mặt tối thiểu, Thận trọng (T11)", "Min Cash, Base (M6)": "Tiền mặt tối thiểu, Cơ sở (T6)", "Min Cash, Optimistic (M8)": "Tiền mặt tối thiểu, Lạc quan (T8)", "What this means.": "Điều này nghĩa là gì.", "As scheduled ($250K in April, $550-600K in July, $150-200K in October), the 24-month plan runs to a razor-thin minimum: the Conservative case bottoms at": "Theo lịch ($250K tháng 4, $550-600K tháng 7, $150-200K tháng 10), kế hoạch 24 tháng chạy đến mức tối thiểu mỏng như dao cạo: kịch bản Thận trọng chạm đáy ở", "of cash in month 11, and the Base and Optimistic cases briefly dip": "tiền mặt vào tháng 11, còn kịch bản Cơ sở và Lạc quan tụt ngắn hạn", "below zero": "xuống dưới 0", "(months 6 and 8) ahead of the October tranche, because faster growth consumes working capital faster. Tranche timing, not total capital, is the binding constraint.": "(tháng 6 và 8) trước đợt giải ngân tháng 10, vì tăng trưởng càng nhanh càng ngốn vốn lưu động nhanh. Ràng buộc thực sự là thời điểm giải ngân, không phải tổng vốn.", "Zero-revenue runway.": "Runway khi chưa có doanh thu.", "On the bridge-phase capital of $350K ($250K bridge plus $100K founder capital), at the pre-revenue burn of roughly $40K/month (OPEX plus facility service), the company has about": "Với vốn giai đoạn bridge $350K ($250K bridge cộng $100K vốn nhà sáng lập), ở mức đốt tiền trước doanh thu khoảng $40K/tháng (OPEX cộng phí hạn mức tín dụng), công ty có khoảng", "8 to 9 months": "8 đến 9 tháng", "of runway before any vehicle revenue. First vehicle cash lands in month 9 (December 2026) in all three scenarios.": "runway trước khi có bất kỳ doanh thu xe nào. Dòng tiền bán xe đầu tiên về vào tháng thứ 9 (tháng 12/2026) ở cả ba kịch bản.", "How the dips are covered.": "Các khoảng tụt được bù đắp thế nào.", "The $1.0M plan carries about $95K of explicit contingency, and Han Hoang's $100K founder capital sits alongside the bridge, outside the raise, in exactly the window where the dips occur. The alternative is equivalent: release part of the October tranche earlier. Either way, the gap is identified and covered, not discovered later.": "Kế hoạch $1.0M có khoảng $95K dự phòng được ghi rõ, và $100K vốn nhà sáng lập của Han Hoang nằm song song với bridge, ngoài vòng gọi vốn, đúng vào khoảng thời gian các đợt tụt xảy ra. Phương án thay thế là tương đương: giải ngân sớm một phần đợt tháng 10. Dù cách nào, khoảng trống đã được nhận diện và bù đắp, không phải để phát hiện về sau.", "5-Year Financial Revenue Projections (2026-2030)": "Dự phóng doanh thu 5 năm (2026-2030)", "Conservative Revenue": "Doanh thu Thận trọng", "Base Revenue": "Doanh thu Cơ sở", "Optimistic Revenue": "Doanh thu Lạc quan", "Base Cumulative Units (K, right axis)": "Xe lũy kế Cơ sở (nghìn, trục phải)", "Reading the ramp:": "Đọc đường tăng tốc:", "Years 1-2 are the pilot-to-scale window the 24-month model covers in detail. Years 3-5 extend the trajectory as fleet partnerships convert into recurring volume and HCMC's gasoline ban for delivery/ride-hailing accelerates demand. Figures are illustrative annual projections, not committed orders.": "Năm 1-2 là giai đoạn từ pilot lên quy mô lớn mà mô hình 24 tháng phủ chi tiết. Năm 3-5 kéo dài quỹ đạo khi các hợp tác đội xe chuyển thành sản lượng định kỳ và lệnh cấm xe xăng cho giao hàng/gọi xe của TP.HCM đẩy nhanh nhu cầu. Các con số là dự phóng năm mang tính minh họa, không phải đơn hàng đã cam kết.", "Unit Economics & Pricing": "Kinh tế đơn vị và giá bán", "The per-unit P&L at scale (Base scenario, 15,000 units). An all-in": "Lãi lỗ trên mỗi xe ở quy mô đầy đủ (kịch bản Cơ sở, 15,000 xe). Tổng chi phí", "$967 build cost": "$967 mỗi xe", "against a": "so với", "$1,200 fleet price": "giá đội xe $1,200", "leaves $233 of fleet gross profit per unit; the 50/50 fleet-retail blend at": "để lại $233 lãi gộp đội xe mỗi xe; tỷ lệ hỗn hợp 50/50 đội xe-bán lẻ ở mức", "carries the margin to roughly": "đưa biên lợi nhuận lên khoảng", ". The Conservative case prices fleet at $1,300 on a $1,019 cost. The doughnut shows what dominates cost: BOM is ~93% of it, which is exactly why the BOM stress test later matters so much. Margin is volume-dependent: at mid-scale (1,000 to 5,000 units) blended margin is only ~6%, which is the honest reason the model pushes to full production quickly. Source: Unit Economics and Scenario Analysis sheets, v1.6.1.": ". Kịch bản Thận trọng định giá đội xe $1,300 trên chi phí $1,019. Biểu đồ tròn cho thấy thứ chi phối chi phí: BOM chiếm ~93%, đó chính là lý do bài kiểm tra sức chịu đựng BOM ở phần sau quan trọng đến vậy. Biên lợi nhuận phụ thuộc sản lượng: ở quy mô trung bình (1,000 đến 5,000 xe) biên hỗn hợp chỉ ~6%, là lý do trung thực khiến mô hình đẩy nhanh lên sản xuất đầy đủ. Nguồn: sheet Unit Economics và Scenario Analysis, v1.6.1.", "Unit Cost Breakdown (at scale, 5K+ units)": "Cấu trúc chi phí mỗi xe (quy mô đầy đủ, 5K+ xe)", "BOM Cost": "Chi phí BOM", "Assembly Labor": "Nhân công lắp ráp", "Logistics": "Logistics", "Tooling Amortization": "Phân bổ khuôn gá", "Testing & Cert Amort": "Phân bổ kiểm thử và chứng nhận", "Total Cost/Unit": "Tổng chi phí/xe", "Pricing & Margin Scenarios": "Kịch bản giá và biên lợi nhuận", "Fleet Price (Base / Conservative)": "Giá đội xe (Cơ sở / Thận trọng)", "Retail Price (per unit)": "Giá bán lẻ (mỗi xe)", "Blended Selling Price (Base)": "Giá bán hỗn hợp (Cơ sở)", "Gross Margin/Unit (Fleet, Base at scale)": "Lãi gộp/xe (đội xe, Cơ sở ở quy mô đầy đủ)", "Gross Margin/Unit (Blended, Base at scale)": "Lãi gộp/xe (hỗn hợp, Cơ sở ở quy mô đầy đủ)", "GM% at scale: Cons / Base / Opt": "GM% ở quy mô đầy đủ: Thận trọng / Cơ sở / Lạc quan", "Break Even Analysis": "Phân tích hòa vốn", "When the business stops burning cash, by scenario. Break-even ranges from": "Khi nào doanh nghiệp ngừng đốt tiền, theo từng kịch bản. Điểm hòa vốn trải từ", "month 10": "tháng thứ 10", "(Optimistic, ~3,450 units) to": "(Lạc quan, ~3,450 xe) đến", "month 18": "tháng thứ 18", "(Conservative, ~4,325 units), with the Base case at": "(Thận trọng, ~4,325 xe), kịch bản Cơ sở ở", "and ~4,300 units. Units are measured against 24-month fixed costs ($420K tooling, $27K certification, plus cumulative OPEX) at vehicle-only contribution margins of $296 to $371 per unit; counting accessory and service revenue, the all-revenue contribution margin is $503/unit and the hurdle drops to ~2,550 units. The spread is driven almost entirely by how fast monthly volume compounds, shown in the chart on the left and the unit/month detail on the right.": "và ~4,300 xe. Số xe được đo trên định phí 24 tháng ($420K khuôn gá, $27K chứng nhận, cộng OPEX lũy kế) với biên đóng góp chỉ tính xe từ $296 đến $371 mỗi xe; nếu tính cả doanh thu phụ kiện và dịch vụ, biên đóng góp toàn doanh thu là $503/xe và ngưỡng hạ còn ~2,550 xe. Độ dao động gần như hoàn toàn do tốc độ sản lượng hàng tháng tích lũy, thể hiện ở biểu đồ bên trái và chi tiết xe/tháng bên phải.", "Break Even By Scenario": "Hòa vốn theo kịch bản", "Scenario Comparison": "So sánh kịch bản", "Conservative (8% monthly growth)": "Thận trọng (tăng trưởng 8%/tháng)", "Break Even Month": "Tháng hòa vốn", "Break Even Units": "Số xe hòa vốn", "Base (15% monthly growth)": "Cơ sở (tăng trưởng 15%/tháng)", "Optimistic (25% monthly growth)": "Lạc quan (tăng trưởng 25%/tháng)", "Quarterly P&L Summary (Base Case)": "Tóm tắt lãi lỗ theo quý (kịch bản Cơ sở)", "The classic table, straight from the model's Profit & Loss sheet. EBITDA turns positive in": "Bảng kinh điển, lấy thẳng từ sheet Profit & Loss của mô hình. EBITDA chuyển dương vào", "in the Base case (Q1 2027 Conservative, Q4 2026 Optimistic). Depreciation runs $17.5K/month (tooling and certification amortization).": "ở kịch bản Cơ sở (Q1 2027 với Thận trọng, Q4 2026 với Lạc quan). Khấu hao chạy ở mức $17.5K/tháng (phân bổ khuôn gá và chứng nhận).", "24-Mo Total": "Tổng 24 tháng", "Revenue": "Doanh thu", "Gross Profit": "Lãi gộp", "(33% of rev)": "(33% doanh thu)", "Net Income (pre-tax)": "Lợi nhuận ròng (trước thuế)", "Gross margin on this table runs above the per-unit blended figure because accessory (70% GM) and service (50% GM) revenue is included. Source: Profit & Loss sheet, v1.6.1.": "Biên lãi gộp ở bảng này cao hơn con số hỗn hợp trên mỗi xe vì đã gồm doanh thu phụ kiện (GM 70%) và dịch vụ (GM 50%). Nguồn: sheet Profit & Loss, v1.6.1.", "Tax: Vietnam CIT, Applied Conservatively": "Thuế: Thuế TNDN Việt Nam, áp dụng thận trọng", "Corporate income tax is in the model, not hand-waved. Standard": "Thuế thu nhập doanh nghiệp nằm trong mô hình, không bị bỏ lửng. Mức chuẩn", "20% Vietnam CIT": "thuế TNDN Việt Nam 20%", "is applied with a 5-year NOL carryforward; the preferential 10% high-tech rate and tax holidays are": "được áp dụng cùng cơ chế chuyển lỗ (NOL) 5 năm; thuế suất ưu đãi 10% công nghệ cao và các kỳ miễn thuế", "not": "không", "assumed, keeping the model conservative.": "được giả định, giữ mô hình ở mức thận trọng.", "CIT Rate Applied": "Thuế suất TNDN áp dụng", "FY2027 Cash Tax (Base)": "Thuế nộp bằng tiền FY2027 (Cơ sở)", "FY2027 Effective Rate": "Thuế suất hiệu dụng FY2027", "Pre-2027 losses build an NOL pool that shields roughly $190K of 2027 taxable income. FY2027 accrues ~$299K of CIT on ~$1.6M of taxable income, with cash payments lagging about 30 days, so cash tax paid in FY2027 is ~$175K, an effective ~11% against the nominal 20%. If the high-tech designation is granted (10% for 15 years plus holidays), every after-tax figure improves; nothing in this dashboard depends on it. Source: Tax & CIT Schedule sheet, v1.6.1.": "Lỗ trước 2027 tạo quỹ chuyển lỗ che chắn khoảng $190K thu nhập chịu thuế năm 2027. FY2027 ghi nhận ~$299K thuế TNDN trên ~$1.6M thu nhập chịu thuế, tiền nộp trễ khoảng 30 ngày, nên thuế nộp bằng tiền trong FY2027 là ~$175K, hiệu dụng ~11% so với mức danh nghĩa 20%. Nếu được công nhận doanh nghiệp công nghệ cao (10% trong 15 năm cộng miễn giảm), mọi con số sau thuế đều cải thiện; không gì trên bảng điều khiển này phụ thuộc vào điều đó. Nguồn: sheet Tax & CIT Schedule, v1.6.1.", "Operating Expenses & Headcount": "Chi phí vận hành và nhân sự", "How the cost base grows as the team scales. Payroll starts at a lean": "Cơ cấu chi phí lớn lên thế nào khi đội ngũ mở rộng. Quỹ lương khởi đầu tinh gọn ở", "$24K/month Phase 0 team": "đội ngũ Giai đoạn 0 $24K/tháng", "inside a": "bên trong", "$34.7K/month total fixed OPEX baseline": "nền OPEX cố định tổng $34.7K/tháng", "(rent, utilities, S&M, logistics, insurance, legal), stepping up in hiring phases tied to commercial milestones. In the Base case total OPEX averages": "(thuê mặt bằng, điện nước, S&M, logistics, bảo hiểm, pháp lý), tăng theo các giai đoạn tuyển dụng gắn với cột mốc thương mại. Ở kịch bản Cơ sở, tổng OPEX bình quân", "~$73K/month": "~$73K/tháng", "over 24 months and ends near": "trong 24 tháng và kết thúc gần", "$86K/month": "$86K/tháng", "as S&M scales with revenue ($2.5K flat, then 2%, then 4% of revenue). The combo chart stacks spend by category against headcount (right axis); the mix and phase charts below show where the money goes and when people are added.": "khi S&M tăng theo doanh thu ($2.5K cố định, rồi 2%, rồi 4% doanh thu). Biểu đồ kết hợp xếp chồng chi tiêu theo hạng mục so với nhân sự (trục phải); biểu đồ cơ cấu và giai đoạn bên dưới cho thấy tiền đi đâu và người được thêm khi nào.", "Phase 0 Payroll / Total OPEX": "Quỹ lương GĐ0 / Tổng OPEX", "/mo": "/tháng", "Month 24 OPEX (Base)": "OPEX tháng 24 (Cơ sở)", "Headcount: Start → M24": "Nhân sự: Khởi đầu → T24", "S&M as % of Revenue": "S&M theo % doanh thu", "Monthly OPEX by Category + Headcount": "OPEX hàng tháng theo hạng mục + nhân sự", "Payroll": "Quỹ lương", "Sales & Marketing": "Kinh doanh và marketing", "R&D / Engineering": "R&D / Kỹ thuật", "G&A / Other": "Hành chính / Khác", "Headcount (right axis)": "Nhân sự (trục phải)", "OPEX Mix at Month 24": "Cơ cấu OPEX ở tháng 24", "Headcount by Hiring Phase": "Nhân sự theo giai đoạn tuyển dụng", "Phase-based hiring:": "Tuyển dụng theo giai đoạn:", "Phase 0 ($24K payroll, 10 roles incl. blended contractors) → Phase 1: +4 roles (Jul 2026, +$4.4K) → Phase 2: +9 roles (Oct 2026, +$13K) → Phase 3: +7 roles (Oct 2027, +$12K). Hiring is gated to commercial traction, not calendar.": "Giai đoạn 0 (quỹ lương $24K, 10 vị trí gồm cộng tác viên gộp) → Giai đoạn 1: +4 vị trí (tháng 7/2026, +$4.4K) → Giai đoạn 2: +9 vị trí (tháng 10/2026, +$13K) → Giai đoạn 3: +7 vị trí (tháng 10/2027, +$12K). Tuyển dụng gắn với sức kéo thương mại, không theo lịch.", "Working Capital & Cash Cycle": "Vốn lưu động và chu kỳ tiền mặt", "The hidden cash trap of a hardware business. Even profitable units tie up cash because suppliers are paid before customers settle in full. The timeline on the left shows a": "Cái bẫy tiền mặt ẩn của doanh nghiệp phần cứng. Ngay cả những chiếc xe có lãi cũng giam tiền vì nhà cung cấp được trả trước khi khách hàng thanh toán đủ. Dòng thời gian bên trái cho thấy", "~$478 per-unit gap": "khoảng trống ~$478 mỗi xe", "opening between day 60 and day 95. At 1,000 units/month that's a": "mở ra giữa ngày 60 và ngày 95. Ở mức 1,000 xe/tháng, đó là nhu cầu", "~$478K facility": "hạn mức tín dụng ~$478K", "requirement, which the mitigation strategies are designed to shrink.": "mà các chiến lược giảm thiểu được thiết kế để thu hẹp.", "Cash Conversion Cycle (Per Unit)": "Chu kỳ chuyển đổi tiền mặt (mỗi xe)", "Day 0: Customer 50% deposit received": "Ngày 0: Nhận cọc 50% từ khách", "Day 3: 50% supplier deposit paid": "Ngày 3: Trả cọc 50% cho nhà cung cấp", "Day 60: Supplier balance paid in full": "Ngày 60: Thanh toán đủ phần còn lại cho nhà cung cấp", "Day 95: Customer balance collected (NET 30)": "Ngày 95: Thu phần còn lại từ khách (NET 30)", "Peak Working Capital Need (per unit, 30-day window)": "Nhu cầu vốn lưu động đỉnh (mỗi xe, cửa sổ 30 ngày)", "Working Capital Requirements by Volume": "Nhu cầu vốn lưu động theo sản lượng", "@100 units/month": "@100 xe/tháng", "@500 units/month": "@500 xe/tháng", "@1,000 units/month": "@1,000 xe/tháng", "Mitigation Strategies:": "Chiến lược giảm thiểu:", "ACB facility (bank line backed by signed POs), increased customer deposits (60-70% on new agreements), negotiated supplier credit (NET 30 post-delivery for established relationships).": "Hạn mức ACB (dòng tín dụng ngân hàng bảo đảm bằng đơn hàng đã ký), tăng tiền cọc khách hàng (60-70% với hợp đồng mới), đàm phán tín dụng nhà cung cấp (NET 30 sau giao hàng cho quan hệ đã ổn định).", "The Investment Ask": "Đề nghị đầu tư", "The raise in one place:": "Vòng gọi vốn trong một trang:", "$1.0M total": "tổng $1.0M", ", split into a": ", chia thành", "$250K Bridge": "$250K Bridge", "for immediate use (converting at a $10M cap) and a": "dùng ngay (chuyển đổi ở trần định giá $10M) và", "$750K Seed": "$750K Seed", "at a $10M pre-money valuation. Alongside the bridge,": "ở định giá pre-money $10M. Song song với bridge,", "Han Hoang contributes $100K of founder capital": "Han Hoang góp $100K vốn nhà sáng lập", "in the same window, putting founder cash at risk ahead of investor cash. This section covers what the capital buys, how it is spent, and what an optimistic next round (Series A in 2030) would look like for the people who come in now.": "trong cùng khoảng thời gian, đặt tiền của nhà sáng lập vào rủi ro trước tiền của nhà đầu tư. Phần này trình bày vốn mua được gì, được chi ra sao, và một vòng kế tiếp lạc quan (Series A năm 2030) trông thế nào với những người vào ngay bây giờ.", "Total Ask": "Tổng gọi vốn", "Bridge (Immediate)": "Bridge (ngay lập tức)", "Seed @ $10M Pre": "Seed @ pre $10M", "Post-Money": "Post-money", "The ask is $1.0M to take Volty U1 from a validated pilot to early production, with $100K of founder capital committed alongside it.": "Đề nghị là $1.0M để đưa Volty U1 từ pilot đã kiểm chứng sang sản xuất giai đoạn đầu, kèm $100K vốn nhà sáng lập cam kết song song.", "This is not a capital-heavy infrastructure bet. The battery-swap networks fund the swap stations; this raise funds vehicles, homologation, and the working capital to fulfill orders. It is sized to convert demand that already exists into revenue, then hand off to operating cash flow and a later growth round.": "Đây không phải canh bạc hạ tầng nặng vốn. Các mạng lưới đổi pin tài trợ trạm đổi; vòng vốn này tài trợ xe, đăng kiểm và vốn lưu động để thực hiện đơn hàng. Nó được định cỡ để chuyển nhu cầu đã tồn tại thành doanh thu, rồi bàn giao cho dòng tiền vận hành và một vòng tăng trưởng về sau.", "Converts the pipeline": "Chuyển hóa pipeline", "Funds the pilot and first production runs to turn ~710 risk-adjusted units of Q4 2026 fleet demand into deployed, revenue-generating bikes.": "Tài trợ pilot và các lô sản xuất đầu tiên để biến ~710 xe nhu cầu đội xe Q4 2026 (đã điều chỉnh rủi ro) thành xe triển khai, tạo doanh thu.", "Capital-light by design": "Nhẹ vốn ngay từ thiết kế", "Infrastructure cost sits with the battery networks, not NUEN MOTO. The network-agnostic platform avoids the closed-ecosystem trap that constrains larger competitors.": "Chi phí hạ tầng nằm ở các mạng lưới pin, không phải NUEN MOTO. Nền tảng trung lập mạng lưới tránh được cái bẫy hệ sinh thái đóng đang trói các đối thủ lớn hơn.", "Regulatory timing": "Thời điểm pháp lý", "HCMC's gasoline ban for delivery and ride-hailing creates a hard deadline that pulls fleet demand forward and rewards the first credible electric utility option.": "Lệnh cấm xe xăng cho giao hàng và gọi xe của TP.HCM tạo hạn chót cứng, kéo nhu cầu đội xe về sớm và tưởng thưởng cho lựa chọn xe điện đa dụng đáng tin cậy đầu tiên.", "Early entry price": "Giá vào sớm", "The Seed comes in at a $10M pre-money; the Bridge converts at a $10M cap plus 6% accrued interest, so the cap protects the bridge if the round prices above $10M while rewarding the earliest entry with interest. Both enter ahead of the markup a Series A would bring, quantified in the optimistic 2030 scenario below.": "Seed vào ở pre-money $10M; Bridge chuyển đổi ở trần $10M cộng lãi tích lũy 6%, nên mức trần bảo vệ bridge nếu vòng được định giá trên $10M, đồng thời lãi suất tưởng thưởng cho việc vào sớm nhất. Cả hai đều vào trước mức tăng định giá mà một vòng Series A sẽ mang lại, được lượng hóa trong kịch bản 2030 lạc quan bên dưới.", "How the raise maps to the operating model.": "Vòng vốn ánh xạ vào mô hình vận hành thế nào.", "The 24-month projection deploys the full": "Dự phóng 24 tháng giải ngân trọn", "in three milestone-gated tranches: $250K (April 2026, the bridge) funds the pilot, homologation, and the first three months; $550-600K (July 2026) lands ahead of the $400K scale-tooling window; $150-200K (October 2026) seeds working capital as volume ramps. About $95K of the plan is explicit contingency.": "theo ba đợt gắn cột mốc: $250K (tháng 4/2026, bridge) tài trợ pilot, đăng kiểm và ba tháng đầu; $550-600K (tháng 7/2026) về trước giai đoạn khuôn gá quy mô lớn $400K; $150-200K (tháng 10/2026) gieo vốn lưu động khi sản lượng tăng tốc. Khoảng $95K của kế hoạch là dự phòng được ghi rõ.", "Han Hoang's $100K founder capital sits alongside the bridge, outside the raise": "$100K vốn nhà sáng lập của Han Hoang nằm song song với bridge, ngoài vòng gọi vốn", ", and is the cover for the minimum-cash dips shown in Runway & Minimum Cash.": ", và là tấm đệm cho các khoảng tụt tiền mặt tối thiểu trong phần Runway và tiền mặt tối thiểu.", "Use of the $1.0M Raise (Combined)": "Sử dụng vòng vốn $1.0M (gộp)", "Scale & pilot tooling": "Khuôn gá quy mô lớn và pilot", "Team / OPEX (runway)": "Đội ngũ / OPEX (runway)", "Working capital service & deposit refunds": "Phí vốn lưu động và hoàn cọc", "Contingency / buffer": "Dự phòng / đệm", "Pilot production (10 units)": "Sản xuất pilot (10 xe)", "Homologation, testing & certification": "Đăng kiểm, kiểm thử và chứng nhận", "Total Raise": "Tổng vòng vốn", "Optimistic Next Round: Series A (2030)": "Vòng kế tiếp lạc quan: Series A (2030)", "Round size": "Quy mô vòng", "Pre-money valuation": "Định giá pre-money", "Post-money valuation": "Định giá post-money", "New Series A investor": "Nhà đầu tư Series A mới", "Seed Investor stake (post-A)": "Cổ phần nhà đầu tư Seed (sau A)", "~5.8% | $5.8M paper | ~7.7x": "~5.8% | $5.8M trên giấy | ~7.7x", "Bridge Investor stake (post-A)": "Cổ phần nhà đầu tư Bridge (sau A)", "~2.0% | $2.0M paper | ~8.2x": "~2.0% | $2.0M trên giấy | ~8.2x", "What this shows:": "Điều này cho thấy:", "in the optimistic case, a 2030 Series A at a $100M post-money values today's entry at roughly": "ở kịch bản lạc quan, một vòng Series A năm 2030 với post-money $100M định giá khoản vào hôm nay ở khoảng", "7.7x for the Seed and ~8.2x for the Bridge": "7.7x cho Seed và ~8.2x cho Bridge", "on paper, before any exit. Both convert at the same $10M basis; the bridge edges ahead per dollar through its 6% accrued interest and earliest entry. This round also sets the dilution path: this Series A (15%) plus a later Series B (~23%) is what reduces the Seed and Bridge stakes to the exit levels used in the next section. Illustrative; an actual round depends on traction, terms, and market conditions. The Series A path and the Year 5 exit row are mutually exclusive timelines: a company raising at a $100M post in 2030 is not also exiting at $60M in 2030; read the exit table as the no-further-raise path.": "trên giấy, trước bất kỳ thoái vốn nào. Cả hai chuyển đổi trên cùng cơ sở $10M; bridge nhỉnh hơn trên mỗi đô-la nhờ lãi tích lũy 6% và vào sớm nhất. Vòng này cũng đặt lộ trình pha loãng: Series A này (15%) cộng Series B sau đó (~23%) là thứ đưa cổ phần Seed và Bridge về mức thoái vốn dùng ở phần kế tiếp. Mang tính minh họa; vòng thực tế phụ thuộc sức kéo, điều khoản và điều kiện thị trường. Lộ trình Series A và dòng thoái vốn Năm 5 là hai mốc thời gian loại trừ nhau: công ty gọi vốn ở post $100M năm 2030 thì không đồng thời thoái vốn ở $60M năm 2030; hãy đọc bảng thoái vốn như lộ trình không gọi thêm vốn.", "Investment Structure, Returns & Cap Table": "Cấu trúc đầu tư, lợi nhuận và bảng vốn", "Two instruments fund the next phase, with founder capital alongside. The": "Hai công cụ tài trợ giai đoạn kế tiếp, kèm vốn nhà sáng lập song song.", "Bridge Investor": "Nhà đầu tư Bridge", "puts in": "góp", "$250K now": "$250K ngay bây giờ", "for immediate use (pilot and homologation), structured as a convertible that converts at a": "để dùng ngay (pilot và đăng kiểm), cấu trúc dạng khoản vay chuyển đổi với", "$10M cap plus 6% accrued interest": "trần $10M cộng lãi tích lũy 6%", ": the cap protects the bridge if the round prices above $10M, and the interest plus earliest entry is the reward for pre-pilot risk.": ": mức trần bảo vệ bridge nếu vòng được định giá trên $10M, còn lãi suất cộng việc vào sớm nhất là phần thưởng cho rủi ro trước pilot.", "Han Hoang contributes $100K of founder capital in the same window": "Han Hoang góp $100K vốn nhà sáng lập trong cùng khoảng thời gian", ", outside the raise. The": ", ngoài vòng gọi vốn.", "Seed Investor": "Nhà đầu tư Seed", "$750K at a $10M pre-money valuation": "$750K ở định giá pre-money $10M", "(~$11.0M post once the bridge converts). Both convert into the same priced round, so both show up on the post-seed cap table below. The chart and tables show what each investor owns and what they make on exit between": "(~$11.0M post khi bridge chuyển đổi). Cả hai chuyển vào cùng một vòng định giá, nên cả hai xuất hiện trên bảng vốn sau seed bên dưới. Biểu đồ và các bảng cho thấy mỗi nhà đầu tư sở hữu gì và thu về bao nhiêu khi thoái vốn từ", "Year 5 and Year 10": "Năm 5 đến Năm 10", ". All exit figures are illustrative and assume the company actually reaches the stated valuation; they are not a promise of returns.": ". Mọi con số thoái vốn mang tính minh họa và giả định công ty thực sự đạt mức định giá nêu ra; chúng không phải lời hứa về lợi nhuận.", "New Money (this raise)": "Vốn mới (vòng này)", "Post-Money Valuation": "Định giá post-money", "Exit Scenarios: Valuation and Investor Proceeds (Year 5 to Year 10)": "Kịch bản thoái vốn: Định giá và tiền nhà đầu tư thu về (Năm 5 đến Năm 10)", "Exit Valuation ($M, left axis)": "Định giá thoái vốn ($M, trục trái)", "Seed Investor Proceeds ($M, right axis)": "Tiền nhà đầu tư Seed thu về ($M, trục phải)", "Bridge Investor Proceeds ($M, right axis)": "Tiền nhà đầu tư Bridge thu về ($M, trục phải)", "Bridge Investor Returns ($250K in, ~1.6% at exit)": "Lợi nhuận nhà đầu tư Bridge (góp $250K, ~1.6% khi thoái vốn)", "Year 5 · $60M exit": "Năm 5 · thoái vốn $60M", "Year 6 · $120M exit": "Năm 6 · thoái vốn $120M", "Year 7 · $200M exit": "Năm 7 · thoái vốn $200M", "Year 8 · $320M exit": "Năm 8 · thoái vốn $320M", "Year 9 · $450M exit": "Năm 9 · thoái vốn $450M", "Year 10 · $600M exit": "Năm 10 · thoái vốn $600M", "How the bridge compares:": "Bridge so sánh ra sao:", "the $250K converts at a": "khoản $250K chuyển đổi ở", ", the same valuation basis as the seed. Its per-dollar edge comes from the interest and from entering first; if the seed prices above $10M, the cap converts the bridge at $10M and the discount appears automatically. The multiples run slightly above the seed's, honestly, not dramatically.": ", cùng cơ sở định giá với seed. Lợi thế trên mỗi đô-la đến từ lãi suất và việc vào trước; nếu seed được định giá trên $10M, mức trần chuyển đổi bridge ở $10M và phần chiết khấu tự động xuất hiện. Các bội số nhỉnh hơn của seed một cách trung thực, không kịch tính.", "Seed Investor Returns ($750K in, ~4.5% at exit)": "Lợi nhuận nhà đầu tư Seed (góp $750K, ~4.5% khi thoái vốn)", "How to read it:": "Cách đọc:", "proceeds = stake at exit × exit valuation; MOIC = proceeds ÷ amount invested. Stakes shown are after dilution from a future Series A and Series B (a combined ~34% dilution off the post-seed position).": "tiền thu về = cổ phần khi thoái vốn × định giá thoái vốn; MOIC = tiền thu về ÷ số tiền đầu tư. Cổ phần hiển thị là sau pha loãng từ Series A và Series B tương lai (tổng pha loãng ~34% so với vị thế sau seed).", "Post-Seed Cap Table (after $250K bridge + $750K seed)": "Bảng vốn sau Seed (sau $250K bridge + $750K seed)", "Founders + Tim (combined)": "Các nhà sáng lập + Tim (gộp)", "Assumptions:": "Giả định:", "seed priced at $10M pre-money, ~$11.0M post once the bridge converts; the $250K bridge converts at a": "seed định giá pre-money $10M, ~$11.0M post khi bridge chuyển đổi; khoản bridge $250K chuyển đổi ở", "$10M cap plus ~6% accrued interest": "trần $10M cộng lãi tích lũy ~6%", "(~$265K conversion amount), effectively the seed's price, with the cap protecting the bridge if the round prices higher. Figures shown before any employee option pool. A 10% ESOP carve-out is planned at or after seed and would dilute all holders proportionally.": "(số tiền chuyển đổi ~$265K), thực tế là giá của seed, với mức trần bảo vệ bridge nếu vòng được định giá cao hơn. Các con số hiển thị trước khi lập quỹ quyền chọn nhân viên. Quỹ ESOP 10% dự kiến lập tại hoặc sau seed và sẽ pha loãng mọi cổ đông theo tỷ lệ.", "Key Risks & Opportunities": "Rủi ro và cơ hội chính", "The two things that can break the model, and the demand that can make it. On the left, a": "Hai thứ có thể phá vỡ mô hình, và phần nhu cầu có thể làm nên nó. Bên trái là", "BOM cost stress test": "bài kiểm tra sức chịu đựng chi phí BOM", ": run on the model's most exposed basis (Conservative fleet-only pricing, $1,300 against a $1,269 mid-scale all-in cost), BOM is ~93% of unit cost and quotes are firm but not locked, so even a 10% supplier or FX shock flips fleet-only margin negative. That is why supplier price-fixing, local sourcing, and the retail/accessory blend matter; at Base blended pricing the same stresses compress margin from 26% rather than erasing it. On the right, the": ": chạy trên cơ sở dễ tổn thương nhất của mô hình (giá chỉ bán đội xe kịch bản Thận trọng, $1,300 so với tổng chi phí quy mô trung bình $1,269), BOM chiếm ~93% chi phí xe và báo giá đã chắc nhưng chưa khóa, nên chỉ một cú sốc nhà cung cấp hoặc tỷ giá 10% đã lật biên lợi nhuận chỉ-đội-xe sang âm. Đó là lý do hợp đồng khóa giá nhà cung cấp, nội địa hóa nguồn cung và cơ cấu bán lẻ/phụ kiện quan trọng; ở giá hỗn hợp kịch bản Cơ sở, cùng các cú sốc đó chỉ nén biên từ 26% xuống chứ không xóa sạch. Bên phải là", "risk-adjusted customer pipeline": "pipeline khách hàng đã điều chỉnh rủi ro", ": signed and in-progress fleet demand, weighted by close probability.": ": nhu cầu đội xe đã ký và đang đàm phán, gia quyền theo xác suất chốt.", "BOM Cost Stress Test": "Kiểm tra sức chịu đựng chi phí BOM", "Base, firm quotes hold (+0%)": "Cơ sở, báo giá giữ nguyên (+0%)", "+$31/unit fleet GM": "+$31/xe lãi gộp đội xe", "Mild stress (+10%)": "Căng nhẹ (+10%)", "-$65/unit fleet GM": "-$65/xe lãi gộp đội xe", "Severe stress (+20%)": "Căng nặng (+20%)", "-$160/unit fleet GM": "-$160/xe lãi gộp đội xe", "Worst case (+25%)": "Xấu nhất (+25%)", "-$208/unit fleet GM; mitigation: reprice fleet toward $1,500 or lean on accessory and service margin": "-$208/xe lãi gộp đội xe; giảm thiểu: nâng giá đội xe về $1,500 hoặc dựa vào biên phụ kiện và dịch vụ", "Mitigation:": "Giảm thiểu:", "12-24 month price-fix contracts with Tier-1 suppliers post-pilot validation, local content ramp (reduce FX exposure), FX hedging via ACB facility, multi-source on commodity components (suspension, plastics, hardware).": "Hợp đồng khóa giá 12-24 tháng với nhà cung cấp Tier-1 sau khi pilot được kiểm chứng, tăng tỷ lệ nội địa hóa (giảm rủi ro tỷ giá), phòng vệ tỷ giá qua hạn mức ACB, đa nguồn với linh kiện phổ thông (giảm xóc, nhựa, bu lông ốc vít).", "Customer Pipeline (Q4 2026)": "Pipeline khách hàng (Q4 2026)", "500 units | 80% prob": "500 xe | xác suất 80%", "200 units | 80% prob": "200 xe | xác suất 80%", "100 units | 80% prob": "100 xe | xác suất 80%", "500 units | 30% prob": "500 xe | xác suất 30%", "Risk-Adjusted Q4 Total": "Tổng Q4 đã điều chỉnh rủi ro", "~710 units": "~710 xe", "Near-term:": "Ngắn hạn:", "1,200 units of gross Q4 2026 pipeline across signed and in-progress MOUs, ~710 risk-adjusted.": "1,200 xe pipeline gộp Q4 2026 từ các MOU đã ký và đang đàm phán, ~710 xe sau điều chỉnh rủi ro.", "Use of Bridge Capital: $250K (Immediate)": "Sử dụng vốn Bridge: $250K (ngay lập tức)", "The": "Khoản", "Bridge Investor's $250K": "$250K của nhà đầu tư Bridge", "is for immediate use and is deployed in two short phases, with": "dùng ngay và được giải ngân trong hai giai đoạn ngắn, kèm", "$100K of founder capital from Han Hoang": "$100K vốn nhà sáng lập từ Han Hoang", "committed in the same window, lifting bridge-phase capital to $350K.": "cam kết trong cùng khoảng thời gian, nâng vốn giai đoạn bridge lên $350K.", "Phase 1": "Giai đoạn 1", "funds the pilot (tooling, a first batch of units, homologation, and runway) to prove the product and convert MOUs.": "tài trợ pilot (khuôn gá, lô xe đầu tiên, đăng kiểm và runway) để chứng minh sản phẩm và chuyển hóa các MOU.", "Phase 2": "Giai đoạn 2", "deploys the remainder toward early scale-up and working-capital seeding once the pilot validates demand. Capital is released against milestones, not all at once. The $750K seed deployment is shown in the next section.": "giải ngân phần còn lại cho giai đoạn tăng quy mô sớm và gieo vốn lưu động khi pilot xác nhận nhu cầu. Vốn được giải ngân theo cột mốc, không phải một lần. Phần giải ngân seed $750K trình bày ở mục kế tiếp.", "Deployment by Phase": "Giải ngân theo giai đoạn", "Phase 1: Pilot (Months 1-3)": "Giai đoạn 1: Pilot (tháng 1-3)", "$113K deployed": "Giải ngân $113K", "Pilot tooling ($20K), BOM for 10 units ($40K), testing & validation ($20K), Vietnam Register homologation ($25K), OPEX ($72K), customer deposit refunds ($20K), legal ($8K).": "Khuôn gá pilot ($20K), BOM cho 10 xe ($40K), kiểm thử và kiểm chứng ($20K), đăng kiểm Cục Đăng kiểm Việt Nam ($25K), OPEX ($72K), hoàn cọc khách hàng ($20K), pháp lý ($8K).", "Phase 2: Early Scale (Months 3-6)": "Giai đoạn 2: Tăng quy mô sớm (tháng 3-6)", "$137K deployed": "Giải ngân $137K", "The remainder of the $250K bridge: scale-tooling deposits (tranched), early production ramp (variable COGS), Phase 1 team additions (~$13.2K/month), and working-capital facility seeding. Includes a modest contingency buffer held within this phase.": "Phần còn lại của $250K bridge: đặt cọc khuôn gá quy mô lớn (theo đợt), tăng tốc sản xuất sớm (COGS biến đổi), nhân sự bổ sung Giai đoạn 1 (~$13.2K/tháng), và gieo hạn mức vốn lưu động. Gồm một khoản đệm dự phòng vừa phải giữ trong giai đoạn này.", "Total Bridge Deployed": "Tổng Bridge đã giải ngân", "Use of Seed Capital & 5-Year Deployment": "Sử dụng vốn Seed và giải ngân 5 năm", "Where the money goes over five years. The": "Tiền đi đâu trong năm năm. Khoản", "$750K seed": "seed $750K", "(plus the bridge and founder capital) funds Years 1 and 2: getting to a validated pilot and early production. From Year 3 on, deployment is funded primarily by operating revenue plus a planned": "(cộng bridge và vốn nhà sáng lập) tài trợ Năm 1 và 2: đạt pilot được kiểm chứng và sản xuất giai đoạn đầu. Từ Năm 3 trở đi, giải ngân chủ yếu từ doanh thu vận hành cộng một vòng", "Series A": "Series A", ", and the dominant line item becomes working capital, because a hardware business ties up cash in inventory and supplier terms as volume scales. The chart shows total capital deployed by year and category; the table shows how the $750K seed is allocated up front.": "đã hoạch định, và hạng mục chi phối trở thành vốn lưu động, vì doanh nghiệp phần cứng giam tiền trong tồn kho và điều khoản nhà cung cấp khi sản lượng tăng. Biểu đồ cho thấy tổng vốn giải ngân theo năm và hạng mục; bảng cho thấy seed $750K được phân bổ trước ra sao.", "Capital Deployment by Year and Category (5-Year View)": "Giải ngân vốn theo năm và hạng mục (góc nhìn 5 năm)", "Production & Working Capital": "Sản xuất và vốn lưu động", "Tooling & R&D": "Khuôn gá và R&D", "Team / OPEX": "Đội ngũ / OPEX", "Funding sources:": "Nguồn vốn:", "Years 1-2 (~$3M total need) are covered by the $1.0M raise, the $100K founder capital alongside it, plus early revenue and customer deposits; Years 3-5 scale (~$37M cumulative) is funded by operating cash flow and a planned Series A. Figures are illustrative annual deployment, not committed budgets.": "Năm 1-2 (tổng nhu cầu ~$3M) được bao phủ bởi vòng vốn $1.0M, $100K vốn nhà sáng lập song song, cộng doanh thu sớm và tiền cọc khách hàng; quy mô Năm 3-5 (~$37M lũy kế) được tài trợ bởi dòng tiền vận hành và một vòng Series A đã hoạch định. Các con số là giải ngân năm mang tính minh họa, không phải ngân sách đã cam kết.", "Allocation of the $750K Seed (Up-Front)": "Phân bổ Seed $750K (trước)", "Scale tooling & engineering": "Khuôn gá quy mô lớn và kỹ thuật", "Operations / team (post-pilot OPEX)": "Vận hành / đội ngũ (OPEX sau pilot)", "Certification & working capital": "Chứng nhận và vốn lưu động", "Contingency": "Dự phòng", "Total Seed Deployed": "Tổng Seed đã giải ngân", "Closing Statement": "Lời kết", "The bottom line: why these numbers add up to a business worth backing.": "Điểm mấu chốt: vì sao những con số này cộng lại thành một doanh nghiệp đáng hậu thuẫn.", "Volty U1 is a deliberately unglamorous bet: a low-margin, high-volume utility vehicle aimed at the part of the market that is actually electrifying first, the fleets.": "Volty U1 là canh bạc không hào nhoáng một cách có chủ đích: một chiếc xe đa dụng biên thấp, sản lượng cao, nhắm vào phần thị trường thực sự điện hóa trước tiên, các đội xe.", "The model in this dashboard does not rely on a pricing miracle or a premium-brand halo. It works because the unit economics are real at a $1,300 fleet price, because the capital required to reach break-even is measured in hundreds of thousands rather than millions, and because the demand is being pulled forward by regulation rather than marketing. The network-agnostic battery strategy keeps Volty out of the closed-ecosystem trap that constrains its larger competitors, and the capital-light partnership structure means infrastructure cost sits with the battery networks, not with NUEN MOTO.": "Mô hình trong bảng điều khiển này không dựa vào phép màu về giá hay hào quang thương hiệu cao cấp. Nó vận hành được vì kinh tế đơn vị là thật ở giá đội xe $1,300, vì vốn cần để chạm hòa vốn tính bằng vài trăm nghìn thay vì hàng triệu, và vì nhu cầu đang được quy định pháp lý kéo về sớm thay vì marketing. Chiến lược pin trung lập mạng lưới giữ Volty ngoài cái bẫy hệ sinh thái đóng đang trói các đối thủ lớn hơn, và cấu trúc hợp tác nhẹ vốn nghĩa là chi phí hạ tầng nằm ở các mạng lưới pin, không phải ở NUEN MOTO.", "The honest risks are named here, not hidden: a thin gross margin that a BOM or FX shock can erase, and a per-unit working-capital gap that has to be financed as volume scales. Both are quantified, both have mitigation paths, and both are the right problems to have for a company whose constraint is demand conversion, not demand itself.": "Các rủi ro được nêu thẳng ở đây, không che giấu: biên lãi gộp mỏng mà một cú sốc BOM hoặc tỷ giá có thể xóa sạch, và khoảng trống vốn lưu động trên mỗi xe phải được tài trợ khi sản lượng tăng. Cả hai đều được lượng hóa, cả hai đều có lộ trình giảm thiểu, và cả hai đều là loại vấn đề đúng đắn nên có với một công ty mà ràng buộc là chuyển hóa nhu cầu, chứ không phải bản thân nhu cầu.", "The $250K bridge is sized to prove the pilot and convert the signed and in-progress pipeline into deployed units; the $750K seed funds the move from pilot to early production. Everything beyond that is a financing and execution question, not a product question. The product case is made.": "Khoản bridge $250K được định cỡ để chứng minh pilot và chuyển pipeline đã ký cùng đang đàm phán thành xe triển khai; seed $750K tài trợ bước đi từ pilot sang sản xuất giai đoạn đầu. Mọi thứ sau đó là câu hỏi tài chính và thực thi, không phải câu hỏi sản phẩm. Luận điểm sản phẩm đã được chứng minh.", "NUEN MOTO · Han Hoang, Co-Founder, Head of Investment & Strategy · Confidential": "NUEN MOTO · Han Hoang, Đồng sáng lập, Giám đốc Đầu tư và Chiến lược · Bảo mật", "Dashboard Guide": "Hướng dẫn sử dụng", "A quick orientation for first-time readers. Four habits make the rest of the dashboard make sense: switch scenarios, read the charts in sequence, sanity-check the unit economics, and watch the working-capital gap.": "Định hướng nhanh cho người đọc lần đầu. Bốn thói quen giúp phần còn lại của bảng điều khiển trở nên dễ hiểu: chuyển kịch bản, đọc biểu đồ theo trình tự, kiểm tra nhanh kinh tế đơn vị, và để mắt tới khoảng trống vốn lưu động.", "How to Use This Dashboard": "Cách dùng bảng điều khiển này", "Switch Scenarios": "Chuyển kịch bản", "Click the scenario buttons (Conservative, Base, Optimistic) to see how unit volume, growth rate, and timing impact cash flow, break-even, and profitability.": "Bấm các nút kịch bản (Thận trọng, Cơ sở, Lạc quan) để thấy sản lượng, tốc độ tăng trưởng và thời điểm tác động lên dòng tiền, hòa vốn và khả năng sinh lời ra sao.", "Read the Charts": "Đọc biểu đồ", "Revenue starts month 9 (Dec 2026) and ramps with fleet conversions. EBITDA is positive from Q4 2026 (Base); full break-even lands month 14. OPEX scales with headcount phases. Break-even spans months 10-18 by scenario.": "Doanh thu bắt đầu từ tháng thứ 9 (12/2026) và tăng tốc theo các hợp đồng đội xe. EBITDA dương từ Q4 2026 (Cơ sở); hòa vốn hoàn toàn rơi vào tháng 14. OPEX tăng theo các giai đoạn nhân sự. Điểm hòa vốn trải từ tháng 10 đến 18 tùy kịch bản.", "Check Unit Economics": "Kiểm tra kinh tế đơn vị", "At scale (Base), all-in cost is $967 against a $1,200 fleet / $1,350 blended price, $383/unit blended margin (~26%). The stress test shows BOM increases from supplier or FX volatility on the most exposed (Conservative fleet-only) basis.": "Ở quy mô đầy đủ (Cơ sở), tổng chi phí là $967 so với giá đội xe $1,200 / giá hỗn hợp $1,350, biên hỗn hợp $383/xe (~26%). Bài kiểm tra sức chịu đựng cho thấy BOM tăng do biến động nhà cung cấp hoặc tỷ giá trên cơ sở dễ tổn thương nhất (chỉ-đội-xe, Thận trọng).", "Track Working Capital": "Theo dõi vốn lưu động", "Peak cash gap per unit is ~$478 (Day 60-95). At 1K units/month, you need a $478K ACB facility. Higher deposits and supplier credit reduce this need.": "Khoảng trống tiền mặt đỉnh mỗi xe là ~$478 (ngày 60-95). Ở 1K xe/tháng, cần hạn mức ACB $478K. Cọc cao hơn và tín dụng nhà cung cấp giảm nhu cầu này.", "| Built May 2026, reconciled to model v1.6.1 in June 2026. Section sources: Assumptions & Inputs, Scenario Analysis, Unit Economics, BOM Sensitivity, Break Even Analysis, Profit & Loss, Tax & CIT Schedule, Cash Flow Projection, Operating Expenses, Headcount Roadmap, S&M Scaling, Working Capital Cycle, Customer Pipeline, Use of Funds, and Investor Returns sheets.": "| Xây dựng tháng 5/2026, đối chiếu khớp với mô hình v1.6.1 tháng 6/2026. Nguồn theo phần: các sheet Assumptions & Inputs, Scenario Analysis, Unit Economics, BOM Sensitivity, Break Even Analysis, Profit & Loss, Tax & CIT Schedule, Cash Flow Projection, Operating Expenses, Headcount Roadmap, S&M Scaling, Working Capital Cycle, Customer Pipeline, Use of Funds và Investor Returns.", "This dashboard is for internal use and investor presentations. All projections are based on the model pricing set ($1,200 fleet Base, $1,300 fleet Conservative, $1,500 retail), the confirmed OPEX baseline ($24K/month Phase 0 payroll within $34.7K/month total), and the risk-adjusted customer pipeline. The independent stress-test flags (BOM sensitivity, working capital realism, CIT treatment) are fully addressed in the underlying model tabs.": "Bảng điều khiển này dùng nội bộ và trình bày với nhà đầu tư. Mọi dự phóng dựa trên bộ giá của mô hình ($1,200 đội xe Cơ sở, $1,300 đội xe Thận trọng, $1,500 bán lẻ), nền OPEX đã xác nhận (quỹ lương Giai đoạn 0 $24K/tháng trong tổng $34.7K/tháng), và pipeline khách hàng đã điều chỉnh rủi ro. Các cảnh báo kiểm tra độc lập (độ nhạy BOM, tính thực tế của vốn lưu động, xử lý thuế TNDN) đã được giải quyết đầy đủ trong các tab mô hình gốc."};
+var __titleEn = null;
+function __setLang(lang){
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false), n;
+  while(n=w.nextNode()){
+    var raw=n.nodeValue, k=raw.trim();
+    if(!k) continue;
+    if(lang==='vi'){
+      var t=__VI[k];
+      if(t){ if(n.__en===undefined) n.__en=raw; n.nodeValue=raw.replace(k,t); }
+    } else if(n.__en!==undefined){ n.nodeValue=n.__en; }
+  }
+  if(__titleEn===null) __titleEn=document.title;
+  document.title=(lang==='vi'&&__VI[__titleEn])?__VI[__titleEn]:__titleEn;
+  document.documentElement.lang = lang==='vi'?'vi':'en';
+  document.querySelectorAll('.langsw .lb').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-l')===lang);});
+}
+</script>
+</body>
+</html>
